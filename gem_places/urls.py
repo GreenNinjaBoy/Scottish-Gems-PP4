@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from scottish_gems.views import scottish_gems
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('scottish_gems/', scottish_gems, name='scottish_gems'),
 ]
