@@ -18,7 +18,10 @@ class Post(models.Model):
     image = models.ImageField(upload_to='post_images', blank=True) # will allow the user to add an image to their post.
     updated_on = models.DateTimeField(auto_now=True)
     
-    
+    class Meta:
+        ordering = ["-created_on"]
+
+
 class UserComments(models.Model):
     """ model database for 
         user comments
@@ -31,5 +34,8 @@ class UserComments(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
     created_on = models.DateTimeField(auto_now_add=True)
     models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ["-created_on"]
 
 
