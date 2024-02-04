@@ -15,7 +15,21 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True) # Will add the date that the post was created
     STATUS = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
-    image = models.ImageField(upload_to='post_images', blank=True)
+    image = models.ImageField(upload_to='post_images', blank=True) # will allow the user to add an image to their post.
     updated_on = models.DateTimeField(auto_now=True)
+    
+    
+class UserComments(models.Model):
+    """ model database for 
+        user comments
+        
+    """
+    place = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments"
+        )
+    comment = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
+    created_on = models.DateTimeField(auto_now_add=True)
+    models.DateTimeField(auto_now_add=True)
 
 
