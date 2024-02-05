@@ -1,6 +1,7 @@
 asgiref==3.7.2
 dj-database-url==2.1.0
 Django==4.2.9
+django-summernote==0.8.20.0
 gunicorn==21.2.0
 pillow==10.2.0
 psycopg==3.1.17
