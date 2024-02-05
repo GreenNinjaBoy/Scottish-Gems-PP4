@@ -17,9 +17,14 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     image = models.ImageField(upload_to='post_images', blank=True) # will allow the user to add an image to their post.
     updated_on = models.DateTimeField(auto_now=True)
+    field_2 = models.CharField(default= 'Hello World!')
+    field_3 = models.CharField(null=True)
     
     class Meta:
         ordering = ["-created_on"]
+        
+    def __str__(self):
+        return self.title
 
 
 class UserComments(models.Model):
@@ -37,5 +42,8 @@ class UserComments(models.Model):
     
     class Meta:
         ordering = ["-created_on"]
+        
+    def __str__(self):
+        return f"{self.title} | written by {self.author}" 
 
 
