@@ -8,4 +8,5 @@ from .models import Post
 
 class GemList(generic.ListView):
     queryset = Post.objects.filter(STATUS=1)
-    template_name = 'scottish_gems/gems_list.html'
+    template_name = 'scottish_gems/index.html'
+    paginate_by = 6
