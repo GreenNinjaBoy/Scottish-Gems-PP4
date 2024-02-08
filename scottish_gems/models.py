@@ -28,7 +28,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     STATUS = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
-    image = models.ImageField(upload_to='static/images', blank=True)
+    image = models.ImageField(upload_to='user_images', blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     
     class Meta:
