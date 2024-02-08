@@ -28,10 +28,8 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     STATUS = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
-    image = models.ImageField(upload_to='post_images', blank=True)
+    image = models.ImageField(upload_to='static/images', blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    field_2 = models.CharField(default='Hello World!')
-    field_3 = models.CharField(null=True)
     
     class Meta:
         ordering = ["-created_on"]

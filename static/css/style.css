@@ -106,6 +106,11 @@ body {
     margin-left: 5%;
 }
 
+.card-image {
+    width: 50%;
+    height: auto;
+}
+
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
