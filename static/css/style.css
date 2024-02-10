@@ -164,3 +164,12 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-wrapper {
+    width: 45%;
+}
