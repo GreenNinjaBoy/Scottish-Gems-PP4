@@ -1,8 +1,9 @@
 from . import views
-from .views import signup_login
+from .views import login, signup
 from django.urls import path
 
 urlpatterns = [
     path('', views.GemList.as_view(), name='home'),
-    path('signup_login/', signup_login, name='signup_login'),
+    path('login/', login, name='login'),
+    path('signup/', signup, name='signup')
 ]

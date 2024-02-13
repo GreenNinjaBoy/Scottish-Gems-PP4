@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="form-container">
+    <div class="form-wrapper">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ login_form.as_p }}
+            <button type="submit" name="login">Login</button>
+            <h6>Do not have an account? Please us our <a class="nav-link {% if request.path == '/signup' %}active{% endif %}" href="{% url 'signup' %}">signup-form</a></h6>
+        </form>
+    </div>
+</section>
+{% endblock %}
