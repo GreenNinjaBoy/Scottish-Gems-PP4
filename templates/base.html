@@ -31,21 +31,38 @@
     <!-- Navigation -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span>Scottish Gems </span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li>
-                        <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}">Log In</a>
-                    </li>
-                </ul>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><span>Scottish Gems </span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}">Log In</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Region Selection
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Edinburgh, Fife and East</a></li>
+                        <li><a class="dropdown-item" href="#">Glasgow & West</a></li>
+                        <li><a class="dropdown-item" href="#">Highlands & Islands</a></li>
+                        <li><a class="dropdown-item" href="#">Grampian</a></li>
+                        <li><a class="dropdown-item" href="#">South</a></li>
+                        <li><a class="dropdown-item" href="#">Tayside & Central</a></li>
+                        <!-- Add more regions as needed -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
                 <span class="navbar-text text-muted">
                     Rannsaich Dìomhaireachd na h-Alba
                 </span>
