@@ -86,6 +86,18 @@ def create_gem(request):
         form = PostForm()
     return render(request, 'gem_posts/create_gems.html', {'form': form})
 
+@login_required
+def delete_gem(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user != post.author:
+        messages.warning(request, 'You are not authorized to delete this post.')
+        return redirect('home')
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, 'Post deleted.')
+        return redirect('home')
+    return render(request, 'gem_posts/delete_gem.html', {'post': post})
+
 class GemList(generic.ListView):
     queryset = Post.objects.filter(STATUS=1)
     template_name = 'scottish_gems/index.html'

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete Gem</h1>
+  <p>Are you sure you want to delete this Gem?</p>
+  <p>Other users may miss out on a fantastic experience</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete my gem!</button>
+    <button type="submit"><a href="{% url 'home' %}">No, I want to keep my gem</a></button>
+  </form>
+  
+{% endblock %}

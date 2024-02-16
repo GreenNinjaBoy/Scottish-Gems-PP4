@@ -10,5 +10,6 @@ urlpatterns = [
     path('toggle_favorite/<int:post_id>/', toggle_favorite, name='toggle_favorite'),
     path('favorites/', favorites, name='favorites'),
     path('gem_posts/create_gems/', create_gem, name='create_gems'),
-    path('post/<int:post_id>/', views.post_detail, name='post_detail'),
+    path('post/<int:post_id>/', views.post_detail, name='post_gem'),
+    path('delete_gem/<int:post_id>/', views.delete_gem, name='delete_gem'),
 ]

@@ -119,23 +119,28 @@
       {% for post in posts %}
       <h2>{{ post.title }}</h2>
       {% if post.image %}
-      <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
       {% endif %}
       <p>Author: {{ post.author.username }}</p>
       <p>Gem Description: {{post.content}}</p>
       {% if request.user.is_authenticated %}
-    <form method="post" action="{% url 'toggle_favorite' post.id %}">
-      {% csrf_token %}
-      <button type="submit">
-        {% if post in request.user.favorite_posts.all %}
-          Unfavorite
-        {% else %}
-          Favorite
+        <form method="post" action="{% url 'toggle_favorite' post.id %}">
+          {% csrf_token %}
+          <button type="submit">
+            {% if post in request.user.favorite_posts.all %}
+              Unfavorite
+            {% else %}
+              Favorite
+            {% endif %}
+          </button>
+          <button type="submit">
+            {% if request.user == post.author %}
+          <a href="{% url 'delete_gem' post.id %}">Delete Gem</a>
         {% endif %}
-      </button>
-    </form>
-  {% endif %}
-      {% endfor %}
+          </button>
+        </form>
+      {% endif %}
+    {% endfor %}
 
       {% endblock content %}
     </main>
