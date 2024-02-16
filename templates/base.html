@@ -123,6 +123,18 @@
       {% endif %}
       <p>Author: {{ post.author.username }}</p>
       <p>Gem Description: {{post.content}}</p>
+      {% if request.user.is_authenticated %}
+    <form method="post" action="{% url 'toggle_favorite' post.id %}">
+      {% csrf_token %}
+      <button type="submit">
+        {% if post in request.user.favorite_posts.all %}
+          Unfavorite
+        {% else %}
+          Favorite
+        {% endif %}
+      </button>
+    </form>
+  {% endif %}
       {% endfor %}
 
       {% endblock content %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from .models import Post
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -43,6 +43,10 @@ def logout_view(request):
     messages.success(request, "You have successfully logged out.")
     return redirect('home')  # Redirect to home page after logout
 
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    return render(request, 'accounts/favorites.html', {'post': post})
+
 
 @login_required
 def toggle_favorite(request, post_id):
@@ -57,6 +61,17 @@ def toggle_favorite(request, post_id):
 def favorites(request):
     favorite_posts = request.user.favorite_posts.all()
     return render(request, 'accounts/favorites.html', {'favorite_posts': favorite_posts})
+
+@login_required
+def toggle_favorite(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if post in request.user.favorite_posts.all():
+        request.user.favorite_posts.remove(post)
+        messages.success(request, 'Post removed from favorites.')
+    else:
+        request.user.favorite_posts.add(post)
+        messages.success(request, 'Post added to favorites.')
+    return redirect('home')
 
 @login_required
 def create_gem(request):
