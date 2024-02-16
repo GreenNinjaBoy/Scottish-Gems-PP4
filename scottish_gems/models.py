@@ -30,6 +30,7 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     image = models.ImageField(upload_to='user_images', blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    favorited_by = models.ManyToManyField(User, related_name='favorite_posts', blank=True)
     
     class Meta:
         ordering = ["-created_on"]

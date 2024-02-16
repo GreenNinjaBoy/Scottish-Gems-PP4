@@ -4,20 +4,61 @@
 
 {% block head_title %} {% trans "Log Out" %} {% endblock %}
 
-
 {% block content %}
 <section class="log-out-confirmation-page">
-    <h2>{% trans "Log Out %}</h2>
+    <h2>{% trans "Log Out" %}</h2>
 
     <p>{% trans 'Are you sure you want to log out?' %}</p>
 
-    <form method="post" action="{% url 'account_logout' %}">
+    <form id="logout-form" method="post" action="{% url 'account_logout' %}">
         {% csrf_token %}
-        {% if dredirect_field_value %}
+        {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name}}" value="{{redirect_field_value}}"/>
-     {% endif %}
-     <button type="submit" class="btn btn--alert"> {% trans 'Log Out' %}</button>
+{% endif %}
+    <button id="logout-button" type="submit" class="btn btn--alert"> {% trans 'Log Out' %}</button>
     </form>
 
     <span id="close-btn"><i class=""fa-solid fa-chevron-left></i></span>
 </section>
+
+<!-- Logout Modal -->
+<div id="logout-modal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to log out?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button id="confirm-logout" type="button" class="btn btn-primary">Log Out</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'back-btn.js' %}"></script>
+<script>
+    var logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            var myModal = new bootstrap.Modal(document.getElementById('logout-modal'));
+            myModal.show();
+        });
+    }
+
+    var confirmLogoutButton = document.getElementById('confirm-logout');
+    if (confirmLogoutButton) {
+        confirmLogoutButton.addEventListener('click', function() {
+            document.getElementById('logout-form').submit();
+        });
+    }
+</script>
+{% endblock %}

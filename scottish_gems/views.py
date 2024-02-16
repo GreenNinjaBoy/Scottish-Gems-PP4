@@ -4,6 +4,7 @@ from .models import Post
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -37,6 +38,21 @@ def logout_view(request):
     logout(request)
     messages.success(request, "You have successfully logged out.")
     return redirect('home')  # Redirect to home page after logout
+
+
+@login_required
+def toggle_favorite(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if post in request.user.favorite_posts.all():
+        request.user.favorite_posts.remove(post)
+    else:
+        request.user.favorite_posts.add(post)
+    return redirect('post_detail', post_id=post.id)
+
+@login_required
+def favorites(request):
+    favorite_posts = request.user.favorite_posts.all()
+    return render(request, 'favorites.html', {'favorite_posts': favorite_posts})
 
 class GemList(generic.ListView):
     queryset = Post.objects.filter(STATUS=1)
