@@ -5,8 +5,12 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .forms import PostForm
+from .models import Post
 
-
+def home(request):
+    posts = Post.objects.all()
+    return render(request, 'base.html', {'posts': posts})
 
 def signup(request):
     if request.method == 'POST':
@@ -52,7 +56,20 @@ def toggle_favorite(request, post_id):
 @login_required
 def favorites(request):
     favorite_posts = request.user.favorite_posts.all()
-    return render(request, 'favorites.html', {'favorite_posts': favorite_posts})
+    return render(request, 'accounts/favorites.html', {'favorite_posts': favorite_posts})
+
+@login_required
+def create_gem(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('home')
+    else:
+        form = PostForm()
+    return render(request, 'gem_posts/create_gems.html', {'form': form})
 
 class GemList(generic.ListView):
     queryset = Post.objects.filter(STATUS=1)
