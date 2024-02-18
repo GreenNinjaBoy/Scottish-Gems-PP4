@@ -86,20 +86,16 @@
               <a class="nav-link" id="navbar-text" href="{% url 'create_gems' %}">Share your Gem</a> 
               {% endif %}
           </ul>
+          <div class="ms-auto">
+            {% if request.user.is_authenticated %}
+              <a id="logout-link" class="btn btn-primary" href="{% url 'logout' %}" role="button">Log Out</a>
+            {% else %}
+              <a class="btn btn-primary {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}" role="button">Log In</a>
+            {% endif %}
+          </div>
         </div>
       </div>
     </nav>
-    <div class="container-fluid d-flex flex-column align-items-end">
-      <span class="navbar-text text-muted">
-        Rannsaich Dìomhaireachd na h-Alba
-      </span>
-      {% if request.user.is_authenticated %}
-        <a id="logout-link" class="btn btn-primary" href="{% url 'logout' %}" role="button">Log Out</a>
-        
-      {% else %}
-        <a class="btn btn-primary {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}" role="button">Log In</a>
-      {% endif %}
-    </div>
 
     <main class="flex-shrink-0 main-bg">
       {% if messages %}
@@ -109,64 +105,74 @@
         {% endfor %}
     </div>
   {% endif %}
-      {% block content %}
+  {% block content %}
       
+      <div class="row g-3">
       {% if region_selected %}
-      {% for post in posts %}
-        <h2>{{ post.title }}</h2>
-        {% if post.image %}
-          <img src="{{ post.image.url }}" alt="{{ post.title }}">
-        {% endif %}
-        <p>Author: {{ post.author.username }}</p>
-        <p>Gem Description: {{post.content}}</p>
-        {% if request.user.is_authenticated %}
-          <form method="post" action="{% url 'toggle_favorite' post.id %}">
-            {% csrf_token %}
-            <button type="submit">
-              {% if post in request.user.favorite_posts.all %}
-                Unfavorite
-              {% else %}
-                Favorite
-              {% endif %}
-            </button>
-            <button type="submit">
-              {% if request.user == post.author %}
-                <a href="{% url 'delete_gem' post.id %}">Delete Gem</a>
-              {% endif %}
-            </button>
-          </form>
-        {% endif %}
-      {% endfor %}
-    {% else %}
-      {% for post in posts %}
-        <h2>{{ post.title }}</h2>
-        {% if post.image %}
-          <img src="{{ post.image.url }}" alt="{{ post.title }}">
-        {% endif %}
-        <p>Author: {{ post.author.username }}</p>
-        <p>Gem Description: {{post.content}}</p>
-        <p>Region: {{post.region}}</p>
-        {% if request.user.is_authenticated %}
-          <form method="post" action="{% url 'toggle_favorite' post.id %}">
-            {% csrf_token %}
-            <button type="submit">
-              {% if post in request.user.favorite_posts.all %}
-                Unfavorite
-              {% else %}
-                Favorite
-              {% endif %}
-            </button>
-            <button type="submit">
-              {% if request.user == post.author %}
-                <a href="{% url 'delete_gem' post.id %}">Delete Gem</a>
-              {% endif %}
-            </button>
-          </form>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+        {% for post in posts %}
+          <div class="col-lg-3 mb-3 border p-3">
+            <!-- Display the post -->
+            <h2>{{ post.title }}</h2>
+            {% if post.image %}
+              <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% endif %}
+            <p>Author: {{ post.author.username }}</p>
+            <p>Gem Description: {{post.content}}</p>
+            {% if request.user.is_authenticated %}
+              <form method="post" action="{% url 'toggle_favorite' post.id %}">
+                {% csrf_token %}
+                <button type="submit">
+                  {% if post in request.user.favorite_posts.all %}
+                    Unfavorite
+                  {% else %}
+                    Favorite
+                  {% endif %}
+                </button>
+                <button type="submit">
+                  {% if request.user == post.author %}
+                    <a href="{% url 'delete_gem' post.id %}">Delete Gem</a>
+                  {% endif %}
+                </button>
+              </form>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for post in posts %}
+          <div class="col-lg-3 mb-3 border p-3">
+            <!-- Display the post -->
+            <h2>{{ post.title }}</h2>
+            {% if post.image %}
+              <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% endif %}
+            <p>Author: {{ post.author.username }}</p>
+            <p>Gem Description: {{post.content}}</p>
+            <p>Region: {{post.region}}</p>
+            {% if request.user.is_authenticated %}
+              <form method="post" action="{% url 'toggle_favorite' post.id %}">
+                {% csrf_token %}
+                <button type="submit">
+                  {% if post in request.user.favorite_posts.all %}
+                    Unfavorite
+                  {% else %}
+                    Favorite
+                  {% endif %}
+                </button>
+                <button type="submit">
+                  {% if request.user == post.author %}
+                    <a href="{% url 'delete_gem' post.id %}">Delete Gem</a>
+                  {% endif %}
+                </button>
+              </form>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% endif %}
+      </div>
     
       {% endblock content %}
+    </main>
+
     </main>
 
     <!-- Footer -->
