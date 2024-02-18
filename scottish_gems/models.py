@@ -5,6 +5,12 @@ from django.utils.text import slugify
 # Status choices for the Post model
 STATUS = ((0, "Draft"), (1, "Published"))
 
+class Region(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     """
     Model for blog posts.
@@ -32,6 +38,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='user_images', blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     favorited_by = models.ManyToManyField(User, related_name='favorite_posts', blank=True)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE)
     
     class Meta:
         ordering = ["-created_on"]

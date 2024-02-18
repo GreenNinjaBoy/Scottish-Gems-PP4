@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, UserComments
+from .models import Post, UserComments, Region
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -13,3 +13,4 @@ class PostAdmin(SummernoteModelAdmin):
 
 # Register your models here.
 admin.site.register(UserComments)
+admin.site.register(Region)

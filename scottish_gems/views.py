@@ -6,11 +6,12 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm
-from .models import Post
+from .models import Post, Region
 
 def home(request):
     posts = Post.objects.all()
-    return render(request, 'base.html', {'posts': posts})
+    regions = Region.objects.all()
+    return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': False})
 
 def signup(request):
     if request.method == 'POST':
@@ -47,6 +48,17 @@ def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     return render(request, 'accounts/favorites.html', {'post': post})
 
+def posts_by_region(request, region_id):
+    region = get_object_or_404(Region, id=region_id)
+    posts = Post.objects.filter(region=region)
+    regions = Region.objects.all()
+    return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': True})
+
+    # Get all posts in this region
+    posts = Post.objects.filter(region=region)
+
+    # Render the template with the posts
+    return render(request, 'base.html', {'posts': posts})
 
 @login_required
 def toggle_favorite(request, post_id):

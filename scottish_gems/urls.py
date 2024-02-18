@@ -12,4 +12,5 @@ urlpatterns = [
     path('gem_posts/create_gems/', create_gem, name='create_gems'),
     path('post/<int:post_id>/', views.post_detail, name='post_gem'),
     path('delete_gem/<int:post_id>/', views.delete_gem, name='delete_gem'),
+    path('posts_by_region/<int:region_id>/', views.posts_by_region, name='posts_by_region'),
 ]

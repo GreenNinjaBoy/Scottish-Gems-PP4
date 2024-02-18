@@ -74,16 +74,11 @@
                 Region Selection
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="#">Edinburgh, Fife and East</a>
-                </li>
-                <li><a class="dropdown-item" href="#">Glasgow & West</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Highlands & Islands</a>
-                </li>
-                <li><a class="dropdown-item" href="#">Grampian</a></li>
-                <li><a class="dropdown-item" href="#">South</a></li>
-                <li><a class="dropdown-item" href="#">Tayside & Central</a></li>
+                {% for region in regions %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'posts_by_region' region.id %}">{{ region.name }}</a>
+                  </li>
+                {% endfor %}
               </ul>
             </li>
             <li>{% if request.user.is_authenticated %}
@@ -116,32 +111,61 @@
   {% endif %}
       {% block content %}
       
+      {% if region_selected %}
       {% for post in posts %}
-      <h2>{{ post.title }}</h2>
-      {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}">
-      {% endif %}
-      <p>Author: {{ post.author.username }}</p>
-      <p>Gem Description: {{post.content}}</p>
-      {% if request.user.is_authenticated %}
-        <form method="post" action="{% url 'toggle_favorite' post.id %}">
-          {% csrf_token %}
-          <button type="submit">
-            {% if post in request.user.favorite_posts.all %}
-              Unfavorite
-            {% else %}
-              Favorite
-            {% endif %}
-          </button>
-          <button type="submit">
-            {% if request.user == post.author %}
-          <a href="{% url 'delete_gem' post.id %}">Delete Gem</a>
+        <h2>{{ post.title }}</h2>
+        {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}">
         {% endif %}
-          </button>
-        </form>
-      {% endif %}
-    {% endfor %}
-
+        <p>Author: {{ post.author.username }}</p>
+        <p>Gem Description: {{post.content}}</p>
+        {% if request.user.is_authenticated %}
+          <form method="post" action="{% url 'toggle_favorite' post.id %}">
+            {% csrf_token %}
+            <button type="submit">
+              {% if post in request.user.favorite_posts.all %}
+                Unfavorite
+              {% else %}
+                Favorite
+              {% endif %}
+            </button>
+            <button type="submit">
+              {% if request.user == post.author %}
+                <a href="{% url 'delete_gem' post.id %}">Delete Gem</a>
+              {% endif %}
+            </button>
+          </form>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        {% endif %}
+        <p>Author: {{ post.author.username }}</p>
+        <p>Gem Description: {{post.content}}</p>
+        <p>Region: {{post.region}}</p>
+        {% if request.user.is_authenticated %}
+          <form method="post" action="{% url 'toggle_favorite' post.id %}">
+            {% csrf_token %}
+            <button type="submit">
+              {% if post in request.user.favorite_posts.all %}
+                Unfavorite
+              {% else %}
+                Favorite
+              {% endif %}
+            </button>
+            <button type="submit">
+              {% if request.user == post.author %}
+                <a href="{% url 'delete_gem' post.id %}">Delete Gem</a>
+              {% endif %}
+            </button>
+          </form>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    
       {% endblock content %}
     </main>
 
