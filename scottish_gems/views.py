@@ -116,6 +116,31 @@ def delete_gem(request, post_id):
         return redirect('home')
     return render(request, 'gem_posts/delete_gem.html', {'post': post})
 
+@login_required
+def edit_comment(request, post_id, comment_id):
+    post = get_object_or_404(Post, id=post_id)
+    comment = get_object_or_404(UserComments, id=comment_id)
+    if request.user != comment.author:
+        messages.warning(request, 'You are not authorized to edit this comment.')
+        return redirect('gem_detail', post_id=post.id)
+    if request.method == 'POST':
+        comment.comment = request.POST['content']
+        comment.save()
+        return redirect('gem_detail', post_id=post.id)
+    return render(request, 'gem_posts/edit_comment.html', {'comment': comment})
+
+@login_required
+def delete_comment(request, post_id, comment_id):
+    post = get_object_or_404(Post, id=post_id)
+    comment = get_object_or_404(UserComments, id=comment_id)
+    if request.user != comment.author:
+        messages.warning(request, 'You are not authorized to delete this comment.')
+        return redirect('gem_detail', post_id=post.id)
+    if request.method == 'POST':
+        comment.delete()
+        return redirect('gem_detail', post_id=post.id)
+    return render(request, 'gem_posts/delete_comment.html', {'comment': comment})
+
 class GemList(generic.ListView):
     queryset = Post.objects.filter(STATUS=1)
     template_name = 'scottish_gems/index.html'
