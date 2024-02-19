@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm
-from .models import Post, Region
+from .models import Post, Region, UserComments
 
 def home(request):
     posts = Post.objects.all()
@@ -44,9 +44,15 @@ def logout_view(request):
     messages.success(request, "You have successfully logged out.")
     return redirect('home')  # Redirect to home page after logout
 
-def post_detail(request, post_id):
+def gem_detail (request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    return render(request, 'accounts/favorites.html', {'post': post})
+    comments = post.comments.all()
+    print(f"Comments for post {post_id}: {comments}")  # Debug print
+    if request.method == 'POST':
+        new_comment = UserComments.objects.create(comment=request.POST['content'], author=request.user, place=post)
+        print(f"New comment: {new_comment.comment}")  # Debug print
+    return render(request, 'gem_posts/gem_detail.html', {'post': post, 'comments': comments})
+
 
 def posts_by_region(request, region_id):
     region = get_object_or_404(Region, id=region_id)
