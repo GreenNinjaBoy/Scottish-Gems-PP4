@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-blue custom-navbar">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link {% if request.path == home_url %}active{% endif %}"
+              aria-current="page"
+              href="{% url 'home' %}"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Region Selection
+            </a>
+            <ul class="dropdown-menu bg-blue" aria-labelledby="navbarDropdown">
+              {% for region in regions %}
+                <li>
+                  <a class="dropdown-item" href="{% url 'posts_by_region' region.id %}">{{ region.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li>{% if request.user.is_authenticated %}
+            <a class="nav-link" id="navbar-text" href="{% url 'favorites' %}">Favorites</a></li>
+            <a class="nav-link" id="navbar-text" href="{% url 'create_gems' %}">Share your Gem</a> 
+            {% endif %}
+        </ul>
+        <div class="ms-auto">
+          {% if request.user.is_authenticated %}
+            <a id="logout-link" class="btn btn-primary" href="{% url 'logout' %}" role="button">Log Out</a>
+          {% else %}
+            <a class="btn btn-primary {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}" role="button">Log In</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
