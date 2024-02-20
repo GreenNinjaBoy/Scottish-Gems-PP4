@@ -42,7 +42,6 @@ nav {
     margin: 0;
 }
 
-
 .page-sub-title {
     font-family: Merriweather;
     align-self: flex-end;
@@ -58,17 +57,32 @@ nav {
 }
 
 .post-row {
-    gap: 20px; /* Adjust as needed */
+    background-color: #31373d;
+    margin: 0;
+    gap: 60px;
 }
 
 .col-lg-3 {
     overflow: auto;
 }
 
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fit {
+    max-width: 100%;
+    height: auto;
+}
+
 .col-lg-3 img {
     max-width: 100%;
     height: auto;
 }
+
+
 
 .brand {
     font-family: Lato, sans-serif;
@@ -90,11 +104,11 @@ nav {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #31373d;
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #31373d;
 }
 
 .bg-blue, .post-card {
@@ -108,10 +122,19 @@ nav {
 }
 
 .post-card{
+    display: ruby;
+    text-align: center;
     box-shadow: 5px 5px 5px 5px #6A5ABD;
     border-radius: 20px;
 }
 
+.post-card a {
+    color: #fff;
+    font-family: inherit;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 600;
+}
 
 .card {
     border: none;
@@ -223,6 +246,12 @@ nav {
     text-decoration: underline;
 }
 
+.icon-button {
+    background: transparent;
+    border: none;
+}
+
+
 .btn-like {
     color: #E84610;
     border: none;
@@ -256,6 +285,14 @@ nav {
 
 .form-wrapper {
     width: 45%;
+}
+
+.post-card .gem-info {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;  /* number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
