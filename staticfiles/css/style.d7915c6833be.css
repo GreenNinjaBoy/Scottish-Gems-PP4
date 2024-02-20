@@ -10,16 +10,10 @@ nav {
     margin-top: -8px;
 }
 
-.carousel-caption {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+.carousel-caption{
+    position: static;
+    
 }
-
 .carousel-inner {
     height: 350px;  /* Adjust as needed */
 }
@@ -30,26 +24,24 @@ nav {
     object-fit: cover;  
 }
 
-.page-title h1 a.nav-link {
+div.page-title h1 a.nav-link {
     font-family: Merriweather; 
-    align-self: flex-start;
-    top: 100%; 
-    left: 27%; 
+    position: absolute; 
+    top: 20%; 
+    left: 15%; 
     transform: translate(-50%, -50%); 
     color: white;
     font-size: 220% !important;
     font-weight: 999;
-    margin: 0;
 }
 
 
 .page-sub-title {
     font-family: Merriweather;
-    align-self: flex-end;
+    position: absolute;
     bottom: 2%; 
     right: 2%; 
     color: white;
-    margin: 0;
 }
 
 .posts-container {
@@ -105,11 +97,6 @@ nav {
     color: white !important;
     font-size: 120% !important;
     font-family: 'Merriweather', serif !important;
-}
-
-.post-card{
-    box-shadow: 5px 5px 5px 5px #6A5ABD;
-    border-radius: 20px;
 }
 
 

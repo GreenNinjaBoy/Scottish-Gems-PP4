@@ -2,6 +2,9 @@ from . import views
 from .views import login_view, signup, logout_view, toggle_favorite, favorites, create_gem
 from django.urls import path
 
+
+
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('login/', login_view, name='login'),
