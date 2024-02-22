@@ -1,21 +1,39 @@
-{% extends "base.html" %} 
+{% load i18n %}
+{% load static %}
+{% include 'partials/css.html' %}
+{% include 'partials/navbar.html' %}
+
 
 {% block content %}
-<div class="form-container">
-  <div class="form-wrapper">
-    <h2>Login</h2>
-    <form method="post">
-      {% csrf_token %} {{ login_form.as_p }}
-      <button type="submit" name="login">Login</button>
-      <h6>
-        Do not have an account? Please use our
-        <a
-          class="nav-link {% if request.path == '/signup' %}active{% endif %}"
-          href="{% url 'signup' %}"
-          >signup form</a
-        >
-      </h6>
+
+<section class="login-page"></section>
+<div class="login-form-container">
+  <div class="login-form-title">
+    <h2>{% trans "Log In" %}</h2>
+    </div>
+    <div class="login-form-content">
+    <form class="login login-form" method="post" action="{% url 'account_login' %}">
+      {% csrf_token %} 
+      {{ login_form.as_p }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button class="primaryAction btn btn--success" type="submit">{% trans "Log In" %}</button>
     </form>
-  </div>
-</div>
-{% endblock %}
+      <h6>
+        <p class="if-no-account">{% blocktrans %}Don't have an account? Then please
+          <a href="{{ signup_url }}"><strong>sign up</strong>.</a>{% endblocktrans %}</p>
+      </div>
+    </div>
+  
+    <span id="close-btn"><i class="fa-solid fa-chevron-left"></i></span>
+  </section>
+  
+  <script src="{% static 'js/back-btn.js' %}"></script>
+  
+  {% endblock %}
+
+
+
+  
+{% include 'partials/footer.html' %}

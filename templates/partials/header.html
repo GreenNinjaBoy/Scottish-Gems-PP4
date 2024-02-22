@@ -16,14 +16,14 @@
         <div class="carousel-item">
         <img src="{% static 'images/food_image.webp' %}" class="d-block w-100" alt="...">
         </div>
-        <div class="carousel-caption">
-        <div class="page-title">
-            <h1><a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Scottish Gems</a></h1>
-        </div>
-        <div class="page-sub-title">
-            <h5>Faigh a-mach fìor sheudan na h-Alba</h5>
-            <p>(Discover Scotlands true gems)</p>
-        </div>
+        <div class="carousel-caption" style="position: relative; height: 100%;">
+            <div class="page-title">
+                <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Scottish Gems</a>
+            </div>
+            <div class="page-sub-title">
+                <h5>Faigh a-mach fìor sheudan na h-Alba</h5>
+                <p>(Discover Scotlands true gems)</p>
+            </div>
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

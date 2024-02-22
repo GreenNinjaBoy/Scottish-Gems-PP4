@@ -18,4 +18,5 @@ urlpatterns = [
     path('post/<int:post_id>/', views.gem_detail, name='gem_detail'),
     path('post/<int:post_id>/comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
     path('post/<int:post_id>/comment/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
+    path('login/', views.login_view, name='account_login'),
 ]

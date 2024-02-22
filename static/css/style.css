@@ -1,5 +1,5 @@
 body {
-    background-color: red;
+    background-color: #445261;
 }
 
 header{
@@ -14,6 +14,8 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    right: 0;
+    left:0;
     height: 100%;
     width: 100%;
     padding: 0;
@@ -30,25 +32,24 @@ nav {
     object-fit: cover;  
 }
 
-.page-title h1 a.nav-link {
-    font-family: Merriweather; 
-    align-self: flex-start;
-    top: 100%; 
-    left: 27%; 
-    transform: translate(-50%, -50%); 
+.page-title{
+    position: absolute;
+    font-family: Merriweather;
+    font-size: 350%;
+    font-weight: 600;
+    top: 2%;
+    left: 0;
     color: white;
-    font-size: 220% !important;
-    font-weight: 999;
-    margin: 0;
 }
 
 .page-sub-title {
-    font-family: Merriweather;
-    align-self: flex-end;
-    bottom: 2%; 
-    right: 2%; 
+    position: absolute;
+    bottom: -7%;
+    right: 1%;
     color: white;
-    margin: 0;
+    font-family: Merriweather;
+    font-size: 150%;
+    font-weight: 600;
 }
 
 .posts-container {
@@ -295,6 +296,13 @@ nav {
     text-overflow: ellipsis;
 }
 
+.login-form-container {
+    text-align: center;
+    background-color: #273c75;
+    position: relative;
+    width: fit-content;
+    display: inline-block;
+}
 
 @media (max-width: 768px) {
     .page-title h1 a.nav-link {
