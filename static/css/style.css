@@ -123,7 +123,8 @@ nav {
 }
 
 .post-card{
-    display: ruby;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     box-shadow: 5px 5px 5px 5px #6A5ABD;
     border-radius: 20px;
@@ -296,12 +297,39 @@ nav {
     text-overflow: ellipsis;
 }
 
-.login-form-container {
-    text-align: center;
+/* --------- Login  Form Style ---------------*/
+
+
+.login-form-container, .log-out-confirmation-page {
     background-color: #273c75;
-    position: relative;
-    width: fit-content;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 40%;
+    margin: 10% auto;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 7%;
+    box-shadow: 5px 5px 5px 5px #6A5ABD;
+    color: #fff;
+    font-family: initial;
+    font-size: 140%;
+    gap: 11%;
+}
+
+.login-title {
+    font-family: Merriweither;
+    font-weight: 600;
+    font-size: 150%;
+}
+
+.btn--success {
+    color: white;
+    border: #6A5ABD;
+    border-style: groove;
+    margin: 0 40%;
 }
 
 @media (max-width: 768px) {

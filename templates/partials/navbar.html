@@ -45,11 +45,28 @@
             <a class="nav-link" id="navbar-text" href="{% url 'create_gems' %}">Share your Gem</a> 
             {% endif %}
         </ul>
-        <div class="ms-auto">
           {% if request.user.is_authenticated %}
-            <a id="logout-link" class="btn btn-primary" href="{% url 'logout' %}" role="button">Log Out</a>
+          <div class="auser-icon"></div>
+            <a class="user-links" href="{% url 'account_logout' %}">
+            <div>
+              <i class="fa-regular fa-lg fa-circle-user"></i>
+            </div>
+            <div>
+              <div class="header-nav-text">Log Out</div>
+            </div>
+            </a>
+          </div>
           {% else %}
-            <a class="btn btn-primary {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}" role="button">Log In</a>
+          <div class="user-icon">
+            <a class="user-links" href="{% url 'login' %}">
+              <div>
+                <i class="fa-regular fa-lg fa-circle-user"></i>
+              </div>
+              <div>
+                <div class="header-nav-text"> Log In</div>
+              </div>
+            </a>
+          </div>
           {% endif %}
         </div>
       </div>

@@ -1,4 +1,5 @@
 {% load static %} {% url 'home' as home_url %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -9,18 +10,22 @@
     {% include 'partials/css.html' %}
   </head>
   <body class="d-flex flex-column h-100 main-bg">
-     <!-- Include navbar -->
-     {% include 'partials/navbar.html' %}
+    <!-- Include navbar -->
+    {% include 'partials/navbar.html' %}
     <!-- Include header -->
     {% include 'partials/header.html' %}
     <main class="flex-shrink-0 main-bg">
       {% if messages %}
         <div class="messages">
+          <strong>{% trans "Message:"%}</strong>
+          <ul>
           {% for message in messages %}
-            <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+            <li>{{message}}</li>
           {% endfor %}
+          </ul>
         </div>
       {% endif %}
+
       <div class="posts-container">
         {% block content %}
         <div class="row g-3 post-row" >

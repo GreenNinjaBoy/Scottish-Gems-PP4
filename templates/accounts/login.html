@@ -5,11 +5,10 @@
 
 
 {% block content %}
-
-<section class="login-page"></section>
+<section class="login-page">
 <div class="login-form-container">
   <div class="login-form-title">
-    <h2>{% trans "Log In" %}</h2>
+    <h2 class="login-title">{% trans "Log In" %}</h2>
     </div>
     <div class="login-form-content">
     <form class="login login-form" method="post" action="{% url 'account_login' %}">
@@ -32,8 +31,3 @@
   <script src="{% static 'js/back-btn.js' %}"></script>
   
   {% endblock %}
-
-
-
-  
-{% include 'partials/footer.html' %}

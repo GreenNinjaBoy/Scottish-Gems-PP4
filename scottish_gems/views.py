@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from .models import Post
+from .models import Post, Region, UserComments
+from django.template.loader import render_to_string
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm
-from .models import Post, Region, UserComments
 
 def home(request):
     posts = Post.objects.all()
@@ -41,8 +41,12 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    messages.success(request, "You have successfully logged out.")
-    return redirect('home')  # Redirect to home page after logout
+
+    # Read the message from the file
+    message = render_to_string('accounts/messages/logged_out.txt')
+    # Render the message in the template
+    return render(request, 'accounts/logout.html', {'message': message})
+
 
 def gem_detail (request, post_id):
     post = get_object_or_404(Post, id=post_id)
