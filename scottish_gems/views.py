@@ -40,13 +40,17 @@ def login_view(request):
     return render(request, 'accounts/login.html', {'login_form': form})  # Pass the form as 'login_form'
 
 def logout_view(request):
-    logout(request)
-
-    # Read the message from the file
-    message = render_to_string('accounts/messages/logged_out.txt')
-    # Render the message in the template
-    return render(request, 'accounts/logout.html', {'message': message})
-
+    if request.method == 'POST':
+        logout(request)
+        # Read the message from the file
+        message = render_to_string('accounts/messages/logged_out.txt')
+        # Add the message
+        messages.success(request, message)
+        # Redirect to the base page
+        return redirect('base')
+    else:
+        # If the request is not a POST request, render the logout confirmation page
+        return render(request, 'accounts/logout.html')
 
 def gem_detail (request, post_id):
     post = get_object_or_404(Post, id=post_id)
@@ -69,6 +73,10 @@ def posts_by_region(request, region_id):
 
     # Render the template with the posts
     return render(request, 'base.html', {'posts': posts})
+
+def base_view(request):
+    # Render the base template
+    return render(request, 'base.html')
 
 @login_required
 def toggle_favorite(request, post_id):

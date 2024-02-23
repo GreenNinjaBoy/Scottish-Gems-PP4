@@ -19,4 +19,5 @@ urlpatterns = [
     path('post/<int:post_id>/comment/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
     path('login/', views.login_view, name='account_login'),
     path('logout/', views.logout_view, name='account_logout'),
+    path('', views.base_view, name='base'),
 ]
