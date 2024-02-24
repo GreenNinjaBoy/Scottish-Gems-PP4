@@ -1,9 +1,45 @@
-{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% include 'partials/css.html' %}
+{% include 'partials/navbar.html' %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload Gem</button>
-</form>
-{% endblock %}
+
+<main class="add-place-page">
+    <h1>Share Your Gem</h1>
+
+    <!-- GOOGLE PLACE SEARCH FIELD -->
+
+    <div id="add-place-input-container">
+        <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i></label>
+        <input type="text" id="search-input" placeholder="Start typing a place name">
+    </div>
+
+    <!-- PLACE CARD -->
+
+    <div id="place-add-form">
+        <!-- Photo -->
+        <div class="add-form-img-container">
+            <img src="{% static 'images/no-google-photo-placeholder.png' %}" alt="Placeholder image" id="photo">
+        </div>
+        <!-- Place details (hidden) -->
+        <h2 class="detail-view-place-title" id="add-form-title">Place Name</h2>
+        <p class="place-address" id="add-form-address"></p>
+        <!-- Buttons -->
+        <button id="share-btn">Share Gem</button>
+        <button id="cancel-btn">Cancel</button>
+    </div>
+
+    <!-- Back button -->
+    <span id="close-btn"><i class="fa-solid fa-chevron-left"></i></span>
+</main>
+
+
+{% include 'partials/js.html' %}
+<script type="text/javascript">
+    var postUrl = "{{ post_url }}";
+</script>
+
+{% endblock content %}
+

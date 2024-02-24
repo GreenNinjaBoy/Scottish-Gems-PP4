@@ -106,7 +106,9 @@
     <!-- Include footer -->
     {% include 'partials/footer.html' %}
     <!-- Include JavaScript files -->
+    
+    {% block extra_js %}
     {% include 'partials/js.html' %}
-    {% block extra_js %}{% endblock %}
+    {% endblock %}
   </body>
 </html>

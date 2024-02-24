@@ -1,11 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Region, UserComments
+from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from .forms import PostForm
+import json
+
 
 def home(request):
     posts = Post.objects.all()
@@ -88,16 +93,25 @@ def toggle_favorite(request, post_id):
     return redirect('home')
 
 @login_required
+@csrf_exempt
+@require_POST
 def create_gem(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('home')
-    else:
-        form = PostForm()
+    # Parse the JSON data from the request
+    data = json.loads(request.body)
+
+    # Create a new post
+    post = Post.objects.create(
+        author=request.user,
+        title=data['location'][:200],  # Changed from 'location'
+        image=data['photo_url'], 
+    )
+
+    # Return a JSON response
+    return JsonResponse({'status': 'ok'})
+
+@login_required
+def create_gem_form(request):
+    form = PostForm()
     return render(request, 'gem_posts/create_gems.html', {'form': form})
 
 @login_required
