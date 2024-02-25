@@ -58,12 +58,22 @@ def gem_detail(request, post_id):
         new_comment = UserComments.objects.create(comment=request.POST['content'], author=request.user, place=post)
     return render(request, 'gem_posts/gem_detail.html', {'post': post, 'comments': comments})
 
+
 def posts_by_region(request, region_id):
     region = get_object_or_404(Region, id=region_id)
     posts = Post.objects.filter(region=region)
     regions = Region.objects.all()
     return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': True})
 
+def api_regions(request):
+    # Get all Region objects
+    regions = Region.objects.all()
+
+    # Convert the regions to a list of dictionaries
+    regions_data = [{'id': region.id, 'name': region.name} for region in regions]
+
+    # Return the data as JSON
+    return JsonResponse(regions_data, safe=False)
 
 @login_required
 def favorites(request):
@@ -99,15 +109,21 @@ def create_gem(request):
     # Parse the JSON data from the request
     data = json.loads(request.body)
 
+    # Get a Region object
+    region = Region.objects.get(id=data['region_id'])
+
     # Create a new post
     post = Post.objects.create(
         author=request.user,
-        title=data['location'][:200],  # Changed from 'location'
-        image=data['photo_url'], 
+        title=data['location'][:200],
+        photo_url=data['photo_url'],
+        region=region,
     )
 
     # Return a JSON response
     return JsonResponse({'status': 'ok'})
+
+    return redirect ('home')
 
 @login_required
 def create_gem_form(request):

@@ -13,6 +13,7 @@ urlpatterns = [
     path('favorites/', favorites, name='favorites'),
     path('gem_posts/create_gems/', create_gem, name='create_gems'),
     path('delete_gem/<int:post_id>/', views.delete_gem, name='delete_gem'),
+    path('api/regions', views.api_regions, name='api_regions'),
     path('posts_by_region/<int:region_id>/', views.posts_by_region, name='posts_by_region'),
     path('post/<int:post_id>/', views.gem_detail, name='gem_detail'),
     path('post/<int:post_id>/comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
