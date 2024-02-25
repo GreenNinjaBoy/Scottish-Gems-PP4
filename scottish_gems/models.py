@@ -28,10 +28,11 @@ class Post(models.Model):
         - field_2: Additional field with a default value.
         - field_3: Additional field that can be null.
     """
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    title = models.CharField(max_length=300, unique=True)
+    address = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=300, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="gem_places")
-    content = models.TextField()
+    content = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
     STATUS = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
