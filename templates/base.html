@@ -66,8 +66,9 @@
         <div class="row g-3 post-row  justify-content-center">
           {% for post in posts %}
             <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3 post-card">
+              {{ post.title }}
               <!-- Display the post -->
-              <h2><a href = "{%url 'gem_detail' post.id %}">{{ post.title }}</a></h2>
+             <!-- <h2><a href = "{%url 'gem_detail' post.id %}">{{ post.title }}</a></h2>
               {% if post.image %}
                 <img src="{{ post.image.url }}" alt="{{ post.title }}">
               {% endif %}
@@ -75,7 +76,7 @@
               <p class="gem-info">{{post.content}}</p>
               <a href="{% url 'gem_detail' post.id %}">Show More</a>
               <br>
-              <p>Region: {{post.region}}</p>
+              <p>Region: {{post.region}}</p> -->
               {% if request.user.is_authenticated %}
                 <form method="post" action="{% url 'toggle_favorite' post.id %}">
                   {% csrf_token %}

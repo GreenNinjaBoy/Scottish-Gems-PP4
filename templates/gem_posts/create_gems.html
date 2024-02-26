@@ -8,7 +8,7 @@
 
 
 {% block head %}
-<script type="module" src="{% static 'js/add-gem-form.js' %}"></script>
+
 {% endblock head %}
 
 <main class="add-place-page">
@@ -29,7 +29,7 @@
             <img src="{% static 'images/no-google-photo-placeholder.png' %}" alt="Placeholder image" id="photo">
         </div>
         <!-- Form (hidden) -->
-        <form method="post">{% csrf_token %}
+        <form method="post" action="{% url 'add_gem' %}"enctype="multipart/form-data">{% csrf_token %}
             {{ form.as_p }}
             {{ form.google_place_id.as_hidden }}
             <h2 class="detail-view-place-title" id="add-form-title">Share Your Gem</h2>
@@ -37,7 +37,7 @@
             <div class="add-place-btns-container">
                 <input type="submit" value="Share gem" id="place-add-save-btn" class="submit-btn">
                 <a href="{% url 'home' %}" class="cancel-btn">Cancel</a>
-        </div>
+            </div>
         </form>
 
 
@@ -46,6 +46,10 @@
 </main>
 
 {% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/add-gem-form.js' %}"></script>
+{% endblock %}
 
 {% include 'partials/js.html' %}
 <script type="text/javascript">

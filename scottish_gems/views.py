@@ -19,6 +19,7 @@ def home(request):
         posts = Post.objects.filter(region__name=region_selected)
     else:
         posts = Post.objects.all()
+        print(posts)
     return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': bool(region_selected)})
 
 
@@ -112,9 +113,11 @@ def add_gem(request):
     if request.method == 'POST':
         form = AddGemForm(request.POST, request.FILES)  # Create a form instance with the submitted data
         if form.is_valid():
+            print("before saving post")
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            print("after saving post", post.pk)
             messages.success(request, 'Gem added successfully.')
             return redirect('home')
         else:

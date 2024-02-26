@@ -29,6 +29,7 @@ class Post(models.Model):
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
     photo_url = models.URLField(max_length=500, blank=True)
     google_place_id = models.CharField(max_length=255)
+    picture = models.ImageField(upload_to='pictures/')
         
     class Meta:
         ordering = ["-created_on"]

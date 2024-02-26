@@ -42,7 +42,7 @@
           </li>
           <li>{% if request.user.is_authenticated %}
             <a class="nav-link" id="navbar-text" href="{% url 'favorites' %}">Favorites</a></li>
-            <a class="nav-link" id="navbar-text" href="{% url 'add-gem' %}">Share your Gem</a>
+            <a class="nav-link" id="navbar-text" href="{% url 'add_gem' %}">Share your Gem</a>
             {% endif %}
         </ul>
           {% if request.user.is_authenticated %}
