@@ -8,14 +8,19 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from .forms import PostForm
+from .forms import AddGemForm
 import json
 
 
 def home(request):
-    posts = Post.objects.all()
     regions = Region.objects.all()
-    return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': False})
+    region_selected = request.GET.get('region')
+    if region_selected:
+        posts = Post.objects.filter(region__name=region_selected)
+    else:
+        posts = Post.objects.all()
+    return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': bool(region_selected)})
+
 
 def signup(request):
     if request.method == 'POST':
@@ -103,31 +108,18 @@ def toggle_favorite(request, post_id):
     return redirect('home')
 
 @login_required
-@csrf_exempt
-@require_POST
-def create_gem(request):
-    # Parse the JSON data from the request
-    data = json.loads(request.body)
-
-    # Get a Region object
-    region = Region.objects.get(id=data['region_id'])
-
-    # Create a new post
-    post = Post.objects.create(
-        author=request.user,
-        title=data['location'][:200],
-        photo_url=data['photo_url'],
-        region=region,
-    )
-
-    # Return a JSON response
-    return JsonResponse({'status': 'ok'})
-
-    return redirect ('home')
-
-@login_required
-def create_gem_form(request):
-    form = PostForm()
+def add_gem(request):
+    if request.method == 'POST':
+        form = AddGemForm(request.POST, request.FILES)  # Create a form instance with the submitted data
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.success(request, 'Gem added successfully.')
+            return redirect('home')
+        else:
+            print(form.errors)  # Print form validation errors
+    form = AddGemForm()  # Create a new, empty form instance
     return render(request, 'gem_posts/create_gems.html', {'form': form})
 
 @login_required

@@ -8,11 +8,11 @@
 
 
 {% block head %}
-<script type="module" src="{% static 'js/place-add-form.js' %}"></script>
+<script type="module" src="{% static 'js/add-gem-form.js' %}"></script>
 {% endblock head %}
 
 <main class="add-place-page">
-    <h1>Add a Place</h1>
+    <h1>Share Your Gem </h1>
 
     <!-- GOOGLE PLACE SEARCH FIELD -->
 
@@ -29,26 +29,25 @@
             <img src="{% static 'images/no-google-photo-placeholder.png' %}" alt="Placeholder image" id="photo">
         </div>
         <!-- Form (hidden) -->
-        <form method="post" style="display: none;">{% csrf_token %}
+        <form method="post">{% csrf_token %}
             {{ form.as_p }}
-            <h2 class="detail-view-place-title" id="add-form-title">Place Name</h2>
+            {{ form.google_place_id.as_hidden }}
+            <h2 class="detail-view-place-title" id="add-form-title">Share Your Gem</h2>
             <p class="place-address" id="add-form-address"></p>
             <div class="add-place-btns-container">
-                <input type="submit" value="Save" id="place-add-save-btn" class="submit-btn">
-                <a href="{% url 'create_gems' %}" class="cancel-btn">Cancel</a>
-            </div>
+                <input type="submit" value="Share gem" id="place-add-save-btn" class="submit-btn">
+                <a href="{% url 'home' %}" class="cancel-btn">Cancel</a>
+        </div>
         </form>
-    </div>
+
 
     <!-- Back button -->
     <span id="close-btn"><i class="fa-solid fa-chevron-left"></i></span>
 </main>
 
+{% endblock content %}
 
 {% include 'partials/js.html' %}
 <script type="text/javascript">
     var postUrl = "{{ post_url }}";
 </script>
-
-{% endblock content %}
-

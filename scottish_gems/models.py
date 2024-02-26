@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from django import forms
 
 # Status choices for the Post model
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -14,6 +15,8 @@ class Region(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=300, unique=True)
     address = models.CharField(max_length=200)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     slug = models.SlugField(max_length=300, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="gem_places")
     content = models.TextField(max_length=200)
@@ -24,7 +27,8 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     favorited_by = models.ManyToManyField(User, related_name='favorite_posts', blank=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
-    photo_url = models.URLField(max_length=500, blank=True) 
+    photo_url = models.URLField(max_length=500, blank=True)
+    google_place_id = models.CharField(max_length=255)
         
     class Meta:
         ordering = ["-created_on"]

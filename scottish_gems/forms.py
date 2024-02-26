@@ -1,8 +1,13 @@
 from django import forms
 from .models import Post
 
-class PostForm(forms.ModelForm):
+class AddGemForm(forms.ModelForm):
+    google_place_id = forms.CharField(widget=forms.HiddenInput(attrs={'id': 'googlePlaceIdField'}))
     class Meta:
         model = Post
-        fields = ['title', 'image', 'content', 'region']
-        excludee = ['author']
+        fields = ['latitude', 'longitude', 'region',]
+        widgets = {
+            'latitude': forms.HiddenInput(attrs={'id': 'latitude-field'}),
+            'longitude': forms.HiddenInput(attrs={'id': 'longitude-field'}),
+            'google_place_id': forms.HiddenInput(attrs={'id': 'googlePlaceIdField'}),
+        }

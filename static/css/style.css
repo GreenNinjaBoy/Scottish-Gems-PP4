@@ -332,6 +332,10 @@ nav {
     margin: 0 40%;
 }
 
+#place-add-form {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .page-title h1 a.nav-link {
       font-size: 150%; /* Adjust as needed */
