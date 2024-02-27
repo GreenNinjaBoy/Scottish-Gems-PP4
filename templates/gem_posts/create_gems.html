@@ -21,6 +21,10 @@
         <input type="text" id="search-input" placeholder="Start typing a place name">
     </div>
 
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
+
     <!-- PLACE CARD -->
 
     <div id="place-add-form" class="form-container">
@@ -31,7 +35,6 @@
         <!-- Form (hidden) -->
         <form method="post" action="{% url 'add_gem' %}"enctype="multipart/form-data">{% csrf_token %}
             {{ form.as_p }}
-            {{ form.google_place_id.as_hidden }}
             <h2 class="detail-view-place-title" id="add-form-title">Share Your Gem</h2>
             <p class="place-address" id="add-form-address"></p>
             <div class="add-place-btns-container">

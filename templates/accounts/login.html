@@ -20,8 +20,8 @@
       <button class="primaryAction btn btn--success" type="submit">{% trans "Log In" %}</button>
     </form>
       <h6>
-        <p class="if-no-account">{% blocktrans %}Don't have an account? Then please
-          <a href="{{ signup_url }}"><strong>sign up</strong>.</a>{% endblocktrans %}</p>
+        <p class="if-no-account">Don't have an account? Then please
+          <a href="{% url 'signup' %}"><strong>sign up</strong>.</a></p>
       </div>
     </div>
   

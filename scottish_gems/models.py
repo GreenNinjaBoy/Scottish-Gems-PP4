@@ -15,8 +15,8 @@ class Region(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=300, unique=True)
     address = models.CharField(max_length=200)
-    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
-    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    latitude = models.DecimalField(max_digits=64, decimal_places=32, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=64, decimal_places=32, null=True, blank=True)
     slug = models.SlugField(max_length=300, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="gem_places")
     content = models.TextField(max_length=200)
@@ -29,7 +29,6 @@ class Post(models.Model):
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
     photo_url = models.URLField(max_length=500, blank=True)
     google_place_id = models.CharField(max_length=255)
-    picture = models.ImageField(upload_to='pictures/')
         
     class Meta:
         ordering = ["-created_on"]

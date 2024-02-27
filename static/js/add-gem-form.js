@@ -83,5 +83,3 @@ function initAutocomplete() {
         console.log("Form should be visible now");
     });
 }
-
-window.addEventListener("load", initAutocomplete);

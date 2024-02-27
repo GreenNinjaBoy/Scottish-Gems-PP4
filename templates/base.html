@@ -35,10 +35,12 @@
               <!-- Display the post -->
               <h2>{{ post.title }}</h2>
               {% if post.image %}
-              <div class="image.container">
-                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+              <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% else %}
+              <div class="add-form-img-container">
+                <img src="https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1s{{ post.google_place_id }}&3u750&4u750&5m1&2e1&callback=none&key=AIzaSyDU10F5IFW-yAo0xDkulAl5FuaoB3daVgQ&token=53398" alt="{{ post.title }}" id="photo">
               </div>
-              {% endif %}
+            {% endif %}
               <p>Author: {{ post.author.username }}</p>
               <p >Gem Info: {{post.content}}</p>
               {% if request.user.is_authenticated %}
@@ -68,7 +70,7 @@
             <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3 post-card">
               {{ post.title }}
               <!-- Display the post -->
-             <!-- <h2><a href = "{%url 'gem_detail' post.id %}">{{ post.title }}</a></h2>
+              <h2><a href = "{%url 'gem_detail' post.id %}">{{ post.title }}</a></h2>
               {% if post.image %}
                 <img src="{{ post.image.url }}" alt="{{ post.title }}">
               {% endif %}
@@ -76,7 +78,7 @@
               <p class="gem-info">{{post.content}}</p>
               <a href="{% url 'gem_detail' post.id %}">Show More</a>
               <br>
-              <p>Region: {{post.region}}</p> -->
+              <p>Region: {{post.region}}</p>
               {% if request.user.is_authenticated %}
                 <form method="post" action="{% url 'toggle_favorite' post.id %}">
                   {% csrf_token %}

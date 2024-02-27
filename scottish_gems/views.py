@@ -138,8 +138,11 @@ def add_gem(request):
             return redirect('home')
         else:
             print(form.errors)  # Print form validation errors
+            return render(request, 'gem_posts/create_gems.html', {'form': form})
+    
     form = AddGemForm()  # Create a new, empty form instance
     return render(request, 'gem_posts/create_gems.html', {'form': form})
+    
 
 @login_required
 def delete_gem(request, post_id):
