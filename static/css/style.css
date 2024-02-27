@@ -332,8 +332,23 @@ nav {
     margin: 0 40%;
 }
 
+.add-place-page, .place-add-form{
+        display: flex;
+        flex-direction: column;
+        font-family: inherit;
+        color: #fff;
+        text-align: center;
+        align-items: center;
+        margin-top: 6%;
+    }
+
 #place-add-form {
     display: none;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 768px) {

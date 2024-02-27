@@ -13,6 +13,9 @@ import json
 
 
 def home(request):
+    """
+    Display all posts or posts filtered by region.
+    """
     regions = Region.objects.all()
     region_selected = request.GET.get('region')
     if region_selected:
@@ -24,6 +27,10 @@ def home(request):
 
 
 def signup(request):
+    """
+    Handles user registration.
+
+    """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -35,6 +42,9 @@ def signup(request):
     return render(request, 'accounts/signup.html', {'form': form})
 
 def login_view(request):
+    """
+    Handles user login request.
+    """
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
@@ -49,6 +59,9 @@ def login_view(request):
     return render(request, 'accounts/login.html', {'login_form': form})
 
 def logout_view(request):
+    """
+    Handles user logout request.
+    """
     if request.method == 'POST':
         logout(request)
         message = render_to_string('accounts/messages/logged_out.txt')
@@ -58,6 +71,9 @@ def logout_view(request):
         return render(request, 'accounts/logout.html')
 
 def gem_detail(request, post_id):
+    """
+    Displays to the user s specific post and its comments
+    """
     post = get_object_or_404(Post, id=post_id)
     comments = post.comments.all()
     if request.method == 'POST':
@@ -66,28 +82,35 @@ def gem_detail(request, post_id):
 
 
 def posts_by_region(request, region_id):
+    """
+    Displays to the user posts filtered by a specific region.
+    """
     region = get_object_or_404(Region, id=region_id)
     posts = Post.objects.filter(region=region)
     regions = Region.objects.all()
     return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': True})
 
 def api_regions(request):
-    # Get all Region objects
+    """
+    Returns all regions as JSON
+    """
     regions = Region.objects.all()
-
-    # Convert the regions to a list of dictionaries
     regions_data = [{'id': region.id, 'name': region.name} for region in regions]
-
-    # Return the data as JSON
     return JsonResponse(regions_data, safe=False)
 
 @login_required
 def favorites(request):
+    """
+    Dispay the current user's favourite posts
+    """
     favorite_posts = request.user.favorite_posts.all()
     return render(request, 'accounts/favorites.html', {'favorite_posts': favorite_posts})
 
 @login_required
 def toggle_favorite(request, post_id):
+    """
+    Add or remove a post from the current user's favourites.
+    """
     post = get_object_or_404(Post, id=post_id)
     if post in request.user.favorite_posts.all():
         request.user.favorite_posts.remove(post)
@@ -97,19 +120,12 @@ def toggle_favorite(request, post_id):
         messages.success(request, 'Post added to favorites.')
     return redirect('home')
     
-@login_required
-def toggle_favorite(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    if post in request.user.favorite_posts.all():
-        request.user.favorite_posts.remove(post)
-        messages.success(request, 'Post removed from favorites.')
-    else:
-        request.user.favorite_posts.add(post)
-        messages.success(request, 'Post added to favorites.')
-    return redirect('home')
 
 @login_required
 def add_gem(request):
+    """
+    Handles the creation of a new post.
+    """
     if request.method == 'POST':
         form = AddGemForm(request.POST, request.FILES)  # Create a form instance with the submitted data
         if form.is_valid():
@@ -127,6 +143,9 @@ def add_gem(request):
 
 @login_required
 def delete_gem(request, post_id):
+    """
+    Handles the deletion of as post.
+    """
     post = get_object_or_404(Post, id=post_id)
     if request.user != post.author:
         messages.warning(request, 'You are not authorized to delete this post.')
@@ -139,6 +158,9 @@ def delete_gem(request, post_id):
 
 @login_required
 def edit_comment(request, post_id, comment_id):
+    """
+    Handles the deletion of a comment.
+    """
     post = get_object_or_404(Post, id=post_id)
     comment = get_object_or_404(UserComments, id=comment_id)
     if request.user != comment.author:
@@ -152,6 +174,9 @@ def edit_comment(request, post_id, comment_id):
 
 @login_required
 def delete_comment(request, post_id, comment_id):
+    """
+    Handles the deletion of a comment
+    """
     post = get_object_or_404(Post, id=post_id)
     comment = get_object_or_404(UserComments, id=comment_id)
     if request.user != comment.author:
