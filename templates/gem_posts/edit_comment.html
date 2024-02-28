@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Edit Comment</h2>
-<form method="post">
-    {% csrf_token %}
-    <textarea name="content">{{ comment.comment }}</textarea>
-    <button type="submit">Update Comment</button>
-</form>
+    <!-- Page title -->
+    <h2>Edit Comment</h2>
+
+    <!-- Comment edit form -->
+    <form method="post">
+        {% csrf_token %}
+        <!-- Textarea pre-filled with the current comment content -->
+        <textarea name="content">{{ comment.comment }}</textarea>
+        <!-- Submit button -->
+        <button type="submit">Update Comment</button>
+    </form>
 {% endblock %}
