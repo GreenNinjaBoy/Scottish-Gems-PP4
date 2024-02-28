@@ -1,49 +1,59 @@
-{% load i18n %}
 {% load static %}
 
+<!-- Include CSS files -->
 {% include 'partials/css.html' %}
+<!-- Include navigation bar -->
 {% include 'partials/navbar.html' %}
 
 {% block content %}
 
-
 {% block head %}
-
 {% endblock head %}
 
 <main class="add-place-page">
+    <!-- Page title -->
     <h1>Share Your Gem </h1>
 
-    <!-- GOOGLE PLACE SEARCH FIELD -->
-
+    <!-- Google place search field -->
     <div id="add-place-input-container">
         <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i></label>
         <input type="text" id="search-input" placeholder="Start typing a place name">
     </div>
 
+    <!-- Display form errors if any -->
     {% if form.errors %}
         {{ form.errors }}
     {% endif %}
 
-    <!-- PLACE CARD -->
-
+    <!-- Place card -->
     <div id="place-add-form" class="form-container">
+
         <!-- Photo -->
         <div class="add-form-img-container">
             <img src="{% static 'images/no-google-photo-placeholder.png' %}" alt="Placeholder image" id="photo">
         </div>
+
         <!-- Form (hidden) -->
-        <form method="post" action="{% url 'add_gem' %}"enctype="multipart/form-data">{% csrf_token %}
+
+        <form method="post" action="{% url 'add_gem' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Render form fields -->
             {{ form.as_p }}
             <h2 class="detail-view-place-title" id="add-form-title">Share Your Gem</h2>
             <p class="place-address" id="add-form-address"></p>
             <div class="add-place-btns-container">
+
+                <!-- Submit button -->
                 <input type="submit" value="Share gem" id="place-add-save-btn" class="submit-btn">
+
+                <!-- Cancel button -->
                 <a href="{% url 'home' %}" class="cancel-btn">Cancel</a>
             </div>
+
+            <!-- Hidden field for photo URL -->
             <input type="hidden" id="photoUrlField" name="photo_url">
         </form>
-
 
     <!-- Back button -->
     <span id="close-btn"><i class="fa-solid fa-chevron-left"></i></span>
@@ -52,10 +62,15 @@
 {% endblock content %}
 
 {% block extra_js %}
+
+<!-- Include JavaScript for add gem form -->
 <script src="{% static 'js/add-gem-form.js' %}"></script>
 {% endblock %}
 
+<!-- Include other JavaScript files -->
 {% include 'partials/js.html' %}
+
+<!-- JavaScript variable for post URL -->
 <script type="text/javascript">
     var postUrl = "{{ post_url }}";
 </script>
