@@ -74,7 +74,13 @@ function initAutocomplete() {
             const imgElement = document.getElementById("photo");
             imgElement.src = photoUrl;
             imgElement.alt = place.name + " Photo";
+
+            const photoUrlField = document.getElementById("photoUrlField");
+            photoUrlField.value = photoUrl;
+
+            console.log("photoUrlField.value:", photoUrlField.value);
         }
+
 
         const placeAddForm = document.getElementById("place-add-form");
         console.log("placeAddForm", placeAddForm);

@@ -19,15 +19,14 @@ class Post(models.Model):
     longitude = models.DecimalField(max_digits=64, decimal_places=32, null=True, blank=True)
     slug = models.SlugField(max_length=300, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="gem_places")
-    content = models.TextField(max_length=200)
+    content = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now_add=True)
     STATUS = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
-    image = models.ImageField(upload_to='user_images', blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     favorited_by = models.ManyToManyField(User, related_name='favorite_posts', blank=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
-    photo_url = models.URLField(max_length=500, blank=True)
+    photo_url = models.URLField(max_length=5000, blank=True)
     google_place_id = models.CharField(max_length=255)
         
     class Meta:

@@ -132,7 +132,11 @@ def add_gem(request):
             print("before saving post")
             post = form.save(commit=False)
             post.author = request.user
+            photo_url = form.cleaned_data['photo_url']
+            print("photo_url before saving:", photo_url)
+            post.photo_url = photo_url
             post.save()
+            print("photo_url after saving:", post.photo_url)
             print("after saving post", post.pk)
             messages.success(request, 'Gem added successfully.')
             return redirect('home')

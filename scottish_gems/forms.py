@@ -9,7 +9,7 @@ class AddGemForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'address', 'content', 'latitude', 'longitude', 'region',]  
+        fields = ['title', 'address', 'content', 'latitude', 'longitude', 'region', 'photo_url']  
         widgets = {
             'latitude': forms.HiddenInput(attrs={'id': 'latitude-field'}),
             'longitude': forms.HiddenInput(attrs={'id': 'longitude-field'}),
