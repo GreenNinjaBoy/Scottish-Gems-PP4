@@ -1,10 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
-from django import forms
-
-# Status choices for the Post model
-STATUS = ((0, "Draft"), (1, "Published"))
+from django.utils.crypto import get_random_string
 
 class Region(models.Model):
     """
@@ -22,19 +19,25 @@ class Post(models.Model):
     a slug for URL purposes, creation and update timestamps, a list of users 
     who favorited the post, a region, a photo URL, and a Google Place ID.
     """
+    # Status choices for the Post model
+    STATUS = ((0, "Draft"), (1, "Published"))
+
     title = models.CharField(max_length=300, unique=True)
-    address = models.CharField(max_length=200)
-    latitude = models.DecimalField(max_digits=64, decimal_places=32, null=True, blank=True)
-    longitude = models.DecimalField(max_digits=64, decimal_places=32, null=True, blank=True)
     slug = models.SlugField(max_length=300, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="gem_places")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    favorited_by = models.ManyToManyField(User, related_name='favorite_posts', blank=True)
+    STATUS = models.IntegerField(choices=STATUS, default=0)
+
+    address = models.CharField(max_length=200)
+    latitude = models.DecimalField(max_digits=64, decimal_places=32, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=64, decimal_places=32, null=True, blank=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
-    photo_url = models.URLField(max_length=5000, blank=True)
     google_place_id = models.CharField(max_length=255)
-        
+
+    favorited_by = models.ManyToManyField(User, related_name='favorite_posts', blank=True)
+    photo_url = models.URLField(max_length=5000, blank=True)
+
     class Meta:
         ordering = ["-created_on"]
 
@@ -52,8 +55,6 @@ class Post(models.Model):
             while Post.objects.filter(slug=self.slug).exists():
                 self.slug = slugify(self.title + '-' + get_random_string(5)) or get_random_string(10)
         super().save(*args, **kwargs)
-
-
 
 class UserComments(models.Model):
     """
