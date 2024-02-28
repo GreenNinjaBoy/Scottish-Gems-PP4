@@ -12,9 +12,9 @@ class PostAdmin(SummernoteModelAdmin):
     fields, and allows filtering posts by creation date. The slug field is 
     automatically populated based on the title field.
     """
-    list_display = ('title', 'slug', 'created_on')
+    list_display = ('title', 'slug', 'get_STATUS_display', 'created_on')
     search_fields = ['title', 'content']
-    list_filter = ( 'created_on',)
+    list_filter = ( 'STATUS','created_on',)
     prepopulated_fields = {'slug':('title',)}
     summernotes_fields = {'content',}
 

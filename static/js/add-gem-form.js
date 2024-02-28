@@ -1,5 +1,4 @@
-console.log("Script loaded");
-
+// Get references to the HTML elements that will be used in the script.
 const searchInput = document.getElementById("search-input");
 const latitudeField = document.getElementById("latitude-field");
 const longitudeField = document.getElementById("longitude-field");
@@ -7,29 +6,21 @@ const googlePlaceIdField = document.getElementById("googlePlaceIdField");
 const nameField = document.getElementById("add-form-title");
 const addressField = document.getElementById("add-form-address");
 
-// Add these lines to get the hidden fields in your form
+// Get references to the hidden fields in the form.
 const titleField = document.getElementById("title-field");
 const addressFieldForm = document.getElementById("address-field");
 const contentField = document.getElementById("content-field");
 
-console.log("searchInput", searchInput);
-console.log("latitudeField", latitudeField);
-console.log("longitudeField", longitudeField);
-console.log("googlePlaceIdField", googlePlaceIdField);
-console.log("nameField", nameField);
-console.log("addressField", addressField);
-
-// Create Google Places autocomplete functionality for place searches. 
+// Function to initialize the Google Places autocomplete functionality.
 function initAutocomplete() {
-    console.log("initAutocomplete called");
-
+    // Define the geographical bounds for the autocomplete search.
     const SCOTLAND_BOUNDS = {
         north: 60.85,
         south: 54.60,
         west: -8.65,
         east: -0.76,
     };
-
+    // Set the options for the autocomplete search.
     const options = {
         bounds: SCOTLAND_BOUNDS,
         componentRestrictions: {
@@ -38,39 +29,36 @@ function initAutocomplete() {
         fields: ["formatted_address", "geometry", "name", "photos", "place_id"],
         strictBounds: true,
     };
-
+     // Create the autocomplete object.
     const autocomplete = new google.maps.places.Autocomplete(searchInput, options);
-    console.log("Autocomplete created", autocomplete);
 
-    // When a place is chosen, automatically fill in the hidden form fields.
+
+     // Event listener for when a place is selected from the autocomplete dropdown.
     autocomplete.addListener("place_changed", () => {
-        console.log("place_changed event triggered");
-
+        // Get the selected place.
         const place = autocomplete.getPlace();
-        console.log("place", place);
-
+        
+        // Get the geographical coordinates of the selected place.
         const coordinates = place.geometry.location;
         const latitude = coordinates.lat();
-        console.log("Latitude:", latitude);
         const longitude = coordinates.lng();
-        console.log("Longitude:", longitude);
-
+        
+        // Update the text content and value of the form fields with the details of the selected place.
         nameField.textContent = place.name;
-        titleField.value = place.name;  // Set the value of the hidden title field
+        titleField.value = place.name;  
         latitudeField.value = latitude;
         longitudeField.value = longitude;
-        console.log("Google Place ID:", place.place_id);
         googlePlaceIdField.value = place.place_id;
         addressField.textContent = place.formatted_address;
-        addressFieldForm.value = place.formatted_address;  // Set the value of the hidden address field
-        contentField.value = place.formatted_address;  // Set the value of the hidden content field
+        addressFieldForm.value = place.formatted_address;  
+        contentField.value = place.formatted_address;  
 
         // Get a single photo URL from Google Places.
         if (place.photos && place.photos.length > 0) {
             const photoUrl = place.photos[0].getUrl({
                 maxHeight: 750, maxWidth: 750,
             });
-
+             // If the selected place has photos, get the URL of the first photo and update the src attribute of the img element.
             const imgElement = document.getElementById("photo");
             imgElement.src = photoUrl;
             imgElement.alt = place.name + " Photo";
@@ -78,14 +66,11 @@ function initAutocomplete() {
             const photoUrlField = document.getElementById("photoUrlField");
             photoUrlField.value = photoUrl;
 
-            console.log("photoUrlField.value:", photoUrlField.value);
         }
 
-
+        // Display the form for adding a new place.
         const placeAddForm = document.getElementById("place-add-form");
-        console.log("placeAddForm", placeAddForm);
 
         placeAddForm.style.display = "flex";
-        console.log("Form should be visible now");
     });
 }
