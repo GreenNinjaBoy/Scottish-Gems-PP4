@@ -1,26 +1,23 @@
 {% load static  %}
 {% include 'partials/css.html' %}
 {% include 'partials/navbar.html' %}
-
 {% load i18n %}
 
 {% block content %}
-<section class="log-out-confirmation-page">
-    <h2>{% trans "Log Out" %}</h2>
-
-    <p>{% trans 'Are you sure you want to log out?' %}</p>
-
-    <form id="logout-form" method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name}}" value="{{redirect_field_value}}"/>
-{% endif %}
-    <button id="logout-button" type="submit" class="btn btn--alert"> {% trans 'Log Out' %}</button>
-    </form>
-
-    <span id="close-btn"><i class=""fa-solid fa-chevron-left></i></span>
-</section>
-
-<script src="{% static 'back-btn.js' %}"></script>
-
+    <!-- Log Out Confirmation Section -->
+    <section class="log-out-confirmation-page">
+        <h2>{% trans "Log Out" %}</h2>
+        <p>{% trans 'Are you sure you want to log out?' %}</p>
+        <!-- Log Out Form -->
+        <form id="logout-form" method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name}}" value="{{redirect_field_value}}"/>
+            {% endif %}
+            <!-- Log Out Button -->
+            <button id="logout-button" type="submit" class="btn btn--alert"> {% trans 'Log Out' %}</button>
+        </form>
+        <span id="close-btn"><i class=""fa-solid fa-chevron-left></i></span>
+    </section>
+    <script src="{% static 'back-btn.js' %}"></script>
 {% endblock %}
