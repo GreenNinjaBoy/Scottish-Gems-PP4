@@ -2,10 +2,15 @@
 {% load static %}
 
 {% block content %}
+<div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3 post-card">
     <!-- Post title -->
     <h2>{{ post.title }}</h2>
     <!-- Post content -->
-    <p>{{ post.content}}</p>
+    <img src="{{ post.photo_url }}" alt="{{ post.title }}">
+    <p>Author: {{ post.author.username }}</p>
+    <p class="gem-info">{{post.content}}</p>
+    <br>
+    <p>Region: {{post.region}}</p>
 
     <!-- Loop through comments -->
     {% for comment in comments %}
@@ -20,6 +25,7 @@
                 <button class="delete-comment" data-comment-id="{{ comment.id }}" data-post-id="{{ post.id }}">Delete</button>
             {% endif %}
         </div>
+</div>        
     {% endfor %}
 
     <!-- CSRF token for AJAX -->

@@ -53,8 +53,13 @@ nav {
 }
 
 .posts-container {
-    margin-top: 20px; /* Adjust as needed */
-    background-color: #d0d3d4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: inherit;
+    background-color: #31373d;
+
 }
 
 .post-row {
