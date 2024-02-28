@@ -1,74 +1,87 @@
+<!-- Navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-blue custom-navbar">
-    <div class="container-fluid">
+  <div class="container-fluid">
+    
+      <!-- Navbar toggler button for mobile view -->
       <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Navbar items -->
       <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a
-              class="nav-link {% if request.path == home_url %}active{% endif %}"
-              aria-current="page"
-              href="{% url 'home' %}"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Region Selection
-            </a>
-            <ul class="dropdown-menu bg-blue" aria-labelledby="navbarDropdown">
-              {% for region in regions %}
-                <li>
-                  <a class="dropdown-item" href="{% url 'posts_by_region' region.id %}">{{ region.name }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-          <li>{% if request.user.is_authenticated %}
-            <a class="nav-link" id="navbar-text" href="{% url 'favorites' %}">Favorites</a></li>
-            <a class="nav-link" id="navbar-text" href="{% url 'add_gem' %}">Share your Gem</a>
-            {% endif %}
-        </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <!-- Home link -->
+              <li class="nav-item">
+                  <a
+                      class="nav-link {% if request.path == home_url %}active{% endif %}"
+                      aria-current="page"
+                      href="{% url 'home' %}"
+                  >Home</a>
+              </li>
+
+              <!-- Region selection dropdown -->
+              <li class="nav-item dropdown">
+                  <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                  >
+                      Region Selection
+                  </a>
+                  <ul class="dropdown-menu bg-blue" aria-labelledby="navbarDropdown">
+
+                      <!-- Loop through regions and create a dropdown item for each one -->
+                      {% for region in regions %}
+                          <li>
+                              <a class="dropdown-item" href="{% url 'posts_by_region' region.id %}">{{ region.name }}</a>
+                          </li>
+                      {% endfor %}
+                  </ul>
+              </li>
+
+              <!-- Favorites and Share your Gem links for authenticated users -->
+              {% if request.user.is_authenticated %}
+                  <li><a class="nav-link" id="navbar-text" href="{% url 'favorites' %}">Favorites</a></li>
+                  <li><a class="nav-link" id="navbar-text" href="{% url 'add_gem' %}">Share your Gem</a></li>
+              {% endif %}
+          </ul>
+
+          <!-- User icon and Log Out/Log In link -->
           {% if request.user.is_authenticated %}
-          <div class="auser-icon"></div>
-            <a class="user-links" href="{% url 'account_logout' %}">
-            <div>
-              <i class="fa-regular fa-lg fa-circle-user"></i>
-            </div>
-            <div>
-              <div class="header-nav-text">Log Out</div>
-            </div>
-            </a>
-          </div>
+              <div class="auser-icon">
+                  <a class="user-links" href="{% url 'account_logout' %}">
+                      <div>
+                          <i class="fa-regular fa-lg fa-circle-user"></i>
+                      </div>
+                      <div>
+                          <div class="header-nav-text">Log Out</div>
+                      </div>
+                  </a>
+              </div>
           {% else %}
-          <div class="user-icon">
-            <a class="user-links" href="{% url 'login' %}">
-              <div>
-                <i class="fa-regular fa-lg fa-circle-user"></i>
+              <div class="user-icon">
+                  <a class="user-links" href="{% url 'login' %}">
+                      <div>
+                          <i class="fa-regular fa-lg fa-circle-user"></i>
+                      </div>
+                      <div>
+                          <div class="header-nav-text">Log In</div>
+                      </div>
+                  </a>
               </div>
-              <div>
-                <div class="header-nav-text"> Log In</div>
-              </div>
-            </a>
-          </div>
           {% endif %}
-        </div>
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>
