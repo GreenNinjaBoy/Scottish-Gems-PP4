@@ -2,31 +2,42 @@
 {% load static %}
 
 {% block content %}
-<h2>{{ post.title }}</h2>
-<p>{{ post.content}}</p>
+    <!-- Post title -->
+    <h2>{{ post.title }}</h2>
+    <!-- Post content -->
+    <p>{{ post.content}}</p>
 
-{% for comment in comments %}
-<div class="comment">
-    <p>{{ comment.author.username }} Commented:</p>
-    <p>{{ comment.comment }}</p>
-    {% if user == comment.author %}
-    <a href="{% url 'edit_comment' post.id comment.id %}">Edit</a>
-    <button class="delete-comment" data-comment-id="{{ comment.id }}" data-post-id="{{ post.id }}">Delete</button>
-    {% endif %}
-</div>
-{% endfor %}
+    <!-- Loop through comments -->
+    {% for comment in comments %}
+        <div class="comment">
+            <!-- Comment author -->
+            <p>{{ comment.author.username }} Commented:</p>
+            <!-- Comment content -->
+            <p>{{ comment.comment }}</p>
+            <!-- Edit and Delete buttons for comment author -->
+            {% if user == comment.author %}
+                <a href="{% url 'edit_comment' post.id comment.id %}">Edit</a>
+                <button class="delete-comment" data-comment-id="{{ comment.id }}" data-post-id="{{ post.id }}">Delete</button>
+            {% endif %}
+        </div>
+    {% endfor %}
 
-<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-<form method="post">
-    {% csrf_token %}
-    <textarea name="content"></textarea>
-    <button type="submit">Submit Comment</button>
-</form>
+    <!-- CSRF token for AJAX -->
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <!-- Comment form -->
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="content"></textarea>
+        <button type="submit">Submit Comment</button>
+    </form>
+
+    <!-- CSRF token for AJAX -->
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
 {% endblock %}
 
 {% block extra_js%}
-<script src="{% static 'js/comment.js' %}"></script>
+    <!-- Extra JavaScript -->
+    <script src="{% static 'js/comment.js' %}"></script>
 {% endblock %}
