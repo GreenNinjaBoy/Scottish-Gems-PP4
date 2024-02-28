@@ -129,19 +129,14 @@ def add_gem(request):
     if request.method == 'POST':
         form = AddGemForm(request.POST, request.FILES)  # Create a form instance with the submitted data
         if form.is_valid():
-            print("before saving post")
             post = form.save(commit=False)
             post.author = request.user
             photo_url = form.cleaned_data['photo_url']
-            print("photo_url before saving:", photo_url)
             post.photo_url = photo_url
             post.save()
-            print("photo_url after saving:", post.photo_url)
-            print("after saving post", post.pk)
             messages.success(request, 'Gem added successfully.')
             return redirect('home')
         else:
-            print(form.errors)  # Print form validation errors
             return render(request, 'gem_posts/create_gems.html', {'form': form})
     
     form = AddGemForm()  # Create a new, empty form instance
