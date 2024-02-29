@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'scottish_gems',
+    'pytest'
 ]
 
 MIDDLEWARE = [
