@@ -22,14 +22,16 @@ def home(request):
         posts = Post.objects.filter(region__name=region_selected)
     else:
         posts = Post.objects.all()
-        print(posts)
-    return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': bool(region_selected)})
+    return render(request, 'base.html', {
+        'posts': posts,
+        'regions': regions,
+        'region_selected': bool(region_selected)
+    })
 
 
 def signup(request):
     """
     Handles user registration.
-
     """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -40,6 +42,7 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
+
 
 def login_view(request):
     """
@@ -53,10 +56,13 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
+                messages.success(request,
+                                 f' Logged into Scottish Gems as {username}.')
                 return redirect('home')
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'login_form': form})
+
 
 def logout_view(request):
     """
@@ -64,11 +70,11 @@ def logout_view(request):
     """
     if request.method == 'POST':
         logout(request)
-        message = render_to_string('accounts/messages/logged_out.txt')
-        messages.success(request, message)
+        messages.success(request, f'Goodbye hope to see you again soon.')
         return redirect('home')
     else:
         return render(request, 'accounts/logout.html')
+
 
 def gem_detail(request, post_id):
     """
@@ -77,8 +83,15 @@ def gem_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = post.comments.all()
     if request.method == 'POST':
-        new_comment = UserComments.objects.create(comment=request.POST['content'], author=request.user, place=post)
-    return render(request, 'gem_posts/gem_detail.html', {'post': post, 'comments': comments})
+        new_comment = UserComments.objects.create(
+            comment=request.POST['content'],
+            author=request.user,
+            place=post
+        )
+        messages.success(request,
+                         f"{request.user.username}'s Comment has been saved")
+    return render(request, 'gem_posts/gem_detail.html',
+                  {'post': post, 'comments': comments})
 
 
 def posts_by_region(request, region_id):
@@ -88,15 +101,22 @@ def posts_by_region(request, region_id):
     region = get_object_or_404(Region, id=region_id)
     posts = Post.objects.filter(region=region)
     regions = Region.objects.all()
-    return render(request, 'base.html', {'posts': posts, 'regions': regions, 'region_selected': True})
+    return render(request, 'base.html', {
+        'posts': posts,
+        'regions': regions,
+        'region_selected': True
+    })
+
 
 def api_regions(request):
     """
     Returns all regions as JSON
     """
     regions = Region.objects.all()
-    regions_data = [{'id': region.id, 'name': region.name} for region in regions]
+    regions_data = [{'id': region.id,
+                    'name': region.name} for region in regions]
     return JsonResponse(regions_data, safe=False)
+
 
 @login_required
 def favorites(request):
@@ -104,7 +124,9 @@ def favorites(request):
     Dispay the current user's favourite posts
     """
     favorite_posts = request.user.favorite_posts.all()
-    return render(request, 'accounts/favorites.html', {'favorite_posts': favorite_posts})
+    return render(request, 'accounts/favorites.html',
+                  {'favorite_posts': favorite_posts})
+
 
 @login_required
 def toggle_favorite(request, post_id):
@@ -114,12 +136,12 @@ def toggle_favorite(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if post in request.user.favorite_posts.all():
         request.user.favorite_posts.remove(post)
-        messages.success(request, 'Post removed from favorites.')
+        messages.success(request, f'"{post.title}" removed from favorites.')
     else:
         request.user.favorite_posts.add(post)
-        messages.success(request, 'Post added to favorites.')
+        messages.success(request, f'"{post.title}" added to favorites.')
     return redirect('home')
-    
+
 
 @login_required
 def add_gem(request):
@@ -127,36 +149,41 @@ def add_gem(request):
     Handles the creation of a new post.
     """
     if request.method == 'POST':
-        form = AddGemForm(request.POST, request.FILES)  # Create a form instance with the submitted data
+        username = request.user.username
+        form = AddGemForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             photo_url = form.cleaned_data['photo_url']
             post.photo_url = photo_url
             post.save()
-            messages.success(request, 'Gem added successfully.')
+            messages.success(request,
+                             f' congratulations {username}, you have successfully added {post.title} to Scotlands List of Gems.')
             return redirect('home')
         else:
             return render(request, 'gem_posts/create_gems.html', {'form': form})
-    
-    form = AddGemForm()  # Create a new, empty form instance
+
+    form = AddGemForm()
     return render(request, 'gem_posts/create_gems.html', {'form': form})
-    
+
 
 @login_required
 def delete_gem(request, post_id):
     """
     Handles the deletion of as post.
     """
+    username = request.user.username
     post = get_object_or_404(Post, id=post_id)
     if request.user != post.author:
         messages.warning(request, 'You are not authorized to delete this post.')
         return redirect('home')
     if request.method == 'POST':
         post.delete()
-        messages.success(request, 'Post deleted.')
+        messages.success(request,
+                         f'You have successfully Removed {post.title} from Scotlands List of Gems.')
         return redirect('home')
     return render(request, 'gem_posts/delete_gem.html', {'post': post})
+
 
 @login_required
 def edit_comment(request, post_id, comment_id):
@@ -171,8 +198,10 @@ def edit_comment(request, post_id, comment_id):
     if request.method == 'POST':
         comment.comment = request.POST['content']
         comment.save()
+        messages.success(request, 'Your Comment has been sucsessfully edited.')
         return redirect('gem_detail', post_id=post.id)
     return render(request, 'gem_posts/edit_comment.html', {'comment': comment})
+
 
 @login_required
 def delete_comment(request, post_id, comment_id):
@@ -186,5 +215,6 @@ def delete_comment(request, post_id, comment_id):
         return redirect('gem_detail', post_id=post.id)
     if request.method == 'POST':
         comment.delete()
+        messages.success(request, 'Your Comment has been sucsessfully deleted.')
         return redirect('gem_detail', post_id=post.id)
-    return render(request, 'gem_posts/delete_comment.html', {'comment': comment})
+    return render(request, 'gem_posts/delete_comment.html',{'comment': comment})

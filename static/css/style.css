@@ -90,14 +90,17 @@ nav {
 
 .messages {
     position: fixed;
+    font-size: 250%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #273c75;
+    background-color: #246b37;
     color: #fff;
     padding: 20px;
-    box-shadow: 5px 5px 5px 5px #6A5ABD;
-    z-index: 9999;
+    box-shadow: 5px 5px 5px 5px #273c75;
+    border: 0.5px solid #dee2e6;
+    border-radius: 10px;
+    z-index: 1000;
     display: none; /* Initially hidden */
 }
 

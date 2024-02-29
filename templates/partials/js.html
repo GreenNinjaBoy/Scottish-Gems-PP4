@@ -8,22 +8,5 @@
 <!-- Load Google Maps JavaScript API -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMOTDrjJcLNnlD18acJG3Ycg-j6ZIIPnk&libraries=places&callback=initAutocomplete"></script>
 
-<script src="{% static 'static/js/messages.js' %}"></script>
+<script src="{% static 'js/messages.js' %}"></script>
 
-<!-- Custom JavaScript -->
-<script>
-    // Get logout link element
-    var logoutLink = document.getElementById('logout-link');
-    // Check if logout link element exists
-    if (logoutLink) {
-        // Add click event listener to logout link
-        logoutLink.addEventListener('click', function(e) {
-            // Confirm logout
-            var confirmLogout = confirm('Are you sure you want to log out?');
-            // If logout is not confirmed, prevent the default action (which is to follow the link)
-            if (!confirmLogout) {
-                e.preventDefault();
-            }
-        });
-    }
-</script>

@@ -23,12 +23,9 @@
 
     {% if messages %}
     <div class="messages" id="messages" style="display: block;">
-      <strong>{% trans "Message:"%}</strong>
-      <ul>
       {% for message in messages %}
-        <li>{{message}}</li>
+      {{message}}
       {% endfor %}
-      </ul>
     </div>
     {% endif %}
 
