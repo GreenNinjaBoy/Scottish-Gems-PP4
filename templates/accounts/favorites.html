@@ -5,12 +5,13 @@
     <h1>Favorite Posts</h1>
     <!-- Loop through favorite posts -->
     {% for post in favorite_posts %}
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3">
+
+        <!-- Display the post -->
         <h2>{{ post.title }}</h2>
-        <!-- Display post image if it exists -->
-        {% if post.image %}
-            <img src="{{ post.image.url }}" alt="{{ post.title }}">
-        {% endif %}
+        <img src="{{ post.photo_url }}" alt="{{ post.title }}">
         <p>Author: {{ post.author.username }}</p>
+        <p >Gem Info: {{post.content}}</p>
         <!-- Remove from favorites form -->
         <form method="post" action="{% url 'toggle_favorite' post.id %}">
             {% csrf_token %}

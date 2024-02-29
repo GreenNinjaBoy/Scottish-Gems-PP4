@@ -1,0 +1,370 @@
+body {
+    background-color: #445261;
+}
+
+header{
+    margin-bottom: 0;
+}
+
+nav {
+    margin-top: -8px;
+}
+
+.carousel-caption {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    right: 0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-inner {
+    height: 350px;  /* Adjust as needed */
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;  
+}
+
+.page-title{
+    position: absolute;
+    font-family: Merriweather;
+    font-size: 350%;
+    font-weight: 600;
+    top: 2%;
+    left: 0;
+    color: white;
+}
+
+.page-sub-title {
+    position: absolute;
+    bottom: -7%;
+    right: 1%;
+    color: white;
+    font-family: Merriweather;
+    font-size: 150%;
+    font-weight: 600;
+}
+
+.posts-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: inherit;
+    background-color: #31373d;
+
+}
+
+.post-row {
+    background-color: #31373d;
+    margin: 0;
+    gap: 60px;
+}
+
+.col-lg-3 {
+    overflow: auto;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fit {
+    max-width: 100%;
+    height: auto;
+}
+
+.col-lg-3 img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+.brand {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4A4A4F;
+}
+
+.red-o {
+    color: #E84610;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #31373d;
+}
+
+.main-bg {
+    background-color: #31373d;
+}
+
+.bg-blue, .post-card {
+    background-color: #273c75;
+}
+
+.custom-navbar, .nav-link, .dropdown-item, .dropdown-menu, .post-card {
+    color: white !important;
+    font-size: 120% !important;
+    font-family: 'Merriweather', serif !important;
+}
+
+.post-card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px #6A5ABD;
+    border-radius: 20px;
+}
+
+.post-card a {
+    color: #fff;
+    font-family: inherit;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #188181;
+}
+
+.scale {
+    width: 100%;
+    height: auto;
+}
+
+.author {
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #445261;
+    color: white;
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #445261;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #445261;
+}
+
+.post-link:hover,
+.page-link {
+    color: #E84610;
+}
+
+.post-title {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.card-image {
+    width: 50%;
+    height: auto;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+.btn-signup,
+.btn-edit {
+    background-color: #188181;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #23BBBB;
+}
+
+.link {
+    color: #23BBBB;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
+}
+
+.icon-button {
+    background: transparent;
+    border: none;
+}
+
+
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-delete {
+    color: #fff;
+    background: #E84610;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
+
+.faded {
+    color: rgb(172, 175, 175);
+}
+
+.approval {
+    color: rgb(222, 146, 168);
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-wrapper {
+    width: 45%;
+}
+
+.post-card .gem-info {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;  /* number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --------- Login  Form Style ---------------*/
+
+
+.login-form-container, .log-out-confirmation-page {
+    background-color: #273c75;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 40%;
+    margin: 10% auto;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 7%;
+    box-shadow: 5px 5px 5px 5px #6A5ABD;
+    color: #fff;
+    font-family: initial;
+    font-size: 140%;
+    gap: 11%;
+}
+
+.login-title {
+    font-family: Merriweither;
+    font-weight: 600;
+    font-size: 150%;
+}
+
+.btn--success {
+    color: white;
+    border: #6A5ABD;
+    border-style: groove;
+    margin: 0 40%;
+}
+
+.add-place-page, .place-add-form{
+        display: flex;
+        flex-direction: column;
+        font-family: inherit;
+        color: #fff;
+        text-align: center;
+        align-items: center;
+        margin-top: 6%;
+    }
+
+#place-add-form {
+    display: none;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .page-title h1 a.nav-link {
+      font-size: 150%; /* Adjust as needed */
+      top: 10%; /* Adjust as needed */
+      left: 10%; /* Adjust as needed */
+    }
+
+    .page-sub-title {
+      bottom: 5%; /* Adjust as needed */
+      right: 5%; /* Adjust as needed */
+    }
+}

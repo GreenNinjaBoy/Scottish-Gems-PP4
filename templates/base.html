@@ -17,21 +17,24 @@
     <!-- Include navbar -->
     {% include 'partials/navbar.html' %}
 
+
     <!-- Include header -->
     {% include 'partials/header.html' %}
 
+    {% if messages %}
+    <div class="messages" id="messages" style="display: block;">
+      <strong>{% trans "Message:"%}</strong>
+      <ul>
+      {% for message in messages %}
+        <li>{{message}}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
     <main class="flex-shrink-0 main-bg">
       <!-- Display messages if any -->
-      {% if messages %}
-        <div class="messages">
-          <strong>{% trans "Message:"%}</strong>
-          <ul>
-          {% for message in messages %}
-            <li>{{message}}</li>
-          {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
+    
 
       <!-- Posts container -->
       <div class="posts-container">
