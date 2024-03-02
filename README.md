@@ -166,9 +166,7 @@ All python code was tested using Code Institutes [Python Linter Tester](https://
 <details>
 	
 <summary> 
-	
 ![admin.py_Pep8 results](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/admin.py_test.webp)
-
 </summary>
 
 </details>
