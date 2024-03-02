@@ -164,7 +164,9 @@ The select by region function was put in place as this app was intended to cover
 
 All python code was tested using Code Institutes [Python Linter Tester](https://pep8ci.herokuapp.com/#). You can see images of the results below
 <details>
-<summary> ![admin.py_Pep8 results](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/admin.py_test.webp)</summary>
+<summary> 
+	![admin.py_Pep8 results](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/admin.py_test.webp)
+</summary>
 </details>
 
 
