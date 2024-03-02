@@ -57,7 +57,7 @@ function initAutocomplete() {
         
         if (place.photos && place.photos.length > 0) {
             const photoReference = place.photos[0].photo_reference;
-            const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=750&photoreference=${photoReference}&key=YOUR_API_KEY`;
+            const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=750&photoreference=${photoReference}&key=AIzaSyBMOTDrjJcLNnlD18acJG3Ycg-j6ZIIPnk&libraries`;
 
     // If the selected place has photos, get the URL of the first photo and update the src attribute of the img element.
         const imgElement = document.getElementById("photo");
