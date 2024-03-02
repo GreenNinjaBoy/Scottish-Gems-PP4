@@ -56,8 +56,8 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request,
-                                 f' Logged into Scottish Gems as {username}.')
+                message = render_to_string('accounts/messages/logged_in.txt', {'username': username})
+                messages.success(request, message)
                 return redirect('home')
     else:
         form = AuthenticationForm()
@@ -69,8 +69,10 @@ def logout_view(request):
     Handles user logout request.
     """
     if request.method == 'POST':
+        username = request.user.username
         logout(request)
-        messages.success(request, f'Goodbye hope to see you again soon.')
+        message = render_to_string('accounts/messages/logged_out.txt', {'username': username})
+        messages.success(request, message)
         return redirect('home')
     else:
         return render(request, 'accounts/logout.html')
@@ -88,8 +90,8 @@ def gem_detail(request, post_id):
             author=request.user,
             place=post
         )
-        messages.success(request,
-                         f"{request.user.username}'s Comment has been saved")
+        message = render_to_string ('accounts/messages/comment_success.txt')
+        messages.success(request,message)
     return render(request, 'gem_posts/gem_detail.html',
                   {'post': post, 'comments': comments})
 
@@ -157,8 +159,8 @@ def add_gem(request):
             photo_url = form.cleaned_data['photo_url']
             post.photo_url = photo_url
             post.save()
-            messages.success(request,
-                             f' congratulations {username}, you have successfully added {post.title} to Scotlands List of Gems.')
+            message = render_to_string ('accounts/messages/gem_added.txt')
+            messages.success(request, message)
             return redirect('home')
         else:
             return render(request, 'gem_posts/create_gems.html', {'form': form})
@@ -179,8 +181,8 @@ def delete_gem(request, post_id):
         return redirect('home')
     if request.method == 'POST':
         post.delete()
-        messages.success(request,
-                         f'You have successfully Removed {post.title} from Scotlands List of Gems.')
+        message = render_to_string('accounts/messages/gem_deleted.txt')
+        messages.success(request, message)
         return redirect('home')
     return render(request, 'gem_posts/delete_gem.html', {'post': post})
 
