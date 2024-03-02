@@ -177,7 +177,8 @@ def delete_gem(request, post_id):
     username = request.user.username
     post = get_object_or_404(Post, id=post_id)
     if request.user != post.author:
-        messages.warning(request, 'You are not authorized to delete this post.')
+        message = render_to_string('account/messages/not_auth.txt')
+        messages.warning(request, message )
         return redirect('home')
     if request.method == 'POST':
         post.delete()
@@ -195,7 +196,8 @@ def edit_comment(request, post_id, comment_id):
     post = get_object_or_404(Post, id=post_id)
     comment = get_object_or_404(UserComments, id=comment_id)
     if request.user != comment.author:
-        messages.warning(request, 'You are not authorized to edit this comment.')
+        message = render_to_string('account/messages/not_auth.txt')
+        messages.warning(request, message )
         return redirect('gem_detail', post_id=post.id)
     if request.method == 'POST':
         comment.comment = request.POST['content']
@@ -213,7 +215,8 @@ def delete_comment(request, post_id, comment_id):
     post = get_object_or_404(Post, id=post_id)
     comment = get_object_or_404(UserComments, id=comment_id)
     if request.user != comment.author:
-        messages.warning(request, 'You are not authorized to delete this comment.')
+        message = render_to_string('account/messages/not_auth.txt')
+        messages.warning(request, message )
         return redirect('gem_detail', post_id=post.id)
     if request.method == 'POST':
         comment.delete()

@@ -54,19 +54,19 @@ function initAutocomplete() {
         contentField.value = place.formatted_address;  
 
         // Get a single photo URL from Google Places.
+        
         if (place.photos && place.photos.length > 0) {
-            const photoUrl = place.photos[0].getUrl({
-                maxHeight: 750, maxWidth: 750,
-            });
-             // If the selected place has photos, get the URL of the first photo and update the src attribute of the img element.
-            const imgElement = document.getElementById("photo");
-            imgElement.src = photoUrl;
-            imgElement.alt = place.name + " Photo";
+            const photoReference = place.photos[0].photo_reference;
+            const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=750&photoreference=${photoReference}&key=YOUR_API_KEY`;
 
-            const photoUrlField = document.getElementById("photoUrlField");
-            photoUrlField.value = photoUrl;
+    // If the selected place has photos, get the URL of the first photo and update the src attribute of the img element.
+        const imgElement = document.getElementById("photo");
+        imgElement.src = photoUrl;
+        imgElement.alt = place.name + " Photo";
 
-        }
+        const photoUrlField = document.getElementById("photoUrlField");
+        photoUrlField.value = photoUrl;
+}
 
         // Display the form for adding a new place.
         const placeAddForm = document.getElementById("place-add-form");
