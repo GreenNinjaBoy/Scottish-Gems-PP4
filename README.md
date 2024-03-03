@@ -173,19 +173,19 @@ All python code was tested using Code Institutes [Python Linter Tester](https://
 <details>
 <summary>forms.py Pep8 results</summary>
 
-![forms.py Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/forms.py_pep8_image.png?raw=true)
+![forms.py Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/forms.py_pep8_image.webp?raw=true)
 
 </details>
 <details>
 <summary>gem_place Pep8 results</summary>
 
-![gem_place Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/gem_place_test_image.png?raw=true)
+![gem_place Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/gem_place_test_image.webp?raw=true)
 
 </details>
 <details>
 <summary>models.py Pep8 results</summary>
 
-![models.py Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/models.py_pep8_image.png?raw=true)
+![models.py Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/models.py_pep8_image.webp?raw=true)
 
 </details>
 <details>
@@ -197,13 +197,13 @@ All python code was tested using Code Institutes [Python Linter Tester](https://
 <details>
 <summary>urls.py Pep8 results</summary>
 
-![urls.py Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/urls.py_pep8_image.png?raw=true)
+![urls.py Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/urls.py_pep8_image.webp?raw=true)
 
 </details>
 <details>
 <summary>views.py Pep8 results</summary>
 
-![views.py Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/views.py_test_image.png?raw=true)
+![views.py Pep8 image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/views.py_test_image.webp?raw=true)
 
 </details>
 
