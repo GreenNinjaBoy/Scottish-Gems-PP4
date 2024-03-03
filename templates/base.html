@@ -1,136 +1,140 @@
-{% load static %} 
+{% load static %}
 {% url 'home' as home_url %}
 {% load i18n %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
-  <head>
-    <!-- Page title -->
-    <title>Scottish Gems</title>
-    <!-- Responsive meta tag -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Include CSS files -->
-    {% include 'partials/css.html' %}
-  </head>
-  <body class="d-flex flex-column h-100 main-bg">
 
-    <!-- Include navbar -->
-    {% include 'partials/navbar.html' %}
+<head>
+  <!-- Page title -->
+  <title>Scottish Gems</title>
+  <!-- Responsive meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Include CSS files -->
+  {% include 'partials/css.html' %}
+</head>
+
+<body class="d-flex flex-column h-100 main-bg">
+
+  <!-- Include navbar -->
+  {% include 'partials/navbar.html' %}
 
 
-    <!-- Include header -->
-    {% include 'partials/header.html' %}
+  <!-- Include header -->
+  {% include 'partials/header.html' %}
 
-    {% if messages %}
-    <div class="messages" id="messages" style="display: block;">
-      {% for message in messages %}
-      {{message}}
-      {% endfor %}
-    </div>
-    {% endif %}
+  {% if messages %}
+  <div class="messages" id="messages" style="display: block;">
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+  </div>
+  {% endif %}
 
-    <main class="flex-shrink-0 main-bg">
-      <!-- Display messages if any -->
-    
+  <main class="flex-shrink-0 main-bg">
+    <!-- Display messages if any -->
 
-      <!-- Posts container -->
-      <div class="posts-container">
-        {% block content %}
-        <div class="row g-3 post-row" >
+
+    <!-- Posts container -->
+    <div class="posts-container">
+      {% block content %}
+      <div class="row g-3 post-row">
 
         <!-- Check if region is selected -->
         {% if region_selected %}
 
-          <!-- Loop through posts -->
-          {% for post in posts %}
-            <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3">
+        <!-- Loop through posts -->
+        {% for post in posts %}
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3">
 
-              <!-- Display the post -->
-              <h2>{{ post.title }}</h2>
-              <img src="{{ post.photo_url }}" alt="{{ post.title }}">
-              <p>Author: {{ post.author.username }}</p>
-              <p >Gem Info: {{post.content}}</p>
+          <!-- Display the post -->
+          <h2>{{ post.title }}</h2>
+          <img id="photo" src="{{ post.photo_url }}" alt="{{ post.title }}">
+          <p>Author: {{ post.author.username }}</p>
+          <p>Gem Info: {{post.content}}</p>
 
-              <!-- Check if user is authenticated -->
-              {% if request.user.is_authenticated %}
+          <!-- Check if user is authenticated -->
+          {% if request.user.is_authenticated %}
 
-                <!-- Form for toggling favorites -->
-              <div class="button-container">
-                <form method="post" action="{% url 'toggle_favorite' post.id %}">
-                  {% csrf_token %}
-                  <button type="submit" class="icon-button">
-                    {% if post in request.user.favorite_posts.all %}
-                    <i class="fas fa-heart" title="Remove From Favorites"></i>
-                    {% else %}
-                    <i class="far fa-heart" title="Add to Favorites"></i>
-                    {% endif %}
-                  </button>
-                </form>
-              
-                <!-- Delete button -->
-                {% if request.user == post.author %}
-                <a href="{% url 'delete_gem' post.id %}" class="delete-button" title="Delete gem">
-                  <i class="fas fa-eraser"></i>
-                </a>
+          <!-- Form for toggling favorites -->
+          <div class="button-container">
+            <form method="post" action="{% url 'toggle_favorite' post.id %}">
+              {% csrf_token %}
+              <button type="submit" class="icon-button">
+                {% if post in request.user.favorite_posts.all %}
+                <i class="fas fa-heart" title="Remove From Favorites"></i>
+                {% else %}
+                <i class="far fa-heart" title="Add to Favorites"></i>
                 {% endif %}
-              </div>
-              {% endif %}
-            </div>
-          {% endfor %}
+              </button>
+            </form>
+
+            <!-- Delete button -->
+            {% if request.user == post.author %}
+            <a href="{% url 'delete_gem' post.id %}" class="delete-button" title="Delete gem">
+              <i class="fas fa-eraser"></i>
+            </a>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
         {% else %}
         <div class="row g-3 post-row  justify-content-center">
 
           <!-- Loop through posts -->
           {% for post in posts %}
-            <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3 post-card">
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3 post-card">
 
-              <!-- Display the post -->
-              <a href = "{%url 'gem_detail' post.id %}">{{ post.title }}</a>
-              <img src="{{ post.photo_url }}" alt="{{ post.title }}">
-              <p>Author: {{ post.author.username }}</p>
-              <p class="gem-info">{{post.content}}</p>
-              <p>Region: {{post.region}}</p>
-              <br>
-              <a href="{% url 'gem_detail' post.id %}"><span id="comment-count">{{ post.comment_set.count }}</span> Comments</a>
+            <!-- Display the post -->
+            <a href="{%url 'gem_detail' post.id %}">{{ post.title }}</a>
+            <img src="{{ post.photo_url }}" alt="{{ post.title }}">
+            <p>Author: {{ post.author.username }}</p>
+            <p class="gem-info">{{post.content}}</p>
+            <p>Region: {{post.region}}</p>
+            <br>
+            <a href="{% url 'gem_detail' post.id %}"><span id="comment-count">{{ post.comment_set.count }}</span>
+              Comments</a>
 
-              <!-- Check if user is authenticated -->
-              {% if request.user.is_authenticated %}
-                <div class="favorite-delete">
-                <!-- Form for toggling favorites -->
-                <form method="post" action="{% url 'toggle_favorite' post.id %}">
-                  {% csrf_token %}
-                  <button type="submit" class="icon-button">
-                    {% if post in request.user.favorite_posts.all %}
-                    <i class="fas fa-heart" title="Remove From Favorites"></i>
-                    {% else %}
-                    <i class="far fa-heart" title="Add to Favorites"></i>
-                    {% endif %}
-                  </button>
-                </form>
+            <!-- Check if user is authenticated -->
+            {% if request.user.is_authenticated %}
+            <div class="favorite-delete">
+              <!-- Form for toggling favorites -->
+              <form method="post" action="{% url 'toggle_favorite' post.id %}">
+                {% csrf_token %}
+                <button type="submit" class="icon-button">
+                  {% if post in request.user.favorite_posts.all %}
+                  <i class="fas fa-heart" title="Remove From Favorites"></i>
+                  {% else %}
+                  <i class="far fa-heart" title="Add to Favorites"></i>
+                  {% endif %}
+                </button>
+              </form>
 
-                <!-- Delete button -->
-                {% if request.user == post.author %}
-                  <a href="{% url 'delete_gem' post.id %}" class="delete-button" title="Delete gem">
-                      <i class="fas fa-eraser"></i>
-                  </a>
-                {% endif %}
-                </div>
+              <!-- Delete button -->
+              {% if request.user == post.author %}
+              <a href="{% url 'delete_gem' post.id %}" class="delete-button" title="Delete gem">
+                <i class="fas fa-eraser"></i>
+              </a>
               {% endif %}
             </div>
+            {% endif %}
+          </div>
           {% endfor %}
-        {% endif %}
+          {% endif %}
         </div>
-      </div>  
-        {% endblock content %}
       </div>
-    </main>
+      {% endblock content %}
+    </div>
+  </main>
 
-    <!-- Include footer -->
-    {% include 'partials/footer.html' %}
+  <!-- Include footer -->
+  {% include 'partials/footer.html' %}
 
-    <!-- Include JavaScript files -->
-    {% block extra_js %}
-    {% include 'partials/js.html' %}
-    {% endblock %}
-  </body>
+  <!-- Include JavaScript files -->
+  {% block extra_js %}
+  {% include 'partials/js.html' %}
+  {% endblock %}
+</body>
+
 </html>

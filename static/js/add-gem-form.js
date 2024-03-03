@@ -32,7 +32,6 @@ function initAutocomplete() {
      // Create the autocomplete object.
     const autocomplete = new google.maps.places.Autocomplete(searchInput, options);
 
-
      // Event listener for when a place is selected from the autocomplete dropdown.
     autocomplete.addListener("place_changed", () => {
         // Get the selected place.
@@ -53,24 +52,32 @@ function initAutocomplete() {
         addressFieldForm.value = place.formatted_address;  
         contentField.value = place.formatted_address;  
 
-        // Get a single photo URL from Google Places.
-        
+        // If the selected place has photos, fetch the URL of the first photo.
         if (place.photos && place.photos.length > 0) {
-            const photoReference = place.photos[0].photo_reference;
-            const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=750&photoreference=${photoReference}&key=AIzaSyBMOTDrjJcLNnlD18acJG3Ycg-j6ZIIPnk&libraries`;
-
-    // If the selected place has photos, get the URL of the first photo and update the src attribute of the img element.
-        const imgElement = document.getElementById("photo");
-        imgElement.src = photoUrl;
-        imgElement.alt = place.name + " Photo";
-
-        const photoUrlField = document.getElementById("photoUrlField");
-        photoUrlField.value = photoUrl;
-}
+            fetchPhoto(place.place_id);
+        }
 
         // Display the form for adding a new place.
         const placeAddForm = document.getElementById("place-add-form");
-
         placeAddForm.style.display = "flex";
+    });
+}
+
+// Function to fetch the photo URL for a place.
+function fetchPhoto(placeId) {
+    // Create a new PlacesService object.
+    const service = new google.maps.places.PlacesService(document.createElement('div'));
+
+    // Send a Place Details request.
+    service.getDetails({
+        placeId: placeId,
+        fields: ['photos']
+    }, (place, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && place.photos && place.photos.length > 0) {
+            // Get the URL of the first photo and update the src attribute of the img element.
+            const photoUrl = place.photos[0].getUrl({maxWidth: 750});
+            document.getElementById('photo').src = photoUrl;
+            document.getElementById('photoUrlField').value = photoUrl;
+        }
     });
 }
