@@ -244,6 +244,13 @@ nav {
     color: lightgray;
 }
 
+.favorite-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 .btn-signup,
 .btn-edit {
     background-color: #188181;

@@ -55,6 +55,7 @@
               {% if request.user.is_authenticated %}
 
                 <!-- Form for toggling favorites -->
+              <div class="button-container">
                 <form method="post" action="{% url 'toggle_favorite' post.id %}">
                   {% csrf_token %}
                   <button type="submit" class="icon-button">
@@ -65,13 +66,14 @@
                     {% endif %}
                   </button>
                 </form>
-
+              
                 <!-- Delete button -->
                 {% if request.user == post.author %}
-                  <a href="{% url 'delete_gem' post.id %}" class="delete-button" title="Delete gem">
-                      <i class="fas fa-eraser"></i>
-                  </a>
+                <a href="{% url 'delete_gem' post.id %}" class="delete-button" title="Delete gem">
+                  <i class="fas fa-eraser"></i>
+                </a>
                 {% endif %}
+              </div>
               {% endif %}
             </div>
           {% endfor %}
@@ -87,9 +89,9 @@
               <img src="{{ post.photo_url }}" alt="{{ post.title }}">
               <p>Author: {{ post.author.username }}</p>
               <p class="gem-info">{{post.content}}</p>
-              <a href="{% url 'gem_detail' post.id %}">Show More</a>
-              <br>
               <p>Region: {{post.region}}</p>
+              <br>
+              <a href="{% url 'gem_detail' post.id %}"><span id="comment-count">{{ post.comment_set.count }}</span> Comments</a>
 
               <!-- Check if user is authenticated -->
               {% if request.user.is_authenticated %}

@@ -61,7 +61,7 @@
           <!-- User icon and Log Out/Log In link -->
           {% if request.user.is_authenticated %}
               <div class="auser-icon">
-                  <a class="user-links" href="{% url 'account_logout' %}">
+                  <a class="user-links btn btn--success" href="{% url 'account_logout' %}">
                       <div>
                           <i class="fa-regular fa-lg fa-circle-user"></i>
                       </div>
@@ -72,7 +72,7 @@
               </div>
           {% else %}
               <div class="user-icon">
-                  <a class="user-links" href="{% url 'login' %}">
+                  <a class="user-links btn btn--success" href="{% url 'login' %}">
                       <div>
                           <i class="fa-regular fa-lg fa-circle-user"></i>
                       </div>

@@ -13,8 +13,10 @@ $('.delete-comment').on('click', function() {
                 'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
             },
             success: function() {
-                // Reload the page
-                location.reload();
+                // Decrease the comment count
+                var commentCountElement = $('#comment-count');
+                var commentCount = parseInt(commentCountElement.text());
+                commentCountElement.text(commentCount - 1);
             }
         });
     }
