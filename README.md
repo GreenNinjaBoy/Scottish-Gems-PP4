@@ -146,7 +146,9 @@ The select by region function was put in place as this app was intended to cover
 - [dj_database_url](https://pypi.org/project/dj-database-url/) - to allow the use of the `DATABASE_URL` environment variable inside Django.
 - [Coverage.py](http://coverage.py/) - to measure test coverage of the Python code.
 
-## Testing
+# Testing
+
+## Python
 
 ### Testing with Pep8
 
@@ -207,6 +209,42 @@ All python code was tested using Code Institutes [Python Linter Tester](https://
 
 </details>
 
+## JavaScript
+
+### Testing with JsHint
+
+All JavaScript files were ran through [JSHint](https://jshint.com/). The results can be seen below.
+
+<details>
+<summary>add-gem-form.js JSHint results</summary>
+
+![add-gem-form.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/add-gem-form_jshint_image.webp?raw=true)
+
+</details>
+<details>
+<summary>back-btn.js JSHint results</summary>
+
+![back-btn.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/back-btn.js_jshint_test_image.png?raw=true)
+
+</details>
+<details>
+<summary>comments.js JSHint results</summary>
+
+![comments.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/comment.js_jshint_test_image.png?raw=true)
+
+</details>
+<details>
+<summary>messages.js JSHint results</summary>
+
+![messages.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/messages.js_jshint_image.png?raw=true)
+
+</details>
+<details>
+<summary>script.js JSHint results</summary>
+
+![script.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/script.js_jshint_test_image.png?raw=true)
+
+</details>
 ## Credits
 
 [](https://github.com/timgoalen/magical-places-london/tree/main#credits)
