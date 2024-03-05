@@ -131,14 +131,10 @@ The select by region function was put in place as this app was intended to cover
 
 ### APIs Used
 
-[](https://github.com/timgoalen/magical-places-london/tree/main#apis-used)
-
 - [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview) - to run the home page map.
 - [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview) - to get details and photos from place searches.
 
 ### Python Packages Used
-
-[](https://github.com/timgoalen/magical-places-london/tree/main#python-packages-used)
 
 - [django-allauth](https://docs.allauth.org/en/latest/index.html) - for user authentication.
 - [gunicorn](https://gunicorn.org/) - as the HTTP server that allows Django to run on Heroku.
@@ -247,11 +243,9 @@ All JavaScript files were ran through [JSHint](https://jshint.com/). The results
 </details>
 ## Credits
 
-[](https://github.com/timgoalen/magical-places-london/tree/main#credits)
 
 ### Content
 
-[](https://github.com/timgoalen/magical-places-london/tree/main#content)
 
 The original idea for this site was inspired by [Magical Gems](https://github.com/timgoalen/magical-places-london/tree/main) who created a similar project around the main London Area.
 

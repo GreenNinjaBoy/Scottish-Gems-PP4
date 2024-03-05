@@ -1,21 +1,26 @@
+/* General styles */
 body {
     background-color: #445261;
+    /* Set the background color of the body */
 }
 
-header{
+header {
     margin-bottom: 0;
+    /* Remove the bottom margin of the header */
 }
 
 nav {
     margin-top: -8px;
+    /* Move the nav up by 8px */
 }
 
+/* Carousel styles */
 .carousel-caption {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     right: 0;
-    left:0;
+    left: 0;
     height: 100%;
     width: 100%;
     padding: 0;
@@ -23,16 +28,19 @@ nav {
 }
 
 .carousel-inner {
-    height: 350px;  /* Adjust as needed */
+    height: 350px;
+    /* Set the height of the carousel inner */
 }
 
 .carousel-item img {
     height: 100%;
     width: 100%;
-    object-fit: cover;  
+    object-fit: cover;
+    /* Make the carousel images cover their container */
 }
 
-.page-title{
+/* Page title styles */
+.page-title {
     position: absolute;
     font-family: Merriweather;
     font-size: 350%;
@@ -52,6 +60,7 @@ nav {
     font-weight: 600;
 }
 
+/* Posts container styles */
 .posts-container {
     position: relative;
     display: flex;
@@ -59,7 +68,6 @@ nav {
     align-items: center;
     font-family: inherit;
     background-color: #31373d;
-
 }
 
 .post-row {
@@ -88,6 +96,7 @@ nav {
     height: auto;
 }
 
+/* Messages styles */
 .messages {
     position: fixed;
     font-size: 250%;
@@ -101,9 +110,11 @@ nav {
     border: 0.5px solid #dee2e6;
     border-radius: 10px;
     z-index: 1000;
-    display: none; /* Initially hidden */
+    display: none;
+    /* Initially hidden */
 }
 
+/* Brand styles */
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
@@ -131,17 +142,22 @@ nav {
     background-color: #31373d;
 }
 
-.bg-blue, .post-card {
+.bg-blue,
+.post-card {
     background-color: #273c75;
 }
 
-.custom-navbar, .nav-link, .dropdown-item, .dropdown-menu, .post-card {
+.custom-navbar,
+.nav-link,
+.dropdown-item,
+.dropdown-menu,
+.post-card {
     color: white !important;
     font-size: 120% !important;
     font-family: 'Merriweather', serif !important;
 }
 
-.post-card{
+.post-card {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -280,7 +296,6 @@ nav {
     border: none;
 }
 
-
 .btn-like {
     color: #E84610;
     border: none;
@@ -318,16 +333,20 @@ nav {
 
 .post-card .gem-info {
     display: -webkit-box;
-    -webkit-line-clamp: 3;  /* number of lines to show */
+    -webkit-line-clamp: 3;
+    /* number of lines to show */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+
 /* --------- Login  Form Style ---------------*/
 
 
-.login-form-container, .log-out-confirmation-page, .signup-form-container {
+.login-form-container,
+.log-out-confirmation-page,
+.signup-form-container {
     background-color: #273c75;
     display: flex;
     flex-direction: column;
@@ -347,15 +366,16 @@ nav {
 }
 
 .signup-form-container {
-        width: 80%;
-        text-align: center;
+    width: 80%;
+    text-align: center;
 }
 
-.signup-form{
-        align-items: center;
-        display: flex;
-        flex-direction: column;
+.signup-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
+
 .login-title {
     font-family: Merriweither;
     font-weight: 600;
@@ -367,36 +387,45 @@ nav {
     border: #6A5ABD;
     border-style: groove;
     margin: 0 40%;
+    width: 100%;
+    right: 25px;
+    position: relative;
 }
 
-.add-place-page, .place-add-form{
-        display: flex;
-        flex-direction: column;
-        font-family: inherit;
-        color: #fff;
-        text-align: center;
-        align-items: center;
-        margin-top: 6%;
-    }
+.add-place-page,
+.place-add-form {
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    margin-top: 6%;
+}
 
 #place-add-form {
     display: none;
 }
 
-.form-container{
+.form-container {
     display: flex;
     flex-direction: column;
 }
 
 @media (max-width: 768px) {
     .page-title h1 a.nav-link {
-      font-size: 150%; /* Adjust as needed */
-      top: 10%; /* Adjust as needed */
-      left: 10%; /* Adjust as needed */
+        font-size: 150%;
+        /* Adjust as needed */
+        top: 10%;
+        /* Adjust as needed */
+        left: 10%;
+        /* Adjust as needed */
     }
 
     .page-sub-title {
-      bottom: 5%; /* Adjust as needed */
-      right: 5%; /* Adjust as needed */
+        bottom: 5%;
+        /* Adjust as needed */
+        right: 5%;
+        /* Adjust as needed */
     }
 }
