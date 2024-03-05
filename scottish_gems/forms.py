@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import Post
 
 
@@ -39,3 +41,25 @@ class AddGemForm(forms.ModelForm):
             'google_place_id': forms.HiddenInput(attrs={
                 'id': 'googlePlaceIdField'}),
         }
+
+class CustomUserCreationForm(UserCreationForm):
+    username = forms.CharField(
+        label="Username",
+        help_text="",  # This line removes the username help text
+    )
+    password1 = forms.CharField(
+        label="Password",
+        strip=False,
+        widget=forms.PasswordInput,
+        help_text="",  # This line removes the password help text
+    )
+    password2 = forms.CharField(
+        label="Password confirmation",
+        strip=False,
+        widget=forms.PasswordInput,
+        help_text="",  # This line removes the password confirmation help text
+    )
+
+    class Meta:
+        model = User
+        fields = ("username", "password1", "password2")

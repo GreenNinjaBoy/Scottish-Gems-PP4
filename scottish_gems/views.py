@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from .forms import AddGemForm
+from .forms import AddGemForm, CustomUserCreationForm
 import json
 
 
@@ -34,13 +34,13 @@ def signup(request):
     Handles user registration.
     """
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form =  CustomUserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
 
 

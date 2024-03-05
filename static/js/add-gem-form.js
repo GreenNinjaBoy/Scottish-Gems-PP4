@@ -80,4 +80,43 @@ function fetchPhoto(placeId) {
             document.getElementById('photoUrlField').value = photoUrl;
         }
     });
+
+    function getNewPhotoLink() {
+    var map;
+    let googlePhotoUrl;
+
+    map = new google.maps.Map(document.createElement("div"));
+
+    var request = {
+        placeId: googlePlaceIdField.value, // Use the value of the googlePlaceIdField.
+        fields: ["photos", ]
+    };
+
+    function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            if (place.photos) {
+                googlePhotoUrl = place.photos[0].getUrl({
+                    maxHeight: 650,
+                    maxWidth: 650,
+                });
+                document.getElementById('photo').src = googlePhotoUrl;
+                document.getElementById('photoUrlField').value = googlePhotoUrl;
+            } else {
+                console.log("No Google photo exists for this place.");
+            }
+            // Show the photo once the Google image is fetched and inserted.
+            setTimeout(() => {
+                document.getElementById('photo').classList.add("show-photo");
+              }, 300);
+        }
+    }
+
+    var service = new google.maps.places.PlacesService(map);
+    service.getDetails(request, callback);
+}
+
+// Event listener for when the page is loaded.
+window.addEventListener("load", () => {
+    getNewPhotoLink();
+});
 }
