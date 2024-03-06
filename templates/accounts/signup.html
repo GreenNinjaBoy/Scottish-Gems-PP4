@@ -2,18 +2,23 @@
 
 {% block content %}
     <!-- Sign Up Form Section -->
-    <section class="form-container signup-form-container">
-        <div class="form-wrapper">
-            <h2>Sign Up</h2>
-            <div class="Signup-form-content">
+    <section class="signup-page">
+        <div class="signup-form-container">
+            <div class="signup-form-content">
+                <div class="signup-form-title">
+                    <h2>Sign Up</h2>
+                </div>
                 <!-- Sign Up Form -->
-                <form class="signup signup-form" id="signup_form" method="post">
+                <form class="signup signup-form-content" id="signup_form" method="post">
                     {% csrf_token %}
                     <!-- Django form fields -->
                     {{ form.as_p }}
                     <!-- Submit Button -->
-                    <button class="btn btn--success btn-signup" type="submit" name="signup">Sign up</button>
+                    <button class="btn btn--success signup-form-btn" type="submit" name="signup">Sign up</button>
                 </form>
+                <div>
+                    <span id="close-btn"><i class="fas fa-arrow-circle-left" title="Return to Homepage"></i></span>
+                </div>
             </div>
         </div>
     </section>    

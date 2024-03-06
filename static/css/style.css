@@ -1,17 +1,14 @@
 /* General styles */
 body {
     background-color: #445261;
-    /* Set the background color of the body */
 }
 
 header {
     margin-bottom: 0;
-    /* Remove the bottom margin of the header */
 }
 
 nav {
     margin-top: -8px;
-    /* Move the nav up by 8px */
 }
 
 /* Carousel styles */
@@ -29,14 +26,12 @@ nav {
 
 .carousel-inner {
     height: 350px;
-    /* Set the height of the carousel inner */
 }
 
 .carousel-item img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    /* Make the carousel images cover their container */
 }
 
 /* Page title styles */
@@ -248,7 +243,6 @@ nav {
     color: #445261;
 }
 
-
 .post-title {
     margin-top: 10%;
     margin-left: 5%;
@@ -267,13 +261,14 @@ nav {
 }
 
 .delete-form {
-        display: flex;
-        max-width: fit-content;
-        font-size: 20px;
-        gap: 15px;
+    display: flex;
+    max-width: fit-content;
+    font-size: 20px;
+    gap: 15px;
 }
 
-.delete-btn, .delete-cancel-btn {
+.delete-btn,
+.delete-cancel-btn {
     display: flex;
     font-family: inherit;
     color: #fff;
@@ -282,7 +277,11 @@ nav {
     border: solid 0.5px black;
 }
 
-
+#close-btn i {
+    color: white;
+    size: 200%;
+    margin-top: 15px;
+}
 
 .form-container {
     display: flex;
@@ -302,10 +301,12 @@ nav {
     text-overflow: ellipsis;
 }
 
-
-
 /* --------- Login  Form Style ---------------*/
 
+.login-page{
+    display: flex;
+    justify-content: center;
+}
 
 .login-form-container,
 .log-out-confirmation-page,
@@ -313,31 +314,52 @@ nav {
 .delete-container {
     background-color: #273c75;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 40%;
-    width: 40%;
-    margin: 10% auto;
-    box-sizing: border-box;
-    padding: 20px;
+    height: 60vh;
+    width: 50%;
+    margin-top: 20vh;
     border-radius: 7%;
     box-shadow: 5px 5px 5px 5px #6A5ABD;
     color: #fff;
     font-family: initial;
     font-size: 140%;
-    gap: 11%;
+}
+
+.login-form-content,
+.signup-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.login-form-btn{
+    max-width: fit-content;
 }
 
 .signup-form-container {
     width: 80%;
     text-align: center;
+    margin-top: 25px;
 }
 
+.signup-page{
+    display: flex;
+    justify-content: center;
+}
 .signup-form {
     align-items: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
+}
+
+.signup-form-btn {
+    width: 40% !important; 
 }
 
 .login-title {
@@ -356,44 +378,45 @@ nav {
     position: relative;
 }
 
-.remove-fav-btn{
+.remove-fav-btn {
     max-width: fit-content;
     right: 0;
 }
 
 .fav-title {
-    color:#fff;
+    color: #fff;
     margin-top: 15px;
 }
 
 .fav-card {
     margin-top: 15px;
 }
-/* ------------ Style for share your gem page ------------- */
 
-.detail-view-header{
+/* ------------ Style for share your gem page ------------- */
+.detail-view-header {
     font-family: Merriweather;
     font-size: 385%;
     font-weight: 600;
 }
 
-#search-input, #id_region{
-        width: 600px;
-        height: 47px;
-        margin-bottom: 29px;
-        color: #fff;
-        background-color: #6e6b6b;
-        border-radius: 5px;
-        font-family: initial;
-        font-size: 150%;
+#search-input,
+#id_region {
+    width: 600px;
+    height: 47px;
+    margin-bottom: 29px;
+    color: #fff;
+    background-color: #6e6b6b;
+    border-radius: 5px;
+    font-family: initial;
+    font-size: 150%;
 }
 
-#id_region{
+#id_region {
     width: 150px;
     margin-top: 20px;
 }
 
-#id_region p{
+#id_region p {
     font-size: 150%;
 }
 
@@ -420,7 +443,7 @@ nav {
     justify-content: center;
 }
 
-.gem-form-btn{
+.gem-form-btn {
     color: #fff;
     font-family: inherit;
     background-color: #273c75;
@@ -434,7 +457,8 @@ nav {
 .submit-btn {
     max-width: fit-content;
 }
-.cancel-btn{
+
+.cancel-btn {
     width: 12%;
 }
 
@@ -459,4 +483,13 @@ nav {
         right: 5%;
         /* Adjust as needed */
     }
+}
+
+.login-form-content {
+        padding: 10px;
+    }
+
+.signup-form-container{
+    height: fit-content;
+    margin-top: 15px;
 }

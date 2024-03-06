@@ -7,12 +7,12 @@
     <!-- Log In Section -->
     <section class="login-page">
         <div class="login-form-container">
-            <div class="login-form-title">
-                <h2 class="login-title">{% trans "Log In" %}</h2>
-            </div>
             <div class="login-form-content">
+                <div class="login-form-title">
+                    <h2 class="login-title">Log In</h2>
+                </div>
                 <!-- Log In Form -->
-                <form class="login login-form" method="post" action="{% url 'account_login' %}">
+                <form class="login login-form-content" method="post" action="{% url 'account_login' %}">
                     {% csrf_token %} 
                     <!-- Django form fields -->
                     {{ login_form.as_p }}
@@ -20,14 +20,16 @@
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
                     <!-- Log In Button -->
-                    <button class="primaryAction btn btn--success" type="submit">{% trans "Log In" %}</button>
+                    <button class="primaryAction btn btn--success login-form-btn" type="submit">Log In</button>
                 </form>
-                <h6>
-                    <p class="if-no-account">Don't have an account? Then please
-                        <a href="{% url 'signup' %}"><strong>sign up</strong>.</a></p>
+                <p class="if-no-account">Don't have an account? Then please
+                    <a href="{% url 'signup' %}"><strong>sign up</strong>.</a>
+                </p>
+                <div>
+                <span id="close-btn"><i class="fas fa-arrow-circle-left" title="Return to Homepage"></i></span>
                 </div>
             </div>
-            <span id="close-btn"><i class="fa-solid fa-chevron-left"></i></span>
-        </section>
+        </div>
+    </section>
         <script src="{% static 'js/back-btn.js' %}"></script>
 {% endblock %}
