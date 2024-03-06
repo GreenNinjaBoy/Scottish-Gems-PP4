@@ -8,7 +8,7 @@ function closeMessage(event) {
 messageContainers.forEach(container => {
     setTimeout(() => {
         container.style.display = "none";
-    }, 5000);
+    }, 500);
     // Allow the user to dismiss the modal by clicking anywhere on the screen.
     container.addEventListener("click", closeMessage);
 });

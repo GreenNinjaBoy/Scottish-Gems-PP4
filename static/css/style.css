@@ -392,6 +392,18 @@ nav {
     margin-top: 15px;
 }
 
+.content-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.comments-container {
+    overflow-y: auto;
+}
+
 /* ------------ Style for share your gem page ------------- */
 .detail-view-header {
     font-family: Merriweather;
