@@ -240,10 +240,6 @@ nav {
     color: #445261;
 }
 
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
 
 .post-title {
     margin-top: 10%;
@@ -255,71 +251,11 @@ nav {
     height: auto;
 }
 
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
-
 .favorite-delete {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-}
-
-.btn-signup,
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-    width: 80%
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
-
-.link {
-    color: #23BBBB;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
-}
-
-.icon-button {
-    background: transparent;
-    border: none;
-}
-
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
-
-.faded {
-    color: rgb(172, 175, 175);
-}
-
-.approval {
-    color: rgb(222, 146, 168);
 }
 
 .form-container {
@@ -392,6 +328,30 @@ nav {
     position: relative;
 }
 
+/* ------------ Style for share your gem page ------------- */
+
+.detail-view-header{
+    font-family: Merriweather;
+    font-size: 385%;
+    font-weight: 600;
+}
+
+#search-input, #id_region{
+        width: 600px;
+        height: 47px;
+        margin-bottom: 29px;
+        color: #fff;
+        background-color: #6e6b6b;
+        border-radius: 5px;
+        font-family: initial;
+        font-size: 150%;
+}
+
+#id_region{
+    width: 150px;
+    margin-top: 20px;
+}
+
 .add-place-page,
 .place-add-form {
     display: flex;
@@ -405,6 +365,32 @@ nav {
 
 #place-add-form {
     display: none;
+}
+
+.add-place-btns-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gem-form-btn{
+    color: #fff;
+    font-family: inherit;
+    background-color: #273c75;
+    text-align: center;
+    border: solid 0.5px #6A5ABD;
+    box-shadow: 2px 2px 2px 2px #6A5ABD;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.submit-btn {
+    max-width: fit-content;
+}
+.cancel-btn{
+    width: 12%;
 }
 
 .form-container {
