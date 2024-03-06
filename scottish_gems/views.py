@@ -158,6 +158,8 @@ def add_gem(request):
             post.author = request.user
             photo_url = form.cleaned_data['photo_url']
             post.photo_url = photo_url
+            address = form.cleaned_data['address']
+            post.address = address 
             post.save()
             message = render_to_string ('accounts/messages/gem_added.txt')
             messages.success(request, message)

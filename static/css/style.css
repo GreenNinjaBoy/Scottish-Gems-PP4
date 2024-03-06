@@ -42,7 +42,7 @@ nav {
 /* Page title styles */
 .page-title {
     position: absolute;
-    font-family: Merriweather;
+    font-family: Merriweather sans-serif;
     font-size: 350%;
     font-weight: 600;
     top: 2%;
@@ -277,6 +277,7 @@ nav {
 }
 
 
+
 /* --------- Login  Form Style ---------------*/
 
 
@@ -328,6 +329,19 @@ nav {
     position: relative;
 }
 
+.remove-fav-btn{
+    max-width: fit-content;
+    right: 0;
+}
+
+.fav-title {
+    color:#fff;
+    margin-top: 15px;
+}
+
+.fav-card {
+    margin-top: 15px;
+}
 /* ------------ Style for share your gem page ------------- */
 
 .detail-view-header{
@@ -350,6 +364,10 @@ nav {
 #id_region{
     width: 150px;
     margin-top: 20px;
+}
+
+#id_region p{
+    font-size: 150%;
 }
 
 .add-place-page,

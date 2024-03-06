@@ -2,20 +2,23 @@
 {% load static %}
 
 {% block content %}
-    <h1>Favorite Posts</h1>
+    <h1 class="detail-view-header fav-title">Favorite Posts</h1>
     <!-- Loop through favorite posts -->
     {% for post in favorite_posts %}
-    <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3 post-card fav-card">
 
         <!-- Display the post -->
         <h2>{{ post.title }}</h2>
         <img src="{{ post.photo_url }}" alt="{{ post.title }}">
         <p>Author: {{ post.author.username }}</p>
-        <p >Gem Info: {{post.content}}</p>
+        <p>Address: {{ post.address }}</p>
+        <p>Region: {{post.region}}</p>
         <!-- Remove from favorites form -->
         <form method="post" action="{% url 'toggle_favorite' post.id %}">
             {% csrf_token %}
-            <button type="submit">Remove from favorites</button>
+        <button class="btn btn--success remove-fav-btn" type="submit" title="Remove From Favorites">
+            <i class="fas fa-times"></i>
+        </button>
         </form>
     {% endfor %}
 {% endblock %}

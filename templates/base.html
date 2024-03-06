@@ -51,6 +51,7 @@
           <h2>{{ post.title }}</h2>
           <img id="photo" src="{{ post.photo_url }}" alt="{{ post.title }}">
           <p>Author: {{ post.author.username }}</p>
+          <p>Address: {{ post.address }}</p>
           <p>Gem Info: {{post.content}}</p>
 
           <!-- Check if user is authenticated -->
@@ -90,7 +91,7 @@
             <a href="{%url 'gem_detail' post.id %}">{{ post.title }}</a>
             <img src="{{ post.photo_url }}" alt="{{ post.title }}">
             <p>Author: {{ post.author.username }}</p>
-            <p class="gem-info">{{post.content}}</p>
+            <p>Address: {{ post.address }}</p>
             <p>Region: {{post.region}}</p>
             <br>
             <a href="{% url 'gem_detail' post.id %}"><span id="comment-count">{{ post.comment_set.count }}</span>
