@@ -182,6 +182,14 @@ nav {
     position: relative;
 }
 
+.icon-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 40px;
+}
+
 .image-flash {
     position: absolute;
     bottom: 5%;
