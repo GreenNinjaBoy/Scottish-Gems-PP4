@@ -2,17 +2,19 @@
 
 {% block content %}
     <!-- Page title -->
+    <div class="delete-container">
     <h1>Delete Gem</h1>
     <!-- Confirmation message -->
     <p>Are you sure you want to delete this Gem?</p>
     <p>Other users may miss out on a fantastic experience</p>
 
     <!-- Delete confirmation form -->
-    <form method="post">
+    <form class="delete-form" method="post">
         {% csrf_token %}
         <!-- Submit button for confirming deletion -->
-        <button type="submit">Yes, delete my gem!</button>
+        <button class="delete-btn" type="submit">Yes, delete my gem!</button>
         <!-- Cancel button for aborting deletion -->
-        <a href="{% url 'home' %}" class="btn">No, I want to keep my gem</a>
+        <a href="{% url 'home' %}" class="btn delete-cancel-btn">No, I want to keep my gem</a>
     </form>
+    </div>
 {% endblock %}
