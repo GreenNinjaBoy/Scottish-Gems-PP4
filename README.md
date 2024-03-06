@@ -74,6 +74,18 @@ The typography used for the project was produced from google fonts and the chose
 
 The home page is presented to the user with posts already shown by other users and user can click on these posts to view it in more detail. If a user has not got a sign in then the only items available to them on the navbar are "home" "select by region" and the sign in button.
 
+**Navigation Bar**
+
+The navigation bar is comprised of two views. One view is displayed to a user who is either no to the site or has not yet signed in. The second view is for the users who have signed onto the page and is then presented with two options.
+
+Navigation bar when user is not signed in:
+
+![navigation bar pre user sign in](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/navbar-pre-sign-in.webp.png?raw=true)
+
+Navigation bar when a user is signed in.
+
+![](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/navbar-post-sign-in.webp.png?raw=true)
+
 **Share Your Gem**
 The original concept for this page was that a user could input their information into a form. However after a lot of trial and error it was decided that this would not be user friendly. And as previously mentioned inspiration came form another students similar project ([Magical Places](https://github.com/timgoalen/magical-places-london/tree/main)) and the can now add a place by simply searching for their gem in the search field which by powered by Google Places Autocomplete to suggest existing gems. Once the user clicks on a suggested place, the hidden form is automatically filled in by JavaScript, from the data provided by the Google Places API.
 
@@ -86,13 +98,48 @@ notes:
   - If the user had the ability to delete places that were already commented on, other users would lose their comments and lose access to the place if it was in their favorites list.
 
 **Favorites**
-The favorites tab in the nav bar allows users to only see posts that they have marked as their favorites form the main page.
+The ability for a user has been split into two main parts. Users can see which posts they have selected as their favorites from the main landing page. Or the user can select the "favorites" tab within the navigation tab and they will be brought to a page where they are able to view posts that they have marked as their favorites. The user can decided to set a favorite post from the home page and unfavorite from either the home page or within their favorites page.
+
+- Note: If a post is marked as a favorite and that posts creator decides to delete the post. Then unfortunately it will be removed from the users favorite list.
+- This could be something to look at in future development so that the user can still access deleted posts within their favorites directory.
+
+Posts on main home page is user has not selected it as a favorite.
+
+<details>
+<summary> Favorites section within navbar </summary>
+
+![favorites section within navbar](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/favorites-section-navbar.webp.png?raw=true)
+
+</details>
+<details>
+<summary> If post is not a favorite shown on homepage </summary>
+
+![if a post is unfavored within the main page](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/un-foavorited-post.webp.png?raw=true)
+
+</details>
+<details>
+<summary> If a post is a favorite shown on hompage </summary>
+
+![if a post has been set as favorite.](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/favorited-post.webp.png?raw=true)
+
+</details>
+<details>
+<summary> Users favorites shown on the "favorites.html page" </summary>
+
+![favorites.html page](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/user-favorites-page.webp.png?raw=true)
+
+</details>
 
 **Select by Region**
 
-The select by region function was put in place as this app was intended to cover the whole of Scotland. This would make it easier for the user to filter the Gem Posts to the region that they are currently in.
+The select by region function was put in place as this app was intended to cover the whole of Scotland. This would make it easier for the user to filter the Gem Posts in the home page to the region that they were interested in. This feature remains on the navigation bar for users who are and are not signed into the site.
 
-** Insert Image here**
+<details>
+<summary> Region selection from dropdown menu </summary>
+
+![Region selection dropdown menu](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/region-selection-dropdown.webp.png?raw=true)
+
+</details>
 
 ## Technologies Used
 
@@ -243,9 +290,7 @@ All JavaScript files were ran through [JSHint](https://jshint.com/). The results
 </details>
 ## Credits
 
-
 ### Content
-
 
 The original idea for this site was inspired by [Magical Gems](https://github.com/timgoalen/magical-places-london/tree/main) who created a similar project around the main London Area.
 
