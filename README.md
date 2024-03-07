@@ -121,11 +121,11 @@ If a user does not already have an account they can create one by clicking the l
 When a user decides to Log Out they can click the "signout" button on the navigation bar and is then presented with the following screen
 
 <details>
-<summary> Log Out Display</summary>
+<summary> Log Out Display </summary>
 
 ![Log Out Display](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/logout_view.webp.png?raw=true)
 
-Please note that the Log Out display has has slight style changes since this photo was uploaded.
+- Please note that the Log Out display has has slight style changes since this photo was uploaded.
 
 </details>
 
@@ -133,67 +133,68 @@ Please note that the Log Out display has has slight style changes since this pho
 
 When ever a user completes a task they are met with a brief message. These Messages can be seen down below:
 
-<display>
-<summary> Successful Login / Signup</summary>
+<details>
+<summary> Successful Login / Signup </summary>
 
 ![Successful Login](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_login.webp.png?raw=true)
 
-</display>
-<display>
+</details>
+<details>
 
-<summary> Successful Log Out</summary>
+<summary> Successful Log Out </summary>
 
 ![Successful Log Out](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_signout.webp.png?raw=true)
-</display>
-<display>
 
-<summary> Successful Share Gem</summary>
+</details>
+<details>
+
+<summary> Successful Share Gem </summary>
 
 ![Successful add Gem](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_add_gem.webp.png?raw=true)
 
-</display>
-<display>
+</details>
+<details>
 
-<summary> Successful Delete Gem</summary>
+<summary> Successful Delete Gem </summary>
 
 ![uccessful Delete Gem](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_delete_gem.webp.png?raw=true)
 
-</display>
-<display>
+</details>
+<details>
 
-<summary> Successful add to favorites</summary>
+<summary> Successful add to favorites </summary>
 
 ![Successful add favorites](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_add_favorite.webp.png?raw=true)
 
-</display>
-<display>
+</details>
+<details>
 
 <summary> Successful remove from favorites</summary>
 
 ![Successful Remove From Favorites](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_remove_favorite.png?raw=true)
 
-</display>
-<display>
+</details>
+<details>
 
 <summary> Successful add comment</summary>
 
 ![Successful add comment](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_add_comment.webp.png?raw=true)
 
-</display>
-<display>
+</details>
+<details>
 
 <summary> Successful edit comment</summary>
 
 ![Succseeful Edit Comment](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_edit_comment.webp.png?raw=true)
 
-</display>
-<display>
+</details>
+<details>
 
 <summary> Successful delete comment</summary>
 
 ![Successful Delete Comment](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_delete_comment.webp.png?raw=true)
 
-</display>
+</details>
 
 **Share Your Gem**
 The original concept for this page was that a user could input their information into a form. However after a lot of trial and error it was decided that this would not be user friendly. And as previously mentioned inspiration came form another students similar project ([Magical Places](https://github.com/timgoalen/magical-places-london/tree/main)) and the can now add a place by simply searching for their gem in the search field which by powered by Google Places Autocomplete to suggest existing gems. Once the user clicks on a suggested place, the hidden form is automatically filled in by JavaScript, from the data provided by the Google Places API.
