@@ -97,12 +97,88 @@ Navigation bar when a user is signed in.
 
 ![](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/navbar-post-sign-in.webp.png?raw=true)
 
-**Sign In Page**
+**Login**
+When a user decides to log in they are presented with the following screen.
+<details>
+<summary> Login Display </summary>
 
-**Sign up Page**
+![Log in display](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/login_view.webp.png?raw=true)
 
-**Sign out Page**
+</details>
 
+**Signup**
+If a user does not already have an account they can create one by clicking the link shown in the previous image which will bring them to the following page.
+
+<details>
+<summary> SignUp Display </summary>
+
+![Signup Display](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/signup_view.webp.png?raw=true)
+</details>
+
+**Log Out**
+When a user decides to Log Out they can click the "signout" button on the navigation bar and is then presented with the following screen
+<details>
+<summary> Log Out Display</summary>
+
+![Log Out Display](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/logout_view.webp.png?raw=true)
+
+- Please note that the Log Out display has has slight style changes since this photo was uploaded.
+</details>
+
+**User Messages**
+
+When ever a user completes a task they are met with a brief message. These Messages can be seen down below:
+
+<display>
+<summary> Successful Login</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful Signup</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful Log Out</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful Share Gem</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful Delete Gem</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful add to favorites</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful remove from favorites</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful add comment</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful edit comment</summary>
+
+![]()
+</display>
+<display>
+<summary> Successful delete comment</summary>
+
+![]()
+</display>
 
 **Share Your Gem**
 The original concept for this page was that a user could input their information into a form. However after a lot of trial and error it was decided that this would not be user friendly. And as previously mentioned inspiration came form another students similar project ([Magical Places](https://github.com/timgoalen/magical-places-london/tree/main)) and the can now add a place by simply searching for their gem in the search field which by powered by Google Places Autocomplete to suggest existing gems. Once the user clicks on a suggested place, the hidden form is automatically filled in by JavaScript, from the data provided by the Google Places API.
