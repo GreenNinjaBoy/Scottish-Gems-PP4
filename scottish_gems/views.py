@@ -8,8 +8,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
+from django.core.paginator import Paginator
 from .forms import AddGemForm, CustomUserCreationForm
 import json
+
 
 
 def home(request):
@@ -22,6 +24,9 @@ def home(request):
         posts = Post.objects.filter(region__name=region_selected)
     else:
         posts = Post.objects.all()
+        paginator = Paginator(posts, 6)
+        page_number = request.GET.get('page')
+        posts = paginator.get_page(page_number)
     return render(request, 'base.html', {
         'posts': posts,
         'regions': regions,

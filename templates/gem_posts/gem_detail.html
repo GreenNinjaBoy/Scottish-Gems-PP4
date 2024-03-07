@@ -11,9 +11,11 @@
 </div>
 {% endif %}
 
-<div class="comments-header"><h2>User Comments</h2></div>
-<div class="content-container posts-container">
-    <div class="col-lg-6 col-md-6 col-sm-12 mb-3 border p-3 post-card">
+<div class="comments-header">
+    <h2>User Comments</h2>
+</div>
+<div class="content-container posts-container ">
+    <div class="col-lg-6 col-md-12 col-sm-12 mb-3 border p-3 post-card">
         <!-- Post title -->
         <h2>{{ post.title }}</h2>
         <!-- Post content -->
@@ -24,15 +26,15 @@
         <p>Region: {{post.region}}</p>
 
         <!-- Comment form -->
-        <form method="post">
+        <form class="comment-form" method="post">
             {% csrf_token %}
-            <textarea name="content"></textarea>
+            <textarea class="comment-input" name="content" placeholder="Please Enter Your Comment "></textarea>
             <button type="submit">Submit Comment</button>
         </form>
     </div>
 
     <!-- Comments Section -->
-    <div class="col-lg-6 col-md-6 col-sm-12 mb-3 border p-3 comments-container scrollable">
+    <div class="col-lg-6 col-md-12 col-sm-12 mb-3 border p-3 comments-container scrollable">
         <!-- Loop through comments -->
         {% for comment in comments %}
         <div class="comment">

@@ -303,13 +303,14 @@ nav {
 
 /* --------- Login  Form Style ---------------*/
 
-.login-page{
+.login-page,
+.logout-page {
     display: flex;
     justify-content: center;
 }
 
 .login-form-container,
-.log-out-confirmation-page,
+.logout-container,
 .signup-form-container,
 .delete-container {
     background-color: #273c75;
@@ -325,8 +326,14 @@ nav {
     font-size: 140%;
 }
 
+.logout-container {
+    flex-direction: column;
+    align-items: center;
+}
+
 .login-form-content,
-.signup-form-content {
+.signup-form-content,
+.logout-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -337,7 +344,7 @@ nav {
     box-sizing: border-box;
 }
 
-.login-form-btn{
+.login-form-btn {
     max-width: fit-content;
 }
 
@@ -347,10 +354,11 @@ nav {
     margin-top: 25px;
 }
 
-.signup-page{
+.signup-page {
     display: flex;
     justify-content: center;
 }
+
 .signup-form {
     align-items: center;
     display: flex;
@@ -359,7 +367,7 @@ nav {
 }
 
 .signup-form-btn {
-    width: 40% !important; 
+    width: 40% !important;
 }
 
 .login-title {
@@ -406,7 +414,7 @@ nav {
 
 /* ------------ Style for share your gem page ------------- */
 .detail-view-header,
-.comments-header{
+.comments-header {
     font-family: Merriweather;
     font-size: 385%;
     font-weight: 600;
@@ -492,10 +500,53 @@ nav {
 
 }
 
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-input {
+    width: 100%;
+    border-radius: 20px;
+    height: 100px;
+    color: #fff;
+    background-color: #5f5e5e;
+    border: 0.5px solid;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px 2px #6A5ABD
+}
+
+.comment-input::placeholder {
+    color: white;
+    text-align: center;
+}
+
 .scrollable {
     max-height: 700px;
     overflow-y: auto;
 }
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+/* This applies to the scrollbar itself */
+.scrollable::-webkit-scrollbar {
+    width: 10px;
+}
+
+@media (max-width: 992px) {
+    .content-container {
+        flex-direction: column;
+    }
+}
+
 
 @media (max-width: 768px) {
     .page-title h1 a.nav-link {
@@ -511,10 +562,10 @@ nav {
 }
 
 .login-form-content {
-        padding: 10px;
-    }
+    padding: 10px;
+}
 
-.signup-form-container{
+.signup-form-container {
     height: fit-content;
     margin-top: 15px;
 }

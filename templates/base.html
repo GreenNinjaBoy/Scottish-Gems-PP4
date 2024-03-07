@@ -125,6 +125,13 @@
           {% endif %}
         </div>
       </div>
+      {% if posts.has_previous %}
+      <a href="?page={{ posts.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      {% if posts.has_next %}
+      <a href="?page={{ posts.next_page_number }}">Next</a>
+      {% endif %}
       {% endblock content %}
     </div>
   </main>
