@@ -405,10 +405,13 @@ nav {
 }
 
 /* ------------ Style for share your gem page ------------- */
-.detail-view-header {
+.detail-view-header,
+.comments-header{
     font-family: Merriweather;
     font-size: 385%;
     font-weight: 600;
+    color: #fff;
+    margin: 10px 0 10px 0;
 }
 
 #search-input,
@@ -477,6 +480,16 @@ nav {
 .form-container {
     display: flex;
     flex-direction: column;
+}
+
+.comments-container {
+    color: #fff;
+    text-decoration: none;
+    background-color: #4A4A4F;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px #273c75;
+    overflow-y: auto;
+
 }
 
 @media (max-width: 768px) {

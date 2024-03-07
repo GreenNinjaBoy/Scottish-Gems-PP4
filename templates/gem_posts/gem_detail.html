@@ -2,7 +2,16 @@
 {% load static %}
 
 {% block content %}
-<div><h2>User Comments</h2></div>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="comments-header"><h2>User Comments</h2></div>
 <div class="content-container posts-container">
     <div class="col-lg-6 col-md-6 col-sm-12 mb-3 border p-3 post-card">
         <!-- Post title -->
@@ -11,7 +20,7 @@
         <img src="{{ post.photo_url }}" alt="{{ post.title }}">
         <p>Author: {{ post.author.username }}</p>
         <p class="gem-info">{{post.content}}</p>
-        <br>
+        <p>Address: {{ post.address }}</p>
         <p>Region: {{post.region}}</p>
 
         <!-- Comment form -->
@@ -23,7 +32,7 @@
     </div>
 
     <!-- Comments Section -->
-    <div class="col-lg-6 col-md-6 col-sm-12 mb-3 border p-3">
+    <div class="col-lg-6 col-md-6 col-sm-12 mb-3 border p-3 comments-container">
         <!-- Loop through comments -->
         {% for comment in comments %}
         <div class="comment">
@@ -45,4 +54,5 @@
 {% block extra_js%}
 <!-- Extra JavaScript -->
 <script src="{% static 'js/comment.js' %}"></script>
+<script src="{% static 'js/messages.js' %}"></script>
 {% endblock %}
