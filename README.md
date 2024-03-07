@@ -125,7 +125,8 @@ When a user decides to Log Out they can click the "signout" button on the naviga
 
 ![Log Out Display](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/logout_view.webp.png?raw=true)
 
-- Please note that the Log Out display has has slight style changes since this photo was uploaded.
+Please note that the Log Out display has has slight style changes since this photo was uploaded.
+
 </details>
 
 **User Messages**
