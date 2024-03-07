@@ -36,8 +36,14 @@ Balsamiq Wireframes were used to map out the design of the application.
 ** Insert Images Here **
 
 **Navigation**
+Plaese see below a Navigational Flow Chart showing what was aimed for when creating the website.
 
-** Insert Navigation here**
+<details>
+<summary> Flow Chart Diagram </summary>
+
+ ![Flow chat diagram](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/flow_chart.webp)
+ 
+</details>
 
 **Data Schema**
 
