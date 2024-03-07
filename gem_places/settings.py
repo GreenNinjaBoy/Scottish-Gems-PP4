@@ -33,7 +33,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1',
                  '.herokuapp.com',
                  'localhost',
-                 '8000-greenninjab-scottishgem-e0a5752lmpz.ws-eu108.gitpod.io']
+                 '8000-greenninjab-scottishgem-4u75wcjpqz6.ws-eu108.gitpod.io']
 
 
 # Application definition

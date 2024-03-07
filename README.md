@@ -49,7 +49,7 @@ Plaese see below a Navigational Flow Chart showing what was aimed for when creat
 
 ** Insert Image Here**
 
-** Google Maps API JavaScript Flow Diagrams**
+**Google Maps API JavaScript Flow Diagrams**
 
 One of the biggest challenges that was faced while building this site was the implementation of the Google Places API and also Google Places photos.
 
