@@ -59,7 +59,12 @@ I took Inspiration from another user project on this called [Magical Places](htt
 
 The search field in the create_gem.html page uses the Google Autocomplete class and Place Details service.
 
-**Add FlowChart here**
+<details>
+<summary> Create Gem Flow Diagram </summary>
+
+![create gem flow diagram](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/search_gem_flow_diagram.png?raw=true)
+
+</details>
 
 **Home page - 'script.js'**
 The places objects are then sent to the HTML template as a JSON array of objects. JavaScript picks them up and uses the google_place_id to send to Google Places API for photos. It then re-attaches each newly fetched photo to the corresponding place object using the id as a reference.
