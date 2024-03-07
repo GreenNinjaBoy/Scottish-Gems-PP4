@@ -492,21 +492,21 @@ nav {
 
 }
 
+.scrollable {
+    max-height: 700px;
+    overflow-y: auto;
+}
+
 @media (max-width: 768px) {
     .page-title h1 a.nav-link {
         font-size: 150%;
-        /* Adjust as needed */
         top: 10%;
-        /* Adjust as needed */
         left: 10%;
-        /* Adjust as needed */
     }
 
     .page-sub-title {
         bottom: 5%;
-        /* Adjust as needed */
         right: 5%;
-        /* Adjust as needed */
     }
 }
 
