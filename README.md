@@ -41,8 +41,8 @@ Plaese see below a Navigational Flow Chart showing what was aimed for when creat
 <details>
 <summary> Flow Chart Diagram </summary>
 
- ![Flow chat diagram](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/flow_chart.webp)
- 
+![Flow chat diagram](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/flow_chart.webp)
+
 </details>
 
 **Data Schema**
@@ -99,6 +99,7 @@ Navigation bar when a user is signed in.
 
 **Login**
 When a user decides to log in they are presented with the following screen.
+
 <details>
 <summary> Login Display </summary>
 
@@ -113,10 +114,12 @@ If a user does not already have an account they can create one by clicking the l
 <summary> SignUp Display </summary>
 
 ![Signup Display](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/signup_view.webp.png?raw=true)
+
 </details>
 
 **Log Out**
 When a user decides to Log Out they can click the "signout" button on the navigation bar and is then presented with the following screen
+
 <details>
 <summary> Log Out Display</summary>
 
@@ -130,54 +133,65 @@ When a user decides to Log Out they can click the "signout" button on the naviga
 When ever a user completes a task they are met with a brief message. These Messages can be seen down below:
 
 <display>
-<summary> Successful Login</summary>
+<summary> Successful Login / Signup</summary>
 
-![]()
+![Successful Login](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_login.webp.png?raw=true)
+
 </display>
 <display>
-<summary> Successful Signup</summary>
 
-![]()
-</display>
-<display>
 <summary> Successful Log Out</summary>
 
-![]()
+![Successful Log Out](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_signout.webp.png?raw=true)
 </display>
 <display>
+
 <summary> Successful Share Gem</summary>
 
-![]()
+![Successful add Gem](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_add_gem.webp.png?raw=true)
+
 </display>
 <display>
+
 <summary> Successful Delete Gem</summary>
 
-![]()
+![uccessful Delete Gem](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_delete_gem.webp.png?raw=true)
+
 </display>
 <display>
+
 <summary> Successful add to favorites</summary>
 
-![]()
+![Successful add favorites](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_add_favorite.webp.png?raw=true)
+
 </display>
 <display>
+
 <summary> Successful remove from favorites</summary>
 
-![]()
+![Successful Remove From Favorites](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_remove_favorite.png?raw=true)
+
 </display>
 <display>
+
 <summary> Successful add comment</summary>
 
-![]()
+![Successful add comment](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_add_comment.webp.png?raw=true)
+
 </display>
 <display>
+
 <summary> Successful edit comment</summary>
 
-![]()
+![Succseeful Edit Comment](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_edit_comment.webp.png?raw=true)
+
 </display>
 <display>
+
 <summary> Successful delete comment</summary>
 
-![]()
+![Successful Delete Comment](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/successful_delete_comment.webp.png?raw=true)
+
 </display>
 
 **Share Your Gem**
