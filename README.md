@@ -414,7 +414,7 @@ To do this the following steps were taken:
  - Click on "create a new repository".
  ![Create from template](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-create-repository-image-1.png?raw=true)
  - The user will be taken to a new page to create the repository.
- - In the box titled "repository name" enter an appropriate name (for this project Story-Time-Adventures-PP3 was used).
+ - In the box titled "repository name" enter an appropriate name (for this project Scottish-gems-PP4 was used).
  - There is an optional description box if you wish to give a bit more detail to your repository.
  - Then Click on the green "create repository" and Github will create the new repository.
  ![create from template 2](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-create-repository-image-2.png?raw=true)
@@ -475,21 +475,41 @@ To do this the following steps were taken:
 ![Fork Image 2](https://github.com/GreenNinjaBoy/Star-Wars-Trivia-PP2/blob/main/assets/readme-images/fork-image-2.png?raw=true)
 *Please note that the images taken were from a friends Github repository who consented to the use of these images for educational purposes.
 
+## Setup Google Maps/Places API
+
+To set up the Google Maps API
+follow the steps outlined in the Google documentation, to:
+
+1. Create a Google Cloud account
+2. Create a project
+3. Get a Google Maps API key
+4. Enable the Maps API and Places API
+
+
+## CodeInstituteSQL
+- Use the following [link]() to access code institutes SQL page.
+- Enter you email addrexx.
+- You will then be emailed a link which when opened will give you all your details to set up you r database
+
+ 
 ## **Deploying Using Heroku**
-The  Story-Time-Adventures-PP3 repository was deployed using [Heroku.](https://id.heroku.com/login)
+The  Scottish-Gems-PP4 repository was deployed using [Heroku.](https://id.heroku.com/login)
 
 The following steps were used:
 
  - Login or create an account with [Heroku](https://id.heroku.com/login)
  - On the dashboard click on the "Create new app."
  - Write a name for the app being deployed and choose your region and click "Create App".
- - In the settings tab for the new application, create ome Config named PORT and make sure it has the value of 8000
- - Add two build pack scripts, these packs are:
+ - Add build pack scripts, the one used for this project was:
 	 - Python
-	 - Nodejs
-	Ensure that they are listed in this order (if they aren't you can move them freely to ensure they are in this order)
 - Connect your Heroku with your GitHub account and select the repository you are working on.
-- Then at the bottom, you can either choose to deploy your repository manually or have the system do it for you automatically.
+- In the ‘Settings’ tab, click on 'Reveal Config Vars’.
+- Enter the details for these Variables (for this particular projectneed these variables in the ‘env.py’ file for local use):
+ - CLOUDINARY_URL
+ - DATABASE_URL (from [Code Institute]())
+ - GOOGLE_MAPS_API_KEY (to ensure the add gem funtionallity works correctly)
+ - SECRET_KEY (from Django)
+ - Then at the bottom of the deployed tab, you can either choose to deploy your repository manually or have the system do it for you automatically.
 
 
 ## Credits
