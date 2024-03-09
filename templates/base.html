@@ -1,6 +1,7 @@
 {% load static %}
 {% url 'home' as home_url %}
 {% load i18n %}
+{% include 'partials/js.html' %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -141,7 +142,11 @@
 
   <!-- Include JavaScript files -->
   {% block extra_js %}
-  {% include 'partials/js.html' %}
+
+  {% load static %}
+  <script src="{% static 'js/gem-details.js'%}"></script>
+  <script src="{% static 'js/messages.js' %}"></script>
+  
   {% endblock %}
 </body>
 
