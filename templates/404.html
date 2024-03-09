@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="error-404-page">
+    <h2>404 Error: Page not found</h2>
+    <p>Whoops, This wasn't the Gem you were looking for</p>
+    <a href="{% url 'home' %}" class="btn btn--success">Home</a>
+</main>
+
+{% endblock %}
