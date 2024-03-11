@@ -42,7 +42,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1',
                  '.herokuapp.com',
                  'localhost',
-                 '8000-greenninjab-scottishgem-4u75wcjpqz6.ws-eu108.gitpod.io'
+                 '8000-greenninjab-scottishgem-4u75wcjpqz6.ws-eu108.gitpod.io',
                  'scottish-gems-d7874ba977f5.herokuapp.com']
 
 GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
