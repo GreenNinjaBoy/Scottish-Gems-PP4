@@ -1,5 +1,15 @@
-{% extends "root.html" %}
+{% load static %}
+
+<!-- Include CSS files -->
+{% include 'partials/css.html' %}
+<!-- Include navigation bar -->
+{% include 'partials/navbar.html' %}
+
 {% block content %}
+
+{% block head %}
+{% endblock head %}
+
 <main class="add-place-page">
     <!-- Page title -->
     <h1 class="detail-view-header">Share Your Gem </h1>
@@ -12,7 +22,7 @@
 
     <!-- Display form errors if any -->
     {% if form.errors %}
-    {{ form.errors }}
+        {{ form.errors }}
     {% endif %}
 
     <!-- Place card -->
@@ -20,6 +30,7 @@
 
         <!-- Photo -->
         <div class="add-form-img-container">
+            <img src="{% static 'images/no-google-photo-placeholder.png' %}" alt="Placeholder image" id="photo">
         </div>
 
         <!-- Form (hidden) -->
@@ -45,4 +56,21 @@
         </form>
 
 </main>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&libraries=places&callback=initAutocomplete"></script>
+<!-- Include JavaScript for add gem form -->
+<script src="{% static 'js/add-gem-form.js' %}"></script>
+
 {% endblock %}
+
+<!-- Include other JavaScript files -->
+{% include 'partials/js.html' %}
+
+<!-- JavaScript variable for post URL -->
+<script type="text/javascript">
+    var postUrl = "{{ post_url }}";
+</script>
