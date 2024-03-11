@@ -60,10 +60,11 @@
 {% endblock content %}
 
 {% block extra_js %}
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfod5MHMyc6clNwLkzH6Wl4vfKvElvuw&libraries=places&callback=initAutocomplete"></script>
 <!-- Include JavaScript for add gem form -->
 <script src="{% static 'js/add-gem-form.js' %}"></script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&libraries=places&callback=initAutocomplete"></script>
+
 {% endblock %}
 
 <!-- Include other JavaScript files -->

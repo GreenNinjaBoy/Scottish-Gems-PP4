@@ -5,6 +5,7 @@ const longitudeField = document.getElementById("longitude-field");
 const googlePlaceIdField = document.getElementById("googlePlaceIdField");
 const nameField = document.getElementById("add-form-title");
 const addressField = document.getElementById("add-form-address");
+const photoField = document.getElementById("photoUrlField");
 
 // Get references to the hidden fields in the form.
 const titleField = document.getElementById("title-field");
@@ -77,46 +78,10 @@ function fetchPhoto(placeId) {
             // Get the URL of the first photo and update the src attribute of the img element.
             const photoUrl = place.photos[0].getUrl({maxWidth: 750});
             document.getElementById('photo').src = photoUrl;
-            document.getElementById('photoUrlField').value = photoUrl;
+            photoField.value = photoUrl;  // Update the hidden field for photo URL
         }
     });
-
-    function getNewPhotoLink() {
-    var map;
-    let googlePhotoUrl;
-
-    map = new google.maps.Map(document.createElement("div"));
-
-    var request = {
-        placeId: googlePlaceIdField.value, // Use the value of the googlePlaceIdField.
-        fields: ["photos", ]
-    };
-
-    function callback(place, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            if (place.photos) {
-                googlePhotoUrl = place.photos[0].getUrl({
-                    maxHeight: 650,
-                    maxWidth: 650,
-                });
-                document.getElementById('photo').src = googlePhotoUrl;
-                document.getElementById('photoUrlField').value = googlePhotoUrl;
-            } else {
-                console.log("No Google photo exists for this place.");
-            }
-            // Show the photo once the Google image is fetched and inserted.
-            setTimeout(() => {
-                document.getElementById('photo').classList.add("show-photo");
-              }, 300);
-        }
-    }
-
-    var service = new google.maps.places.PlacesService(map);
-    service.getDetails(request, callback);
 }
 
-// Event listener for when the page is loaded.
-window.addEventListener("load", () => {
-    getNewPhotoLink();
-});
-}
+// Execute the initialization function when the window is loaded.
+window.addEventListener("load", initAutocomplete);

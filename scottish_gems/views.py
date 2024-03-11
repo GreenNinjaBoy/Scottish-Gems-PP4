@@ -165,8 +165,14 @@ def add_gem(request):
             post.photo_url = photo_url
             address = form.cleaned_data['address']
             post.address = address 
+
+            # Extract and store Google Place ID
+            google_place_id = form.cleaned_data['google_place_id']
+            post.google_place_id = google_place_id
+
             post.save()
-            message = render_to_string ('accounts/messages/gem_added.txt')
+
+            message = render_to_string('accounts/messages/gem_added.txt')
             messages.success(request, message)
             return redirect('home')
         else:
@@ -230,3 +236,22 @@ def delete_comment(request, post_id, comment_id):
         messages.success(request, 'Your Comment has been sucsessfully deleted.')
         return redirect('gem_detail', post_id=post.id)
     return render(request, 'gem_posts/delete_comment.html',{'comment': comment})
+
+
+def store_google_place_id(request):
+    if request.method == 'POST':
+        try:
+            # Get the Google Place ID from the POST data.
+            data = json.loads(request.body)
+            place_id = data.get('placeId')
+            # Assuming you have a Post model with a field for Google Place ID.
+            # Update the model instance with the Google Place ID.
+            post = Post.objects.get(id=request.user.id)  # Replace with the appropriate logic to get the relevant Post instance.
+            post.google_place_id = place_id
+            post.save()
+
+            return JsonResponse({'message': 'Google Place ID stored successfully'}, status=200)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)

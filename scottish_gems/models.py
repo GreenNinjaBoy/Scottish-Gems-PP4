@@ -38,7 +38,7 @@ class Post(models.Model):
     longitude = models.DecimalField(max_digits=64, decimal_places=32,
                                     null=True, blank=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
-    google_place_id = models.CharField(max_length=255)
+    google_place_id = models.CharField(max_length=255, blank=True, null=True)
 
     favorited_by = models.ManyToManyField(User, related_name='favorite_posts',
                                           blank=True)
