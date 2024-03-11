@@ -41,7 +41,3 @@ function getNewPhotoLink() {
         console.error("Google Maps API not loaded.");
     }
 }
-
-window.addEventListener("load", () => {
-    getNewPhotoLink();
-});

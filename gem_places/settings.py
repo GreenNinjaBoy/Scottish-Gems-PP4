@@ -20,8 +20,6 @@ if os.path.isfile('env.py'):
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -39,13 +37,14 @@ CLOUDINARY_STORAGE = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1',
                  '.herokuapp.com',
                  'localhost',
                  '8000-greenninjab-scottishgem-4u75wcjpqz6.ws-eu108.gitpod.io']
 
+GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
 
 # Application definition
 

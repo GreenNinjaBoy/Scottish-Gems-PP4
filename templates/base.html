@@ -146,8 +146,10 @@
   {% block extra_js %}
 
   {% load static %}
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfod5MHMyc6clNwLkzH6Wl4vfKvElvuw&libraries=places&callback
+  "></script>
+  <!-- Include JavaScript for add gem form -->
   <script src="{% static 'js/gem-details.js'%}"></script>
-  <script src="{% static 'js/messages.js' %}"></script>
   
   {% endblock %}
 </body>
