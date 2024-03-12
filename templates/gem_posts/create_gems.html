@@ -1,8 +1,9 @@
 {% extends "root.html" %}
+{% load static %}
 {% block content %}
 <main class="add-place-page">
     <!-- Page title -->
-    <h1 class="detail-view-header">Share Your Gem </h1>
+    <h1 class="detail-view-header">Share Your Gem</h1>
 
     <!-- Google place search field -->
     <div id="add-place-input-container">
@@ -39,10 +40,14 @@
                 <!-- Cancel button -->
                 <a href="{% url 'home' %}" class="gem-form-btn cancel-btn">Cancel</a>
             </div>
-
-            <!-- Hidden field for photo URL -->
-            <input type="hidden" id="photoUrlField" name="photo_url">
         </form>
 
+    </div>
 </main>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfod5MHMyc6clNwLkzH6Wl4vfKvElvuw&libraries=places&callback=initAutocomplete"></script>
+<!-- Include JavaScript for add gem form -->
+<script src="{% static 'js/add-gem-form.js' %}"></script>
+
 {% endblock %}
