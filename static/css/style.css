@@ -326,6 +326,18 @@ nav {
     font-size: 140%;
 }
 
+.delete-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.fa-arrow-circle-left{
+    font-size: 200%;
+}
+.delete-return-btn{
+    margin-top: 50px;
+}
 .logout-container {
     flex-direction: column;
     align-items: center;

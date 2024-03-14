@@ -25,21 +25,22 @@ class AddGemForm(forms.ModelForm):
     content = forms.CharField(
         widget=forms.HiddenInput(attrs={'id': 'content-field'})
     )
-    photo_url = forms.CharField(
-        widget=forms.HiddenInput(attrs={'id': 'photo_url'})
-    )
+    #photo_url = forms.CharField(
+        #widget=forms.HiddenInput(attrs={'id': 'photo_urlField'})
+    #)
 
     class Meta:
         model = Post
         fields = [
             'title', 'address', 'content',
-            'latitude', 'longitude', 'region', 'photo_url'
+            'latitude', 'longitude', 'region', 'photo_url', 'google_place_id'
         ]
         widgets = {
             'latitude': forms.HiddenInput(attrs={'id': 'latitude-field'}),
             'longitude': forms.HiddenInput(attrs={'id': 'longitude-field'}),
             'google_place_id': forms.HiddenInput(attrs={
                 'id': 'googlePlaceIdField'}),
+            'photo_url': forms.URLInput(attrs={'id': 'photoUrlField'})
         }
 
 class CustomUserCreationForm(UserCreationForm):

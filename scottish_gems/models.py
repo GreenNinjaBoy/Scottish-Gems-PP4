@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.utils.crypto import get_random_string
-
+import requests
 
 class Region(models.Model):
     """
@@ -43,6 +43,7 @@ class Post(models.Model):
     favorited_by = models.ManyToManyField(User, related_name='favorite_posts',
                                           blank=True)
     photo_url = models.URLField(max_length=5000, blank=True)
+    photo_reference = models.CharField(max_length=255, blank=True)
 
     class Meta:
         ordering = ["-created_on"]
@@ -60,7 +61,37 @@ class Post(models.Model):
             self.slug = slugify(self.title) or get_random_string(5)
             while Post.objects.filter(slug=self.slug).exists():
                 self.slug = slugify(self.title + '-' + get_random_string(5)) or get_random_string(10)
+        
+        # If the post has a Google Place ID and doesn't have a photo reference yet
+        if self.google_place_id and not self.photo_reference:
+            # Fetch the photo reference
+            self.photo_reference = self.get_place_photo_reference()
+
         super().save(*args, **kwargs)
+
+    def get_place_photo_reference(self):
+        # Make a request to the Google Places API
+        response = requests.get(f'https://maps.googleapis.com/maps/api/place/details/json?placeid={self.google_place_id}&fields=photos&key=AIzaSyDpfod5MHMyc6clNwLkzH6Wl4vfKvElvuw')
+
+        # Parse the JSON response
+        data = response.json()
+
+        # Check if the place has photos
+        if 'photos' in data['result']:
+            # Get the photo reference for the first photo
+            photo_reference = data['result']['photos'][0]['photo_reference']
+
+            return photo_reference
+
+        else:
+            return None
+
+    def get_photo_url(self):
+        # Construct the URL for the photo
+        if self.photo_reference:
+            return f'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={self.photo_reference}&key=AIzaSyDpfod5MHMyc6clNwLkzH6Wl4vfKvElvuw'
+        else:
+            return None
 
 
 class UserComments(models.Model):
