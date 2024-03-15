@@ -306,6 +306,30 @@ The select by region function was put in place as this app was intended to cover
 
 ## Python
 
+### Unit testing
+
+Unit testing was created and carried out based on the following: forms.py, models.py and views.py.
+Each test is stored within a directory within this scottish_gems app entitled "tests" and imageas of these results can be seen below.
+
+<details>
+<summary>terminal command to run test: python3 manage.py test scottish_gems.tests.test_forms</summary>
+
+![forms.py unit test reults](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/forms.py_unit_test.png)
+
+</details>
+<details>
+<summary>terminal command to run test: python3 manage.py test scottish_gems.tests.test_models</summary>
+
+![models.py unit test reults](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/models.py_unit_test.png)
+
+</details>
+<details>
+<summary>terminal command to run test: python3 manage.py test scottish_gems.tests.test_views</summary>
+
+![views.py unit test reults](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/views.py_unit_test.png)
+
+</details>
+
 ### Testing with Pep8
 
 All python code was tested using Code Institutes [Python Linter Tester](https://pep8ci.herokuapp.com/#). You can see images of the results below
@@ -409,22 +433,24 @@ All JavaScript files were ran through [JSHint](https://jshint.com/). The results
 The repository was created using Github. as a student this was done using a template provided by Code Institute.
 To do this the following steps were taken:
 
- - On the browser head over to the [Code Institute Template](https://github.com/Code-Institute-Org/p3-template).
- - Click on the green "Use this template button".
- - Click on "create a new repository".
- ![Create from template](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-create-repository-image-1.png?raw=true)
- - The user will be taken to a new page to create the repository.
- - In the box titled "repository name" enter an appropriate name (for this project Scottish-gems-PP4 was used).
- - There is an optional description box if you wish to give a bit more detail to your repository.
- - Then Click on the green "create repository" and Github will create the new repository.
- ![create from template 2](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-create-repository-image-2.png?raw=true)
+- On the browser head over to the [Code Institute Template](https://github.com/Code-Institute-Org/p3-template).
+- Click on the green "Use this template button".
+- Click on "create a new repository".
+  ![Create from template](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-create-repository-image-1.png?raw=true)
+- The user will be taken to a new page to create the repository.
+- In the box titled "repository name" enter an appropriate name (for this project Scottish-gems-PP4 was used).
+- There is an optional description box if you wish to give a bit more detail to your repository.
+- Then Click on the green "create repository" and Github will create the new repository.
+  ![create from template 2](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-create-repository-image-2.png?raw=true)
 
-**Cloning the Repository** 
- - Github can also be used to clone a repository so that the code can be altered and pushed back to the main repository using a different IDE.
-	 - This can be done by using the following steps.
-1.  In the " Scottig-Gems-PP4" repository, select the  green "code" tab.
-2. Select HTTPS in the dropdown menu.
-3. Copy the URL under HTTPS.
+**Cloning the Repository**
+
+- Github can also be used to clone a repository so that the code can be altered and pushed back to the main repository using a different IDE.
+  - This can be done by using the following steps.
+
+1.  In the " Scottig-Gems-PP4" repository, select the green "code" tab.
+2.  Select HTTPS in the dropdown menu.
+3.  Copy the URL under HTTPS.
 
 ![clone repository 1](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-clone-repository-image-1.png?raw=true)
 
@@ -435,34 +461,27 @@ To do this the following steps were taken:
 
 6. Click on the create new workspace button.
 
-![create workspace image](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/cloning-repository-image-3.png?raw=true)
-		
-7.  Paste copied HTTPS and click create (Codeanywhere will now generate the virtual IDE).
+![create workspace image](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/cloning-repository-image-3.png?raw=true) 7. Paste copied HTTPS and click create (Codeanywhere will now generate the virtual IDE).
 ![create workspace image 2](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-clone-repository-image-4.png?raw=true)
 
 8.  Once IDE has Loaded create inital index.html page and add test text.
-9.  Once test text is added press  `Ctrl + S`  to save.
-10.  Click terminal tab at top of screen and click new terminal.
-11.  Once new terminal has opened test that content is being pushed back to github.
-12.  In the terminal type  `git add .`  and press enter (this will add all new content).
-13.  Then type  `git commit -m "add test text"`  and press enter (this lets anyone seeing your commits know what you have done).
-14.  Once you have done that type  `git push`  and press enter (this will push all changes made to the github repository).
-15.  Navigate to github.
-16.  Choose the repository you were working on.
-17.  Check the changes have been successfully pushed.
+9.  Once test text is added press `Ctrl + S` to save.
+10. Click terminal tab at top of screen and click new terminal.
+11. Once new terminal has opened test that content is being pushed back to github.
+12. In the terminal type `git add .` and press enter (this will add all new content).
+13. Then type `git commit -m "add test text"` and press enter (this lets anyone seeing your commits know what you have done).
+14. Once you have done that type `git push` and press enter (this will push all changes made to the github repository).
+15. Navigate to github.
+16. Choose the repository you were working on.
+17. Check the changes have been successfully pushed.
 
 - **Note**
   - If for what ever reason you find yourself switching between IDE's please make sure that the first command in your terminal is **"git pull"** as this will pull
-  any changes that you have made using other IDE's.
+    any changes that you have made using other IDE's.
 
 **Forking The Repository**
- - Github can also be used to fork a repository.
-	 - This can create a copy of the repository which can be edited without effecting the main repository branch.
-	 - The steps to fork the repository can be done as follows:
-		 - When in the " Story-Time-Adventures-PP3" repository click on the "Fork" tab located at the top right hand corner.
-		 - Click on "create a new fork"
-		 - You will be sent to another page to name your forked repository.
-		 - Once Named click create fork and you will have a copy of the repository that you can now access and change without affecting the original main repository.
+
+- Github can also be used to fork a repository. - This can create a copy of the repository which can be edited without effecting the main repository branch. - The steps to fork the repository can be done as follows: - When in the " Story-Time-Adventures-PP3" repository click on the "Fork" tab located at the top right hand corner. - Click on "create a new fork" - You will be sent to another page to name your forked repository. - Once Named click create fork and you will have a copy of the repository that you can now access and change without affecting the original main repository.
 <details>
 <summary> Fork Image 1 </Summary>
 
@@ -473,7 +492,9 @@ To do this the following steps were taken:
 <summary>Fork Image 2 </summary>
 
 ![Fork Image 2](https://github.com/GreenNinjaBoy/Star-Wars-Trivia-PP2/blob/main/assets/readme-images/fork-image-2.png?raw=true)
-*Please note that the images taken were from a friends Github repository who consented to the use of these images for educational purposes.
+\*Please note that the images taken were from a friends Github repository who consented to the use of these images for educational purposes.
+
+</details>
 
 ## Setup Google Maps/Places API
 
@@ -485,32 +506,31 @@ follow the steps outlined in the Google documentation, to:
 3. Get a Google Maps API key
 4. Enable the Maps API and Places API
 
-
 ## CodeInstituteSQL
+
 - Use the following [link]() to access code institutes SQL page.
 - Enter you email addrexx.
 - You will then be emailed a link which when opened will give you all your details to set up you r database
 
- 
 ## **Deploying Using Heroku**
-The  Scottish-Gems-PP4 repository was deployed using [Heroku.](https://id.heroku.com/login)
+
+The Scottish-Gems-PP4 repository was deployed using [Heroku.](https://id.heroku.com/login)
 
 The following steps were used:
 
- - Login or create an account with [Heroku](https://id.heroku.com/login)
- - On the dashboard click on the "Create new app."
- - Write a name for the app being deployed and choose your region and click "Create App".
- - Add build pack scripts, the one used for this project was:
-	 - Python
+- Login or create an account with [Heroku](https://id.heroku.com/login)
+- On the dashboard click on the "Create new app."
+- Write a name for the app being deployed and choose your region and click "Create App".
+- Add build pack scripts, the one used for this project was:
+  - Python
 - Connect your Heroku with your GitHub account and select the repository you are working on.
 - In the ‘Settings’ tab, click on 'Reveal Config Vars’.
 - Enter the details for these Variables (for this particular projectneed these variables in the ‘env.py’ file for local use):
- - CLOUDINARY_URL
- - DATABASE_URL (from [Code Institute]())
- - GOOGLE_MAPS_API_KEY (to ensure the add gem funtionallity works correctly)
- - SECRET_KEY (from Django)
- - Then at the bottom of the deployed tab, you can either choose to deploy your repository manually or have the system do it for you automatically.
-
+- CLOUDINARY_URL
+- DATABASE_URL (from [Code Institute]())
+- GOOGLE_MAPS_API_KEY (to ensure the add gem funtionallity works correctly)
+- SECRET_KEY (from Django)
+- Then at the bottom of the deployed tab, you can either choose to deploy your repository manually or have the system do it for you automatically.
 
 ## Credits
 
@@ -559,15 +579,14 @@ Getting data from a Django model into javascript:
 - W3 Schools - [Google Maps Intro](https://www.w3schools.com/graphics/google_maps_intro.asp)
 - Stack Overflow - [close info window when user clicks anywhere on the map](https://stackoverflow.com/questions/10022873/closing-info-windows-in-google-maps-by-clicking-the-map)
 
-
 ## Acknowledgements
 
-This was my third project that was created and developed for portfolio as a student of  [Code Institute](https://codeinstitute.net/)  currently undertaking their course in Full Stack Software Development.
+This was my third project that was created and developed for portfolio as a student of [Code Institute](https://codeinstitute.net/) currently undertaking their course in Full Stack Software Development.
 
 I would like to thank the following for all of the support throughout the development phase.
 
--   The Code Institute community, including fellow students and staff.
--   My family, My friends  and peers who have helped during the testing phase and provided valuable feedback.
--   My Mentor lauren-nicole Popich for her continuing advice and support during the development process. I can honestly say without her knowledge and guidence I would not be at the stage I am at now
+- The Code Institute community, including fellow students and staff.
+- My family, My friends and peers who have helped during the testing phase and provided valuable feedback.
+- My Mentor lauren-nicole Popich for her continuing advice and support during the development process. I can honestly say without her knowledge and guidence I would not be at the stage I am at now
 
 Jamie Connell Code Institute Student 2023
