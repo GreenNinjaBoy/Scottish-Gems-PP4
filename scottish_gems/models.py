@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.utils.crypto import get_random_string
 import requests
+import os
 
 class Region(models.Model):
     """
@@ -70,28 +71,32 @@ class Post(models.Model):
         super().save(*args, **kwargs)
 
     def get_place_photo_reference(self):
-        # Make a request to the Google Places API
-        response = requests.get(f'https://maps.googleapis.com/maps/api/place/details/json?placeid={self.google_place_id}&fields=photos&key=AIzaSyDpfod5MHMyc6clNwLkzH6Wl4vfKvElvuw')
+    # Get the Google Maps API key from the environment variables
+        google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
 
-        # Parse the JSON response
+    # Make a request to the Google Places API
+        response = requests.get(f'https://maps.googleapis.com/maps/api/place/details/json?placeid={self.google_place_id}&fields=photos&key={google_maps_api_key}')
+
+    # Parse the JSON response
         data = response.json()
 
-        # Check if the place has photos
+    # Check if the place has photos
         if 'photos' in data['result']:
-            # Get the photo reference for the first photo
+        # Get the photo reference for the first photo
             photo_reference = data['result']['photos'][0]['photo_reference']
-
             return photo_reference
-
         else:
             return None
 
-    def get_photo_url(self):
-        # Construct the URL for the photo
-        if self.photo_reference:
-            return f'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={self.photo_reference}&key=AIzaSyDpfod5MHMyc6clNwLkzH6Wl4vfKvElvuw'
-        else:
-            return None
+def get_photo_url(self):
+    # Get the Google Maps API key from the environment variables
+    google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+
+    # Construct the URL for the photo
+    if self.photo_reference:
+        return f'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={self.photo_reference}&key={google_maps_api_key}'
+    else:
+        return None
 
 
 class UserComments(models.Model):
