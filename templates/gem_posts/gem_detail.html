@@ -26,14 +26,20 @@
         <p>Region: {{post.region}}</p>
 
         <!-- Comment form -->
+        {% if user.is_authenticated %}
         <form class="comment-form" method="post">
             {% csrf_token %}
             <textarea class="comment-input" name="content" placeholder="Please Enter Your Comment "></textarea>
             <button type="submit">Submit Comment</button>
         </form>
+        {% else %}
+        <p>If you would like to leave a comment on this gem then please <a href="{% url 'account_login' %}">Login/Sign up</a>
+        </p>
+        {% endif %}
     </div>
 
     <!-- Comments Section -->
+    {% if comments %}
     <div class="col-lg-6 col-md-12 col-sm-12 mb-3 border p-3 comments-container scrollable">
         <!-- Loop through comments -->
         {% for comment in comments %}
@@ -50,6 +56,7 @@
         </div>
         {% endfor %}
     </div>
+    {% endif %}
 </div>
 {% endblock %}
 

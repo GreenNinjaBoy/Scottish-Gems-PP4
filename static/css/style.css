@@ -301,6 +301,7 @@ nav {
     text-overflow: ellipsis;
 }
 
+
 /* --------- Login  Form Style ---------------*/
 
 .login-page,
@@ -424,6 +425,12 @@ nav {
     overflow-y: auto;
 }
 
+.comments-login {
+    width: max-content;
+    margin-top: 15px;
+    left: 0px;
+    right: 0px;
+}
 /* ------------ Style for share your gem page ------------- */
 .detail-view-header,
 .comments-header {
