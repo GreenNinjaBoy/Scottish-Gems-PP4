@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
+{% block navbar %} {% endblock %}
+{% block header %} {% endblock %}
+
 {% block content %}
+    <div class="delete-confirmation">
     <!-- Page title -->
     <h2>Delete Comment</h2>
     <!-- Confirmation message -->
@@ -14,4 +18,5 @@
         <!-- Submit button for confirming deletion -->
         <button type="submit">Delete Comment</button>
     </form>
+    </div>
 {% endblock %}

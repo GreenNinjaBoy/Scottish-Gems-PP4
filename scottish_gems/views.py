@@ -217,7 +217,7 @@ def edit_comment(request, post_id, comment_id):
         comment.save()
         messages.success(request, 'Your Comment has been sucsessfully edited.')
         return redirect('gem_detail', post_id=post.id)
-    return render(request, 'gem_posts/edit_comment.html', {'comment': comment})
+    return render(request, 'gem_posts/edit_comment.html', {'comment': comment, 'hide_navbar_and_header': True})
 
 
 @login_required
@@ -235,7 +235,7 @@ def delete_comment(request, post_id, comment_id):
         comment.delete()
         messages.success(request, 'Your Comment has been sucsessfully deleted.')
         return redirect('gem_detail', post_id=post.id)
-    return render(request, 'gem_posts/delete_comment.html',{'comment': comment})
+    return render(request, 'gem_posts/delete_comment.html',{'comment': comment, 'hide_navbar_and_header': True})
 
 
 def store_google_place_id(request):

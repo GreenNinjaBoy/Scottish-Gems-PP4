@@ -560,10 +560,11 @@ nav {
     width: 10px;
 }
 
-.delete-container {
-    flex-direction: column !important;
-    text-align: center !important;
-    align-items: center !important;
+.delete-container,
+.delete-confirmation {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
     background-color: #273c75;
     display: flex;
     justify-content: center;
