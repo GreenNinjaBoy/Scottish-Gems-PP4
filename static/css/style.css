@@ -65,6 +65,8 @@ nav {
     background-color: #31373d;
 }
 
+
+
 .post-row {
     background-color: #31373d;
     margin: 0;
@@ -312,8 +314,7 @@ nav {
 
 .login-form-container,
 .logout-container,
-.signup-form-container,
-.delete-container {
+.signup-form-container {
     background-color: #273c75;
     display: flex;
     justify-content: center;
@@ -327,15 +328,14 @@ nav {
     font-size: 140%;
 }
 
-.delete-container {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-}
+
 
 .fa-arrow-circle-left{
     font-size: 200%;
 }
+
+
+
 .delete-return-btn{
     margin-top: 50px;
 }
@@ -558,6 +558,23 @@ nav {
 /* This applies to the scrollbar itself */
 .scrollable::-webkit-scrollbar {
     width: 10px;
+}
+
+.delete-container {
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+    background-color: #273c75;
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    width: 50%;
+    margin-top: 20vh;
+    border-radius: 7%;
+    box-shadow: 5px 5px 5px 5px #6A5ABD;
+    color: #fff;
+    font-family: initial;
+    font-size: 140%;
 }
 
 @media (max-width: 992px) {

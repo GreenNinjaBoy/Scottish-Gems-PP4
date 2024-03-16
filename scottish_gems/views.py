@@ -198,7 +198,7 @@ def delete_gem(request, post_id):
         message = render_to_string('accounts/messages/gem_deleted.txt')
         messages.success(request, message)
         return redirect('home')
-    return render(request, 'gem_posts/delete_gem.html', {'post': post})
+    return render(request, 'gem_posts/delete_gem.html', {'post': post, 'hide_navbar_and_header': True})
 
 
 @login_required
