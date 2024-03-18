@@ -317,7 +317,10 @@ The HTML for the Scottish Gems Project was put through the [W3C Markup Validatio
 
 The CSS for the Scottish Gems Project was put through the []() and the results can be seen below.
 
+<details>
+<summary>W3C CSS Validator Results</summary>
 
+![HTML Validator Results](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/w3c_css_validator_results.png)
 
 ## Python
 
@@ -440,6 +443,14 @@ All JavaScript files were ran through [JSHint](https://jshint.com/). The results
 ![script.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/script.js_jshint_test_image.png?raw=true)
 
 </details>
+
+## Manual Testing
+
+Manual Testing was done to test that each feature/function worked as it should and also to ensure that only 
+the user who was the 'Autor' of either a gem being shared or a comment who could either have the ability to delete or edit what they have shared.
+The results of this can be seen below.
+
+|------|------|
 
 # Deployment
 
