@@ -300,7 +300,9 @@ The select by region function was put in place as this app was intended to cover
 
 # Testing
 
-## HTML
+## Code Valitdation
+
+### HTML
 
 The HTML for the Scottish Gems Project was put through the [W3C Markup Validation Servie](https://validator.w3.org/) and the results can be seen below.
 
@@ -311,7 +313,7 @@ The HTML for the Scottish Gems Project was put through the [W3C Markup Validatio
 
 </details>
 
-## CSS
+### CSS
 
 The CSS for the Scottish Gems Project was put through the []() and the results can be seen below.
 
