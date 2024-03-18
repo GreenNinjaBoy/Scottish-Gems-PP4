@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Include CSS files -->
   {% include 'partials/css.html' %}
+  
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
@@ -51,7 +52,6 @@
           <p>Author: {{ post.author.username }}</p>
           <p>Address: {{ post.address }}</p>
           <p>Gem Info: {{post.content}}</p>
-          <input type="hidden" id="googlePlaceIdField" value="{{ post.google_place_id }}">
 
           <!-- Check if user is authenticated -->
           {% if request.user.is_authenticated %}
@@ -92,7 +92,6 @@
             <p>Author: {{ post.author.username }}</p>
             <p>Address: {{ post.address }}</p>
             <p>Region: {{post.region}}</p>
-            <input type="hidden" id="googlePlaceIdField" value="{{ post.google_place_id }}">
             <br>
             <a href="{% url 'gem_detail' post.id %}"><span id="comment-count">{{ post.comment_set.count }}</span>
               Comments</a>
