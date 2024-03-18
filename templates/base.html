@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Include CSS files -->
   {% include 'partials/css.html' %}
-  
+
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
@@ -93,7 +93,7 @@
             <p>Address: {{ post.address }}</p>
             <p>Region: {{post.region}}</p>
             <br>
-            <a href="{% url 'gem_detail' post.id %}"><span id="comment-count">{{ post.comment_set.count }}</span>
+            <a href="{% url 'gem_detail' post.id %}">
               Comments</a>
 
             <!-- Check if user is authenticated -->
