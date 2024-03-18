@@ -278,11 +278,8 @@ The select by region function was put in place as this app was intended to cover
 - [Am I Responsive](https://ui.dev/amiresponsive) - to create the responsive demo image at the top of the Readme.
 - [Excalidraw](https://excalidraw.com/) - to create the navigation diagram.
 - [Lucidchart](https://www.lucidchart.com/pages/) - to create the database schemas.
-- [Quicktime](https://support.apple.com/en-gb/guide/quicktime-player/welcome/mac) - to record the screen capture for GIFs in the readme.
 - [Ezgif](https://ezgif.com/) - to convert the Readme GIFs.
 - [Quillbot](https://quillbot.com/) - for rephrasing demo comments.
-- [WebAIM WAVE](https://wave.webaim.org/) - for automated testing of accessibility.
-- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - to check colour contrast accessibility.
 - [Eightshapes Contrast Grid](https://contrast-grid.eightshapes.com/) - to visualise the contrast accessibility of the whole site colour palette.
 - [Code Institute’s Python Linter](https://pep8ci.herokuapp.com/) - for automated testing of the Python code.
 - [JSHint](https://jshint.com/) - to test the JavaScript code.
@@ -291,7 +288,6 @@ The select by region function was put in place as this app was intended to cover
 
 ### APIs Used
 
-- [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview) - to run the home page map.
 - [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview) - to get details and photos from place searches.
 
 ### Python Packages Used
@@ -303,6 +299,23 @@ The select by region function was put in place as this app was intended to cover
 - [Coverage.py](http://coverage.py/) - to measure test coverage of the Python code.
 
 # Testing
+
+## HTML
+
+The HTML for the Scottish Gems Project was put through the [W3C Markup Validation Servie](https://validator.w3.org/) and the results can be seen below.
+
+<details>
+<summary>W3C Validator Results</summary>
+
+![HTML Validator Results](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/html-validator-checker.png)
+
+</details>
+
+## CSS
+
+The CSS for the Scottish Gems Project was put through the []() and the results can be seen below.
+
+
 
 ## Python
 

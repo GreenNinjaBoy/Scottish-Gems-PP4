@@ -279,11 +279,6 @@ nav {
     border: solid 0.5px black;
 }
 
-#close-btn i {
-    color: white;
-    size: 200%;
-    margin-top: 15px;
-}
 
 .form-container {
     display: flex;
@@ -297,7 +292,6 @@ nav {
 .post-card .gem-info {
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    /* number of lines to show */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
