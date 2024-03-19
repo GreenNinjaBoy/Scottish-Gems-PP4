@@ -321,6 +321,7 @@ The CSS for the Scottish Gems Project was put through the []() and the results c
 <summary>W3C CSS Validator Results</summary>
 
 ![HTML Validator Results](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/w3c_css_validator_results.png)
+</detail>
 
 ## Python
 
