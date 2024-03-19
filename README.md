@@ -447,10 +447,19 @@ All JavaScript files were ran through [JSHint](https://jshint.com/). The results
 ## Manual Testing
 
 Manual Testing was done to test that each feature/function worked as it should and also to ensure that only 
-the user who was the 'Autor' of either a gem being shared or a comment who could either have the ability to delete or edit what they have shared.
+the user who was the 'Author' of either a gem being shared or a comment who could either have the ability to delete or edit what they have shared.
 The results of this can be seen below.
 
-|------|------|
+## Nav Bar Testing
+<details>
+<summary>Manual Testing of Nav Bar Features</summary>
+	
+| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
+|--|--|--|--|
+| Nav Bar (when user not signed in)  | Only The home button, select a region button and log in button are displayed.  | The Actual outcome is the same as the Desired Outcome.  | Ensured no users were signed in and checked nav bar for display.
+|Nav Bar (when User is singed in)| New options are presented to user to view posts they have marked as their favorites and also to share their own gems they have discovered.|The Actual outcome for this is the same as the desired outcome. |Signed in as a user and checked the nav bar display to ensure additional options were visible.
+|Log In Button on navbar| When clicked the user is the redirected to the desired "login" html page. | When the user click this button they are redirected to the "login html page.| Ensured no user was logged in and clicked the login button on navbar.
+</details>
 
 # Deployment
 
