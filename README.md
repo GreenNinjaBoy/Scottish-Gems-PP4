@@ -70,6 +70,8 @@ The color scheme was chosen to give the user a more authentic Scottish experienc
 **Typography**
 The typography used for the project was produced from google fonts and the chosen text was "Merriweather". Again this was used to give that more authentic Scottish look and feel to the user.
 
+![Google fonts image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/google_fonts_image.webp)
+
 ### Features
 
 **Home Page**
