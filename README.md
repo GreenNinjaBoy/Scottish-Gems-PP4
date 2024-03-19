@@ -49,27 +49,15 @@ Plaese see below a Navigational Flow Chart showing what was aimed for when creat
 
 ** Insert Image Here**
 
-**Google Maps API JavaScript Flow Diagrams**
+** Sharing Gem With aid from google API **
 
-One of the biggest challenges that was faced while building this site was the implementation of the Google Places API and also Google Places photos.
+When a user is looking to share a "Gem" that they have discovered they can do so with the aid of Google's Plcae API and autocomplete features.
+When a use begins to input a place that they have discovered google will begin to display suggestions to the user and when the user clicks on the place that
+they have discovered. Then with the aid of google autocomplete feature the full address and post/zip code is automatically filled in leaving with the user to upload their own images and which region they were in when they discovered the gem.
 
-I took Inspiration from another user project on this called [Magical Places](https://github.com/timgoalen/magical-places-london/tree/main) and looking at their documentation it was clear that the only way to achieve what I was aiming to do was design a JavaScript System that used Google place_id stored in the database to send a new PlaceDetails request every time the page is loaded to get the photos, and add them to the page for the user.
+** insert GIF here when function is fully working **
+** insert flow of when is being done**
 
-**Add a Gem functionality - 'add-gem-form.js**
-
-The search field in the create_gem.html page uses the Google Autocomplete class and Place Details service.
-
-<details>
-<summary> Create Gem Flow Diagram </summary>
-
-![create gem flow diagram](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/search_gem_flow_diagram.png?raw=true)
-
-</details>
-
-**Home page - 'script.js'**
-The places objects are then sent to the HTML template as a JSON array of objects. JavaScript picks them up and uses the google_place_id to send to Google Places API for photos. It then re-attaches each newly fetched photo to the corresponding place object using the id as a reference.
-
-**Insert the flowchart here**
 
 **Color Scheme**
 
