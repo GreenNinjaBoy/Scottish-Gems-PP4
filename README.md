@@ -73,7 +73,10 @@ The places objects are then sent to the HTML template as a JSON array of objects
 
 **Color Scheme**
 
-** Insert image here**
+The color palette below was generated with the help of [Coolors](https://coolors.co)
+
+![Color Palette Image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/color-palette.webp)
+
 The color scheme was chosen to give the user a more authentic Scottish experience as these colors are generally associated with Scotland.
 
 **Typography**
