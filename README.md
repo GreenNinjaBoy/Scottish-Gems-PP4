@@ -18,7 +18,10 @@ The users this site is aimed at are as follows:
 - The Local population who are looking to explore their own country more.
 
 ## Table of contents
+<details>
+<summary>Please Click the arrow to see full table of contents</summary>
 
+ 
 - [Project Goals](#Project-Goals)
 - [Agile Development](#Agile-Development)
  	- [User Stories](#User-Stories)
@@ -32,6 +35,28 @@ The users this site is aimed at are as follows:
  	- [Typography](#Typography)
 - [Features](#Features)
  	- [Homepage](#Home-Page)
+    	- [Navigation Bar](#Navigation-Bar)
+  	- [Login](#Login)
+  	- [Signup](#Signup)
+  	- [Logout](#Logout)
+  	- [User Messages](#User-Messages)
+  	- [Share Your Gem](#Share-Your-Gem)
+  	- [Favorites](#Favorites)
+  	- [Select by Region](#Select-by-Region)
+- [Known Bugs](Known-Bugs)
+- [Technologies Used](Technologies-Used)
+- [APIs Used](#APIs-Used)
+- [Testing](#Testing)
+	- [Code Valitdation](#Code-Valitdation)
+ 		- [HTML](#HTML)
+   		- [CSS](#CSS)
+     	- [Python](#Python)
+      		- [Python Unit Testing](#Python-Unit-Testing)
+        	- [Testing with Pep8](Testing-with-Pep8) 
+        - [JavaScript](#JavaScript)
+        	-[Testing with JsHint](#Testing-with-JsHint)
+	- [Manual Testing](Manual-Testing)
+ - [Deployment](#Deployment)   	
   
 </details>
 
@@ -47,20 +72,20 @@ The goals that I have set out for the site's functionality are:
 
 ### Agile Development
 
-**User Stories**
+#### **User Stories**
 
 A kanban board in Github Projects was used for the Agile development process - see the board [here]().
 'Epics were broken down into 'user Stories', which were further broken down into 'Tasks'.
 
 ### User Experience (UX Design)
 
-**Wireframes**
+#### **Wireframes**
 
 Balsamiq Wireframes were used to map out the design of the application.
 
 ** Insert Images Here **
 
-**Navigation**
+#### **Navigation**
 Plaese see below a Navigational Flow Chart showing what was aimed for when creating the website.
 
 <details>
@@ -70,7 +95,7 @@ Plaese see below a Navigational Flow Chart showing what was aimed for when creat
 
 </details>
 
-**Data Schema**
+#### **Data Schema**
 
 ** Insert Image Here**
 
@@ -84,7 +109,7 @@ they have discovered. Then with the aid of google autocomplete feature the full 
 ** insert flow of when is being done**
 
 
-**Color Scheme**
+#### **Color Scheme**
 
 The color palette below was generated with the help of [Coolors](https://coolors.co)
 
@@ -92,7 +117,7 @@ The color palette below was generated with the help of [Coolors](https://coolors
 
 The color scheme was chosen to give the user a more authentic Scottish experience as these colors are generally associated with Scotland.
 
-**Typography**
+#### **Typography**
 The typography used for the project was produced from google fonts and the chosen text was "Merriweather". Again this was used to give that more authentic Scottish look and feel to the user.
 
 ![Google fonts image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/google_fonts_image.webp)
@@ -103,7 +128,7 @@ The typography used for the project was produced from google fonts and the chose
 
 The home page is presented to the user with posts already shown by other users and user can click on these posts to view it in more detail. If a user has not got a sign in then the only items available to them on the navbar are "home" "select by region" and the sign in button.
 
-**Navigation Bar**
+#### **Navigation Bar**
 
 The navigation bar is comprised of two views. One view is displayed to a user who is either no to the site or has not yet signed in. The second view is for the users who have signed onto the page and is then presented with two options.
 
@@ -115,7 +140,7 @@ Navigation bar when a user is signed in.
 
 ![](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/navbar-post-sign-in.webp.png?raw=true)
 
-**Login**
+#### **Login**
 When a user decides to log in they are presented with the following screen.
 
 <details>
@@ -125,7 +150,7 @@ When a user decides to log in they are presented with the following screen.
 
 </details>
 
-**Signup**
+### **Signup**
 If a user does not already have an account they can create one by clicking the link shown in the previous image which will bring them to the following page.
 
 <details>
@@ -135,7 +160,7 @@ If a user does not already have an account they can create one by clicking the l
 
 </details>
 
-**Log Out**
+#### **Log Out**
 When a user decides to Log Out they can click the "signout" button on the navigation bar and is then presented with the following screen
 
 <details>
@@ -147,7 +172,7 @@ When a user decides to Log Out they can click the "signout" button on the naviga
 
 </details>
 
-**User Messages**
+#### **User Messages**
 
 When ever a user completes a task they are met with a brief message. These Messages can be seen down below:
 
@@ -214,7 +239,7 @@ When ever a user completes a task they are met with a brief message. These Messa
 
 </details>
 
-**Share Your Gem**
+#### **Share Your Gem**
 The original concept for this page was that a user could input their information into a form. However after a lot of trial and error it was decided that this would not be user friendly. And as previously mentioned inspiration came form another students similar project ([Magical Places](https://github.com/timgoalen/magical-places-london/tree/main)) and the can now add a place by simply searching for their gem in the search field which by powered by Google Places Autocomplete to suggest existing gems. Once the user clicks on a suggested place, the hidden form is automatically filled in by JavaScript, from the data provided by the Google Places API.
 
 **Insert Image here**
@@ -225,7 +250,7 @@ notes:
   - As the form data is not user-generated, and rather supplied by the Google Places API, there is a low chance or user error that would justify ‘edit’ functionality.
   - If the user had the ability to delete places that were already commented on, other users would lose their comments and lose access to the place if it was in their favorites list.
 
-**Favorites**
+#### **Favorites**
 
 The ability for a user has been split into two main parts. Users can see which posts they have selected as their favorites from the main landing page. Or the user can select the "favorites" tab within the navigation tab and they will be brought to a page where they are able to view posts that they have marked as their favorites. The user can decided to set a favorite post from the home page and unfavorite from either the home page or within their favorites page.
 
@@ -259,7 +284,7 @@ Posts on main home page is user has not selected it as a favorite.
 
 </details>
 
-**Select by Region**
+#### **Select by Region**
 
 The select by region function was put in place as this app was intended to cover the whole of Scotland. This would make it easier for the user to filter the Gem Posts in the home page to the region that they were interested in. This feature remains on the navigation bar for users who are and are not signed into the site.
 
@@ -341,7 +366,7 @@ The CSS for the Scottish Gems Project was put through the []() and the results c
 
 ## Python
 
-### Unit testing
+### Python Unit testing
 
 Unit testing was created and carried out based on the following: forms.py, models.py and views.py.
 Each test is stored within a directory within this scottish_gems app entitled "tests" and imageas of these results can be seen below.
@@ -480,7 +505,7 @@ The results of this can be seen below.
 
 # Deployment
 
-**Creating The Repository**
+#### **Creating The Repository**
 
 The repository was created using Github. as a student this was done using a template provided by Code Institute.
 To do this the following steps were taken:
@@ -495,7 +520,7 @@ To do this the following steps were taken:
 - Then Click on the green "create repository" and Github will create the new repository.
   ![create from template 2](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-create-repository-image-2.png?raw=true)
 
-**Cloning the Repository**
+### **Cloning the Repository**
 
 - Github can also be used to clone a repository so that the code can be altered and pushed back to the main repository using a different IDE.
   - This can be done by using the following steps.
@@ -531,7 +556,7 @@ To do this the following steps were taken:
   - If for what ever reason you find yourself switching between IDE's please make sure that the first command in your terminal is **"git pull"** as this will pull
     any changes that you have made using other IDE's.
 
-**Forking The Repository**
+#### **Forking The Repository**
 
 - Github can also be used to fork a repository. - This can create a copy of the repository which can be edited without effecting the main repository branch. - The steps to fork the repository can be done as follows: - When in the " Story-Time-Adventures-PP3" repository click on the "Fork" tab located at the top right hand corner. - Click on "create a new fork" - You will be sent to another page to name your forked repository. - Once Named click create fork and you will have a copy of the repository that you can now access and change without affecting the original main repository.
 <details>
@@ -562,7 +587,7 @@ follow the steps outlined in the Google documentation, to:
 
 - Use the following [link]() to access code institutes SQL page.
 - Enter you email addrexx.
-- You will then be emailed a link which when opened will give you all your details to set up you r database
+- You will then be emailed a link which when opened will give you all your details to set up your database
 
 ## **Deploying Using Heroku**
 
@@ -618,7 +643,7 @@ Getting data from a Django model into javascript:
 - [Official Django docs](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#json-script)
 - [adamj.eu](https://adamj.eu/tech/2020/02/18/safely-including-data-for-javascript-in-a-django-template/)
 
-**Google Maps API/JavaScript**
+#### **Google Maps API/JavaScript**
 
 (Official Google)
 
@@ -626,14 +651,10 @@ Getting data from a Django model into javascript:
 - [Retrieving response data](https://developers.google.com/maps/documentation/javascript/place-autocomplete)
 - [Places photos](https://developers.google.com/maps/documentation/javascript/places#places_photos)
 
-(3rd Party)
-
-- W3 Schools - [Google Maps Intro](https://www.w3schools.com/graphics/google_maps_intro.asp)
-- Stack Overflow - [close info window when user clicks anywhere on the map](https://stackoverflow.com/questions/10022873/closing-info-windows-in-google-maps-by-clicking-the-map)
 
 ## Acknowledgements
 
-This was my third project that was created and developed for portfolio as a student of [Code Institute](https://codeinstitute.net/) currently undertaking their course in Full Stack Software Development.
+This is my Fourth project that was created and developed for portfolio as a student of [Code Institute](https://codeinstitute.net/) currently undertaking their course in Full Stack Software Development.
 
 I would like to thank the following for all of the support throughout the development phase.
 
@@ -641,4 +662,4 @@ I would like to thank the following for all of the support throughout the develo
 - My family, My friends and peers who have helped during the testing phase and provided valuable feedback.
 - My Mentor lauren-nicole Popich for her continuing advice and support during the development process. I can honestly say without her knowledge and guidence I would not be at the stage I am at now
 
-Jamie Connell Code Institute Student 2023
+Jamie Connell Code Institute Student 2024
