@@ -12,6 +12,15 @@ The users this site is aimed at are as follows:
 - People who are visiting Scotland on holiday.
 - The Local population who are looking to explore their own country more.
 
+## Table of contents
+
+- [Project Goals](#Project-Goals)
+- <details>
+	<summary>[Agile Development](#Agile-Development)</summary>
+ 	[User Stories](#User-Stories)
+</details>
+
+
 ### Project Goals
 
 The goals that I have set out for the site's functionality are:
@@ -271,8 +280,6 @@ The select by region function was put in place as this app was intended to cover
 - [Am I Responsive](https://ui.dev/amiresponsive) - to create the responsive demo image at the top of the Readme.
 - [Excalidraw](https://excalidraw.com/) - to create the navigation diagram.
 - [Lucidchart](https://www.lucidchart.com/pages/) - to create the database schemas.
-- [Ezgif](https://ezgif.com/) - to convert the Readme GIFs.
-- [Quillbot](https://quillbot.com/) - for rephrasing demo comments.
 - [Eightshapes Contrast Grid](https://contrast-grid.eightshapes.com/) - to visualise the contrast accessibility of the whole site colour palette.
 - [Code Institute’s Python Linter](https://pep8ci.herokuapp.com/) - for automated testing of the Python code.
 - [JSHint](https://jshint.com/) - to test the JavaScript code.
