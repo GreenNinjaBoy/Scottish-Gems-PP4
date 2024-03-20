@@ -25,8 +25,8 @@ The users this site is aimed at are as follows:
  	- [Google API](#Sharing-Gem-With-aid-from-google-API)
  	- [Color Scheme](#Color-Scheme)
  	- [Typography](#Typography)
--[Features](#Features)
- 	-[Homepage](#Home-Page)
+- [Features](#Features)
+ 	- [Homepage](#Home-Page)
   
 </details>
 
