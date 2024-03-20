@@ -16,17 +16,17 @@ The users this site is aimed at are as follows:
 
 - [Project Goals](#Project-Goals)
 - [Agile Development](#Agile-Development)
- - [User Stories](#User-Stories)
+ 	- [User Stories](#User-Stories)
 - [User Experience](#User-Experience)
- - [Wireframes](#Wireframes)
- - [Navigation](#Navigation)
- - [Data Schema](#Data-Schema)
- - [Color Scheme](#Color-Scheme)
- - [Google API](#Sharing-Gem-With-aid-from-google-API)
- - [Color Scheme](#Color-Scheme)
- - [Typography](#Typography)
+ 	- [Wireframes](#Wireframes)
+ 	- [Navigation](#Navigation)
+ 	- [Data Schema](#Data-Schema)
+ 	- [Color Scheme](#Color-Scheme)
+ 	- [Google API](#Sharing-Gem-With-aid-from-google-API)
+ 	- [Color Scheme](#Color-Scheme)
+ 	- [Typography](#Typography)
 -[Features](#Features)
- -[Homepage](#Home-Page)
+ 	-[Homepage](#Home-Page)
   
 </details>
 
