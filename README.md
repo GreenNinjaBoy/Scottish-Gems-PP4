@@ -92,9 +92,9 @@ The typography used for the project was produced from google fonts and the chose
 
 ![Google fonts image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/google_fonts_image.webp)
 
-### Features
+## Features
 
-**Home Page**
+#### **Home Page**
 
 The home page is presented to the user with posts already shown by other users and user can click on these posts to view it in more detail. If a user has not got a sign in then the only items available to them on the navbar are "home" "select by region" and the sign in button.
 
