@@ -16,8 +16,10 @@ The users this site is aimed at are as follows:
 
 - [Project Goals](#Project-Goals)
 - <details>
-	<summary>[Agile Development](#Agile-Development)</summary>
+	<summary> [Agile Development](#Agile-Development) </summary>
+	
  	[User Stories](#User-Stories)
+  
 </details>
 
 
