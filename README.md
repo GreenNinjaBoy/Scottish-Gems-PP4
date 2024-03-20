@@ -300,21 +300,21 @@ The select by region function was put in place as this app was intended to cover
 
 # Known Bugs
 <details>
-<summary> ## **500 error during user signout**. </summary>
+<summary>500 error during user signout.</summary>
 	
 One of the bug found during development was that when a user was attempting to logout of their account, a 500 error was flagged. This meant that there was an issue internally with the server.
 - To fix this trouble shooting and debugging of both the Python and JavaScript codes were done to ensure that they were not the main cause of the user recieving this error. There was nothing found within these.
 - After a bit of advice from a friend I decided to look at the Signout.html code. I commented out the entire code and left a single message that read "this is the signout page". When the page was refreshed the message displayed to the user. I then began to uncomment each section of my html code and refreshed the server until the 500 error was flagged. It was indead the case that the way my HTML code was written was the reason that my app was recieving the internal 500 error. I altered the code to fix the issue and this fixed the error that was being recieved.
 </details>
 <details>
-<summary> ## 500 error during user attempting to add a "Gem" </summary>
+<summary>500 error during user attempting to add a "Gem"</summary>
 	
 Another bug found during the development of the project was that when a user clicked on the "Share your Gem" on the nav bar, a 500 error was flagged. Again this meant that there was an internal issue with the server.
 - To fix this I performed the same stages as mentioned earlier and again it was my HTML code that was causing this issue and as mentioned before the HTML code was altered and this fixed the issue with the user being able to share a "Gem".
 </details>
 
 <details>
-<summary> ## Images displayed on the base.html page </summary>
+<summary>Images displayed on the base.html page</summary>
 
 A really big issue/bug that was discovered was to do with the images displayed to users on the base.html page. 
 - These images were automatically produced during the "Share you Gem" functionallity and then would be displayed for all users to see.
@@ -328,7 +328,7 @@ A really big issue/bug that was discovered was to do with the images displayed t
 Due to my attempts at trying to overcome this bug a good deal of time was spent on this with many failed attempts. It was then decided that the best course of action would be to remove the image autofill function when a user selects a place to share and allow the user to upload their own images to the page for others to view. This would then save any risk of the image timing out leaving nothing to display to the users.
 </details>
 <details>
-<summary> ## **Select by region options only present on home page and favorites page**  </summary>
+<summary>Select by region options only present on home page and favorites page</summary>
 
 Another bug that was found was when a user was either in their "favorites" page or the "share your gem" page then the dropdown for the "Region Selection" did not display the regions to the user.
 This was a bit inconveniant especially with the favorites page as the user should also be able to filter their favorites by region, if they were looking for a specific place.
