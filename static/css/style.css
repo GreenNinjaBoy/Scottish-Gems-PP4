@@ -555,7 +555,8 @@ nav {
 }
 
 .delete-container,
-.delete-confirmation {
+.delete-confirmation,
+.error-container {
     flex-direction: column;
     text-align: center;
     align-items: center;

@@ -4,6 +4,8 @@ from django.utils.text import slugify
 from django.utils.crypto import get_random_string
 import requests
 import os
+from datetime import datetime, timedelta, timezone
+
 
 class Region(models.Model):
     """
@@ -58,6 +60,7 @@ class Post(models.Model):
         it generates one from the title. If the generated slug already exists,
         it appends a random string to the title to generate a unique slug.
         """
+        # TODO use uuid.uuid4()
         if not self.slug:
             self.slug = slugify(self.title) or get_random_string(5)
             while Post.objects.filter(slug=self.slug).exists():
@@ -88,15 +91,28 @@ class Post(models.Model):
         else:
             return None
 
-def get_photo_url(self):
-    # Get the Google Maps API key from the environment variables
-    google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+    def refresh_photo_url(self):
+        now = datetime.now(tz=timezone.utc)
+        updated_on_plus_1d = self.updated_on + timedelta(hours=12)
+        if now > updated_on_plus_1d:
+            print(f"{self.id}:{self.title} has expired. Refreshing photo")
+            self.photo_url = self.get_photo_url()
+            self.save()
 
-    # Construct the URL for the photo
-    if self.photo_reference:
-        return f'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={self.photo_reference}&key={google_maps_api_key}'
-    else:
-        return None
+    def get_photo_url(self):
+        # Get the Google Maps API key from the environment variables
+        google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+
+        params = {"maxwidth": 400, "photoreference": self.photo_reference, "key": google_maps_api_key}
+        resp = requests.get("https://maps.googleapis.com/maps/api/place/photo", params=params)
+
+        if resp.ok:
+            return resp.url
+        else:
+            # TODO handle getting a 400 response. Probably means photo reference has expired in which
+            # case get a new photo reference by doing a new Places lookup
+            print(f"{self.id}:{self.title} error getting photo URL: {resp.text}")
+
 
 
 class UserComments(models.Model):

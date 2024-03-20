@@ -25,9 +25,9 @@ class AddGemForm(forms.ModelForm):
     content = forms.CharField(
         widget=forms.HiddenInput(attrs={'id': 'content-field'})
     )
-    #photo_url = forms.CharField(
-        #widget=forms.HiddenInput(attrs={'id': 'photo_urlField'})
-    #)
+    photo_url = forms.CharField(
+        widget=forms.HiddenInput(attrs={'id': 'photo_urlField'})
+    )
 
     class Meta:
         model = Post

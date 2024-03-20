@@ -27,6 +27,12 @@ def home(request):
         paginator = Paginator(posts, 6)
         page_number = request.GET.get('page')
         posts = paginator.get_page(page_number)
+    
+    # refresh photo URLs that more than 24 hours old
+    # TODO move this to an async background task
+    for post in posts:
+        post.refresh_photo_url()
+
     return render(request, 'base.html', {
         'posts': posts,
         'regions': regions,
@@ -161,10 +167,8 @@ def add_gem(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            photo_url = form.cleaned_data['photo_url']
-            post.photo_url = photo_url
-            address = form.cleaned_data['address']
-            post.address = address 
+            post.photo_url = form.cleaned_data['photo_url']
+            post.address = form.cleaned_data['address']
 
             # Extract and store Google Place ID
             google_place_id = form.cleaned_data['google_place_id']

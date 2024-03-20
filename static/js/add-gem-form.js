@@ -5,7 +5,7 @@ const longitudeField = document.getElementById("longitude-field");
 const googlePlaceIdField = document.getElementById("googlePlaceIdField");
 const nameField = document.getElementById("add-form-title");
 const addressField = document.getElementById("add-form-address");
-const photoField = document.getElementById("photoUrlField");
+const photoField = document.getElementById("photo_urlField");
 
 // Get references to the hidden fields in the form.
 const titleField = document.getElementById("title-field");
@@ -37,6 +37,9 @@ function initAutocomplete() {
     autocomplete.addListener("place_changed", () => {
         // Get the selected place.
         const place = autocomplete.getPlace();
+
+        console.log("asdf");
+        console.log(place);
         
         // Get the geographical coordinates of the selected place.
         const coordinates = place.geometry.location;
