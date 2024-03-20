@@ -15,10 +15,18 @@ The users this site is aimed at are as follows:
 ## Table of contents
 
 - [Project Goals](#Project-Goals)
-- <details>
-	<summary> [Agile Development](#Agile-Development) </summary>
-	
- 	[User Stories](#User-Stories)
+- [Agile Development](#Agile-Development)
+ - [User Stories](#User-Stories)
+- [User Experience](#User-Experience)
+ - [Wireframes](#Wireframes)
+ - [Navigation](#Navigation)
+ - [Data Schema](#Data-Schema)
+ - [Color Scheme](#Color-Scheme)
+ - [Google API](#Sharing-Gem-With-aid-from-google-API)
+ - [Color Scheme](#Color-Scheme)
+ - [Typography](#Typography)
+-[Features](#Features)
+ -[Homepage](#Home-Page)
   
 </details>
 
@@ -35,6 +43,7 @@ The goals that I have set out for the site's functionality are:
 ### Agile Development
 
 **User Stories**
+
 A kanban board in Github Projects was used for the Agile development process - see the board [here]().
 'Epics were broken down into 'user Stories', which were further broken down into 'Tasks'.
 
@@ -60,7 +69,7 @@ Plaese see below a Navigational Flow Chart showing what was aimed for when creat
 
 ** Insert Image Here**
 
-** Sharing Gem With aid from google API **
+**Sharing Gem With aid from google API**
 
 When a user is looking to share a "Gem" that they have discovered they can do so with the aid of Google's Plcae API and autocomplete features.
 When a use begins to input a place that they have discovered google will begin to display suggestions to the user and when the user clicks on the place that
