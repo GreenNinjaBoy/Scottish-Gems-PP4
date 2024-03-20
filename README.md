@@ -529,36 +529,64 @@ To do this the following steps were taken:
 2.  Select HTTPS in the dropdown menu.
 3.  Copy the URL under HTTPS.
 
+- There are 2 main virtual IDE's that CodeInstitiue reccomend and those are [CodeAnyWhere](app.codeanywhere.com) and [GitPod](gitpod.io).
+- Please Note that the images used for CodeAnywhere were images used in a previous project entitled Story-time-Adventures-PP3 the process however remains the same.
+
+<details>
+<summary>Cloning Repository Using CodeAnywhere</summary>
+	
 ![clone repository 1](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-clone-repository-image-1.png?raw=true)
 
-4. Open the IDE that you are working from for example [CodeAnywhere](https://app.codeanywhere.com/).
-5. Sign in using your Github details.
+1. Open the [CodeAnywhere](https://app.codeanywhere.com/).
+2. Sign in using your Github details.
 
 ![codeanywhere sign in](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/cloning-repository-image-2.png?raw=true)
 
-6. Click on the create new workspace button.
+3. Click on the create new workspace button.
 
 ![create workspace image](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/cloning-repository-image-3.png?raw=true) 7. Paste copied HTTPS and click create (Codeanywhere will now generate the virtual IDE).
 ![create workspace image 2](https://github.com/GreenNinjaBoy/Story-Time-Adventures-PP3/blob/main/assets/readme-images/pp3-clone-repository-image-4.png?raw=true)
 
-8.  Once IDE has Loaded create inital index.html page and add test text.
-9.  Once test text is added press `Ctrl + S` to save.
-10. Click terminal tab at top of screen and click new terminal.
-11. Once new terminal has opened test that content is being pushed back to github.
-12. In the terminal type `git add .` and press enter (this will add all new content).
-13. Then type `git commit -m "add test text"` and press enter (this lets anyone seeing your commits know what you have done).
-14. Once you have done that type `git push` and press enter (this will push all changes made to the github repository).
-15. Navigate to github.
-16. Choose the repository you were working on.
-17. Check the changes have been successfully pushed.
+4.  Once IDE has Loaded create inital index.html page and add test text.
+5.  Once test text is added press `Ctrl + S` to save.
+6. Click terminal tab at top of screen and click new terminal.
+7. Once new terminal has opened test that content is being pushed back to github.
+8. In the terminal type `git add .` and press enter (this will add all new content).
+9. Then type `git commit -m "add test text"` and press enter (this lets anyone seeing your commits know what you have done).
+10. Once you have done that type `git push` and press enter (this will push all changes made to the github repository).
+11. Navigate to github.
+12. Choose the repository you were working on.
+13. Check the changes have been successfully pushed.
 
-- **Note**
-  - If for what ever reason you find yourself switching between IDE's please make sure that the first command in your terminal is **"git pull"** as this will pull
+</details>
+<details>
+<summary>Cloning Repository Usining Gitpod</summary>
+
+1.Open [GitPod](Gitpod.io)
+2. Click the signin/ Login button at the top right hand corner of the page.
+3. Sign/Login using your GitHub credentials.
+4. Click on New Workspace
+5. Gitpod works slightly different from Codeanywhere, you can either begin typing the name of your repository and you will see it appear in the dropdown menu or you can simply paste the copied HTTPS in to the field.
+6. Click Continue and you Gitpod virtual workspace will be created.
+7.  Once IDE has Loaded create inital index.html page and add test text.
+8.  Once test text is added press `Ctrl + S` to save.
+9. Click terminal tab at top of screen and click new terminal.
+10. Once new terminal has opened test that content is being pushed back to github.
+11. In the terminal type `git add .` and press enter (this will add all new content).
+12. Then type `git commit -m "add test text"` and press enter (this lets anyone seeing your commits know what you have done).
+13. Once you have done that type `git push` and press enter (this will push all changes made to the github repository).
+14. Navigate to github.
+15. Choose the repository you were working on.
+16. Check the changes have been successfully pushed.
+</details>
+
+- ## **Please Note**
+  - If for what ever reason you find yourself switching between CodeAnywhere or Gitpod please make sure that the first command in your terminal is **"git pull"** as this will pull
     any changes that you have made using other IDE's.
 
 #### **Forking The Repository**
 
-- Github can also be used to fork a repository. - This can create a copy of the repository which can be edited without effecting the main repository branch. - The steps to fork the repository can be done as follows: - When in the " Story-Time-Adventures-PP3" repository click on the "Fork" tab located at the top right hand corner. - Click on "create a new fork" - You will be sent to another page to name your forked repository. - Once Named click create fork and you will have a copy of the repository that you can now access and change without affecting the original main repository.
+- Github can also be used to fork a repository. - This can create a copy of the repository which can be edited without effecting the main repository branch. - The steps to fork the repository can be done as follows: - When in the " Scottish-Gems_PP4" repository click on the "Fork" tab located at the top right hand corner. - Click on "create a new fork" - You will be sent to another page to name your forked repository. - Once Named click create fork and you will have a copy of the repository that you can now access and change without affecting the original main repository.
 <details>
 <summary> Fork Image 1 </Summary>
 
