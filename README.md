@@ -17,7 +17,7 @@ The users this site is aimed at are as follows:
 - [Project Goals](#Project-Goals)
 - [Agile Development](#Agile-Development)
  	- [User Stories](#User-Stories)
-- [User Experience](#User-Experience)
+- [User Experience](#user-experience-ux-design)
  	- [Wireframes](#Wireframes)
  	- [Navigation](#Navigation)
  	- [Data Schema](#Data-Schema)
