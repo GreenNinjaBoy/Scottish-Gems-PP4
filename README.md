@@ -1,8 +1,8 @@
 <div align="center">
 	
 # Scottish Gems
-## Created By Jamie Connell
-### Student Of Code Institute 2024
+**Created By Jamie Connell**
+**Student Of Code Institute 2024**
 </div>
 
 \*Insert am I responsive image when ready
