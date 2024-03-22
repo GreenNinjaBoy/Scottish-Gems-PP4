@@ -122,13 +122,13 @@ class Post(models.Model):
             print(f"{self.id}:{self.title} error getting photo URL: {resp.text}")
             print(f"Expired photo reference: {self.photo_reference}")
             print(f"Fetching new photo reference using google_place_id: {self.google_place_id}")
-            params = {"googlePlaceIdField": self.google_place_id, "fields": "photo", "key": google_maps_api_key}
+            params = {"googlePlaceIdField": self.google_place_id, "fields": "googlePlaceIdField", "key": google_maps_api_key}
             resp = requests.get("https://maps.googleapis.com/maps/api/place/details/json", params=params)
 
             if resp.ok:
                 data = resp.json()
-                if "result" in data and "photos" in data["result"] and len(data["result"]["photos"]) > 0:
-                    new_photo_reference = data["result"]["photos"][0]["photo_reference"]
+                if "result" in data and "googlePlaceIdField" in data["result"] and len(data["result"]["googlePlaceIdField"]) > 0:
+                    new_photo_reference = data["result"]["googlePlaceIdField"][0]["photo_reference"]
                     print(f"New photo reference: {new_photo_reference}")
                     params = {"maxwidth": 400, "maxheight": 400, "photoreference": new_photo_reference, "key": google_maps_api_key}
                     resp = requests.get("https://maps.googleapis.com/maps/api/place/photo", params=params)

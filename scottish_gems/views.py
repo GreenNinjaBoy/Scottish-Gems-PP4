@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Region, UserComments
 from django.http import JsonResponse, HttpResponse
+from django.conf import settings
 from django.template.loader import render_to_string
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
@@ -168,10 +169,10 @@ def add_gem(request):
             messages.success(request, message)
             return redirect('home')
         else:
-            return render(request, 'gem_posts/create_gems.html', {'form': form})
+            return render(request, 'gem_posts/create_gems.html', {'form': form, 'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY})
 
     form = AddGemForm()
-    return render(request, 'gem_posts/create_gems.html', {'form': form})
+    return render(request, 'gem_posts/create_gems.html', {'form': form, 'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY})
 
 
 @login_required

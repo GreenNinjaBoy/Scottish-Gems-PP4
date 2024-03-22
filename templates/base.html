@@ -48,7 +48,7 @@
 
           <!-- Display the post -->
           <h2>{{ post.title }}</h2>
-          <img id="photo" src="{{ post.photo_url }}" alt="{{ post.title }}">
+          <img id="photo" src="{{ post.photo_url }}" alt="{{ post.title }}" style="max-width: 400px; max-height: 400px;">
           <p>Author: {{ post.author.username }}</p>
           <p>Address: {{ post.address }}</p>
           <p>Gem Info: {{post.content}}</p>
@@ -88,7 +88,7 @@
 
             <!-- Display the post -->
             <a href="{%url 'gem_detail' post.id %}">{{ post.title }}</a>
-            <img src="{{ post.photo_url }}" alt="{{ post.title }}">
+            <img src="{{ post.photo_url }}" alt="{{ post.title }}" style="max-width: 400px; max-height: 400px;">
             <p>Author: {{ post.author.username }}</p>
             <p>Address: {{ post.address }}</p>
             <p>Region: {{post.region}}</p>
@@ -146,7 +146,6 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_API_KEY}}&libraries=places&callback
   "></script>
   <!-- Include JavaScript for add gem form -->
-  <script src="{% static 'js/gem-details.js'%}"></script>
   
   {% endblock %}
 </body>
