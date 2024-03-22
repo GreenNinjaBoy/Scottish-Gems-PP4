@@ -28,8 +28,6 @@ def home(request):
         page_number = request.GET.get('page')
         posts = paginator.get_page(page_number)
     
-    # refresh photo URLs that more than 24 hours old
-    # TODO move this to an async background task
     for post in posts:
         post.refresh_photo_url()
 

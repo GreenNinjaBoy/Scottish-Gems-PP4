@@ -92,29 +92,57 @@ class Post(models.Model):
             return None
 
     def refresh_photo_url(self):
+        # Steps to refresh a photo URL
+        # 1. If photo URL is older than 12 hours call Google Places API to get a new Photo URL
+        # 2. If the response is an error response the photo reference has probably expired so
+        #  2a Call Places API with the Place ID to get a new photo reference
+        #  2b Choose a new photo reference from teh list that comes back and save to DB
+        #  2c Call Places API with the new photo reference to get a new Photo URL and saved to DB (basically repeat step 2)
+        
         now = datetime.now(tz=timezone.utc)
-        updated_on_plus_1d = self.updated_on + timedelta(hours=12)
+        updated_on_plus_1d = self.updated_on + timedelta(seconds=5)
         if now > updated_on_plus_1d:
             print(f"{self.id}:{self.title} has expired. Refreshing photo")
-            self.photo_url = self.get_photo_url()
+            self.photo_url, self.photo_reference = self.get_photo_url()
+            print(f"New photo URL: {self.photo_url}")
+            print(f"New Photo Reference: {self.photo_reference}")
             self.save()
 
     def get_photo_url(self):
-        # Get the Google Maps API key from the environment variables
+        print(f"googlePlaceIdField: {self.google_place_id}")
         google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
 
-        params = {"maxwidth": 400, "photoreference": self.photo_reference, "key": google_maps_api_key}
+        params = {"maxwidth": 400, "maxheight": 400, "photoreference": self.photo_reference, "key": google_maps_api_key}
         resp = requests.get("https://maps.googleapis.com/maps/api/place/photo", params=params)
 
         if resp.ok:
-            return resp.url
+            print(f"successfully got photo URL: {resp.url}")
+            return resp.url, self.photo_reference
         else:
-            # TODO handle getting a 400 response. Probably means photo reference has expired in which
-            # case get a new photo reference by doing a new Places lookup
             print(f"{self.id}:{self.title} error getting photo URL: {resp.text}")
+            print(f"Expired photo reference: {self.photo_reference}")
+            print(f"Fetching new photo reference using google_place_id: {self.google_place_id}")
+            params = {"googlePlaceIdField": self.google_place_id, "fields": "photo", "key": google_maps_api_key}
+            resp = requests.get("https://maps.googleapis.com/maps/api/place/details/json", params=params)
 
+            if resp.ok:
+                data = resp.json()
+                if "result" in data and "photos" in data["result"] and len(data["result"]["photos"]) > 0:
+                    new_photo_reference = data["result"]["photos"][0]["photo_reference"]
+                    print(f"New photo reference: {new_photo_reference}")
+                    params = {"maxwidth": 400, "maxheight": 400, "photoreference": new_photo_reference, "key": google_maps_api_key}
+                    resp = requests.get("https://maps.googleapis.com/maps/api/place/photo", params=params)
 
+                    if resp.ok:
+                        print(f"Successfully got new photo URL: {resp.url}")
+                        return resp.url, new_photo_reference
+        return None, None
 
+# ATplDJbIYKcL4LP2KoZmnaW89tZh1QTKej0qptt0btujZsZkvY9tzdWiddHD4NIXL2z89iQ7K51SXWbEatPfy1b0cHRIbqkBgvZvDDjQf9cIdzXxURm29PkcufT8b3ErJWgCos85_MZUXj_BZb_0sHtBnegPBViq3y_a9SrNxZF6o3S37tIp
+
+#ATplDJYfJWHX-vunYJWim29p02JU4JCvgdSY4nxcw3vmax4roie0_UfC_ryht8km0VHmy2H7HUJnFASbyA88jHbMQ3B8WFktpMC6es4IhFQxvDDqFdNKpl8SldR7OnM1byGWD9Etz4QW8WCx4uu1awTfQv5t7CPP9z-kSDsO_iBourUwxxiV
+#ATplDJYfJWHX-vunYJWim29p02JU4JCvgdSY4nxcw3vmax4roie0_UfC_ryht8km0VHmy2H7HUJnFASbyA88jHbMQ3B8WFktpMC6es4IhFQxvDDqFdNKpl8SldR7OnM1byGWD9Etz4QW8WCx4uu1awTfQv5t7CPP9z-kSDsO_iBourUwxxiV
+#ATplDJYfJWHX-vunYJWim29p02JU4JCvgdSY4nxcw3vmax4roie0_UfC_ryht8km0VHmy2H7HUJnFASbyA88jHbMQ3B8WFktpMC6es4IhFQxvDDqFdNKpl8SldR7OnM1byGWD9Etz4QW8WCx4uu1awTfQv5t7CPP9z-kSDsO_iBourUwxxiV
 class UserComments(models.Model):
     """
     Model representing a comment made by a user on a post.
