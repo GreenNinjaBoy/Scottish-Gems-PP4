@@ -573,6 +573,21 @@ nav {
     font-size: 140%;
 }
 
+.error-404-page,
+.error-500-page {
+    display: flex;
+    justify-content: center;
+}
+
+.error-btn {
+    max-width: fit-content;
+    margin-left: 140px;
+}
+
+.navbar .user-icon {
+    align-self: center;
+}
+
 @media (max-width: 992px) {
     .content-container {
         flex-direction: column;
@@ -591,6 +606,12 @@ nav {
         bottom: 5%;
         right: 5%;
     }
+}
+
+.user-links{
+    position: relative;
+    right: 255px;
+    width: fit-content;
 }
 
 .login-form-content {

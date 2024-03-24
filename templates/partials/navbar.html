@@ -1,89 +1,94 @@
+{% load static %}
 {%  if not hide_navbar_and_header %}
 <!-- Navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-blue custom-navbar">
-  <div class="container-fluid">
+<div class="container-fluid">
     
-      <!-- Navbar toggler button for mobile view -->
-      <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-      >
-          <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- Navbar toggler button for mobile view -->
+    <button style="color: white;"
+            class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarText"
+            aria-controls="navbarText" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation" 
+            onclick="toggleMenuIcon(this)">
+        <i class="fas fa-bars"></i>
+    </button>
 
-      <!-- Navbar items -->
-      <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <!-- Navbar items -->
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-              <!-- Home link -->
-              <li class="nav-item">
-                  <a
-                      class="nav-link {% if request.path == home_url %}active{% endif %}"
-                      aria-current="page"
-                      href="{% url 'home' %}"
-                  >Home</a>
-              </li>
+            <!-- Home link -->
+            <li class="nav-item">
+                <a
+                    class="nav-link {% if request.path == home_url %}active{% endif %}"
+                    aria-current="page"
+                    href="{% url 'home' %}"
+                >Home</a>
+            </li>
 
-              <!-- Region selection dropdown -->
-              <li class="nav-item dropdown">
-                  <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="navbarDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                  >
-                      Region Selection
-                  </a>
-                  <ul class="dropdown-menu bg-blue" aria-labelledby="navbarDropdown">
+            <!-- Region selection dropdown -->
+            <li class="nav-item dropdown">
+                <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    Region Selection
+                </a>
+                <ul class="dropdown-menu bg-blue" aria-labelledby="navbarDropdown">
 
-                      <!-- Loop through regions and create a dropdown item for each one -->
-                      {% for region in regions %}
-                          <li>
-                              <a class="dropdown-item" href="{% url 'posts_by_region' region.id %}">{{ region.name }}</a>
-                          </li>
-                      {% endfor %}
-                  </ul>
-              </li>
+                    <!-- Loop through regions and create a dropdown item for each one -->
+                    {% for region in regions %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'posts_by_region' region.id %}">{{ region.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
 
-              <!-- Favorites and Share your Gem links for authenticated users -->
-              {% if request.user.is_authenticated %}
-                  <li><a class="nav-link" id="navbar-text" href="{% url 'favorites' %}">Favorites</a></li>
-                  <li><a class="nav-link" id="navbar-text" href="{% url 'add_gem' %}">Share your Gem</a></li>
-              {% endif %}
-          </ul>
+            <!-- Favorites and Share your Gem links for authenticated users -->
+            {% if request.user.is_authenticated %}
+                <li><a class="nav-link" id="navbar-text" href="{% url 'favorites' %}">Favorites</a></li>
+                <li><a class="nav-link" id="navbar-text" href="{% url 'add_gem' %}">Share your Gem</a></li>
+            {% endif %}
+        </ul>
 
-          <!-- User icon and Log Out/Log In link -->
-          {% if request.user.is_authenticated %}
-              <div class="auser-icon">
-                  <a class="user-links btn btn--success" href="{% url 'account_logout' %}">
-                      <div>
-                          <i class="fa-regular fa-lg fa-circle-user"></i>
-                      </div>
-                      <div>
-                          <div class="header-nav-text">Log Out</div>
-                      </div>
-                  </a>
-              </div>
-          {% else %}
-              <div class="user-icon">
-                  <a class="user-links btn btn--success" href="{% url 'login' %}">
-                      <div>
-                          <i class="fa-regular fa-lg fa-circle-user"></i>
-                      </div>
-                      <div>
-                          <div class="header-nav-text">Log In</div>
-                      </div>
-                  </a>
-              </div>
-          {% endif %}
-      </div>
-  </div>
+        <!-- User icon and Log Out/Log In link -->
+        {% if request.user.is_authenticated %}
+        <div class="auser-icon">
+            <a class="user-links btn btn--success" href="{% url 'account_logout' %}">
+                <div>
+                    <i class="far fa-user-circle"></i>
+                </div>
+                <div>
+                    <div class="header-nav-text">Log Out</div>
+                </div>
+            </a>
+        </div>
+        {% else %}
+        <div class="user-icon">
+            <a class="user-links btn btn--success nav-login-btn" href="{% url 'login' %}">
+                <div>
+                    <i class="far fa-user-circle"></i>
+                </div>
+                <div>
+                    <div class="header-nav-text">Log In</div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
 </nav>
 {% endif %}
+
+{% block extra_js %}
+<script src="{% static 'js/nav-bar.js' %}"></script>
+{% endblock %}
