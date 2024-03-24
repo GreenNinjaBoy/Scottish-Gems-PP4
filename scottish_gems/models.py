@@ -127,6 +127,21 @@ class Post(models.Model):
 
             if resp.ok:
                 data = resp.json()
+                """
+                {
+                    result: {
+                        googlePlaceIdField: [
+                            {photo_reference: ...},
+                            {photo_reference: ...},
+                            {photo_reference: ...},
+                        ]
+                    }
+                }
+                """
+
+                # places = data.get("result", {}).get("googlePlaceId", [])
+                # if len(places) > 0:
+
                 if "result" in data and "googlePlaceIdField" in data["result"] and len(data["result"]["googlePlaceIdField"]) > 0:
                     new_photo_reference = data["result"]["googlePlaceIdField"][0]["photo_reference"]
                     print(f"New photo reference: {new_photo_reference}")
@@ -138,11 +153,6 @@ class Post(models.Model):
                         return resp.url, new_photo_reference
         return None, None
 
-# ATplDJbIYKcL4LP2KoZmnaW89tZh1QTKej0qptt0btujZsZkvY9tzdWiddHD4NIXL2z89iQ7K51SXWbEatPfy1b0cHRIbqkBgvZvDDjQf9cIdzXxURm29PkcufT8b3ErJWgCos85_MZUXj_BZb_0sHtBnegPBViq3y_a9SrNxZF6o3S37tIp
-
-#ATplDJYfJWHX-vunYJWim29p02JU4JCvgdSY4nxcw3vmax4roie0_UfC_ryht8km0VHmy2H7HUJnFASbyA88jHbMQ3B8WFktpMC6es4IhFQxvDDqFdNKpl8SldR7OnM1byGWD9Etz4QW8WCx4uu1awTfQv5t7CPP9z-kSDsO_iBourUwxxiV
-#ATplDJYfJWHX-vunYJWim29p02JU4JCvgdSY4nxcw3vmax4roie0_UfC_ryht8km0VHmy2H7HUJnFASbyA88jHbMQ3B8WFktpMC6es4IhFQxvDDqFdNKpl8SldR7OnM1byGWD9Etz4QW8WCx4uu1awTfQv5t7CPP9z-kSDsO_iBourUwxxiV
-#ATplDJYfJWHX-vunYJWim29p02JU4JCvgdSY4nxcw3vmax4roie0_UfC_ryht8km0VHmy2H7HUJnFASbyA88jHbMQ3B8WFktpMC6es4IhFQxvDDqFdNKpl8SldR7OnM1byGWD9Etz4QW8WCx4uu1awTfQv5t7CPP9z-kSDsO_iBourUwxxiV
 class UserComments(models.Model):
     """
     Model representing a comment made by a user on a post.

@@ -48,7 +48,9 @@
 
           <!-- Display the post -->
           <h2>{{ post.title }}</h2>
-          <img id="photo" src="{{ post.photo_url }}" alt="{{ post.title }}" style="max-width: 400px; max-height: 400px;">
+          <div class="image-container">
+          <img class="gem-photo" id="photo" src="{{ post.photo_url }}" alt="{{ post.title }}">
+          </div>
           <p>Author: {{ post.author.username }}</p>
           <p>Address: {{ post.address }}</p>
           <p>Gem Info: {{post.content}}</p>
@@ -88,7 +90,9 @@
 
             <!-- Display the post -->
             <a href="{%url 'gem_detail' post.id %}">{{ post.title }}</a>
-            <img src="{{ post.photo_url }}" alt="{{ post.title }}" style="max-width: 400px; max-height: 400px;">
+            <div class="image-container">
+            <img class="gem-photo" src="{{ post.photo_url }}" alt="{{ post.title }}">
+            </div>
             <p>Author: {{ post.author.username }}</p>
             <p>Address: {{ post.address }}</p>
             <p>Region: {{post.region}}</p>

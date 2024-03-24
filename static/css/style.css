@@ -81,6 +81,19 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+}
+
+.gem-photo {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: cover;
+    border: 2px;
 }
 
 .container-fit {
@@ -606,13 +619,15 @@ nav {
         bottom: 5%;
         right: 5%;
     }
+
+    .user-links {
+        position: relative;
+        right: 255px;
+        width: fit-content;
+        }
 }
 
-.user-links{
-    position: relative;
-    right: 255px;
-    width: fit-content;
-}
+
 
 .login-form-content {
     padding: 10px;
