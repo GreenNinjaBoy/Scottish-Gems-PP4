@@ -325,7 +325,9 @@ A really big issue/bug that was discovered was to do with the images displayed t
  		- Creating a function with JavaScript to use the Google_Place_ID as a reference to make an image request everytime the page was loaded. (Unsuccessful)
    		- Creating a function using the backend (Python) to capture the image and create a custom URL which then would be displayed to the user (Unsuccessful)
 
-Due to my attempts at trying to overcome this bug a good deal of time was spent on this with many failed attempts. It was then decided that the best course of action would be to remove the image autofill function when a user selects a place to share and allow the user to upload their own images to the page for others to view. This would then save any risk of the image timing out leaving nothing to display to the users.
+After multiple attempts a function is now in place using the backend database and python to use the google_place_id to make a request to the API to generate/renew the photo_reference if the google_place_id is older that 12 hours old.
+**Please note that although this was working during the time of submission there is still a possibility that the photo_reference could still expire**
+
 </details>
 <details>
 <summary>Select by region options only present on home page and favorites page</summary>
