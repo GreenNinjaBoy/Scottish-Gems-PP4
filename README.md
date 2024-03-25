@@ -569,6 +569,26 @@ Login Page |  When the user is at this page they can use their credentials to si
 |Removing posts form favorites | Either through the home page or the favorites page the user would have the ability to remove posts from their list of favorites. |when either the icon on the home page or the icon within the favorites page was clicked by the user a message pop up would show confirming successful removal from favorites. | This was tested using the several test accounts created and each one was successful in removing posts from their list of favorite gems.
 </details>
 
+ ## Creating/Deleting Gem Test
+
+<details>
+<summary>Maunal Testing of Adding/Deleting Gem</summary>
+
+| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
+|--|--|--|--|
+| Creating a gem |  still to be fixed and tested  | still to be fixed and tested    | still to be fixed and tested |
+|Deleting a gem post (when correct user). | If a user no longer wishes to share there gem there is an icon present on the posts that they have shared and   once clicked they are brought to a confirmation page for deletion of their post | When the user clicks on the icon within the post then the are redirected to the the confirmation page | This was tested using the several test accounts and when the user clicks on their post for deletion then they were successfully redirected to the confirmation page for deletion.
+|Deletion confirmation page | When the user is redirected they are asked if the wish to confirm deletion or return to the home page. If the confirm button is clicked a successful message will appear and the post will be deleted from the database and no longer displayed on the home page. If the cancel button is clicked then the user is simply redirected back to the home page.| When either button is clicked then the desired outcome is achieved. | This test was carried out using the several test accounts created and each time depending on which button was clicked the desired outcome was achieved.
+|Deleting a gem post(when not correct user) | When a user is signed in the delete icon is only shown for the posts that they have created, the do not have the ability to deleted any other user posts. | When a user is logged in they are only presented with the option to delete a post for their own posts. | This was tested using the created test accounts and users were unable to access the confirmation page to delete other users posts. A deeper test was carried out by having 2 windows open and signed in as two different users, user "A" and user "B". When User "A" tried to copy and paste the confirmation URL link belonging to user "B" then user A was met with and 400 error with the option to return to the home page. and the same outcome was achieved when user "B" tried the same method with user "A's" confirmation URL link.
+</details>
+
+## Adding/Edit/Delete Comments
+
+<details>
+<summary>Manual testing of comments feature</summary>
+	
+</details>
+
 # Deployment
 
 #### **Creating The Repository**
