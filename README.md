@@ -558,6 +558,17 @@ Login Page |  When the user is at this page they can use their credentials to si
 |Logout confirmation page | when on this page the user is then prompted to confirm that they wish to log out and once the user confirms a message will pop up confirming successful log out and then redirected back to the home page. | The user clicks the confirmation button ant they are presented with the successful message and is redirected to the home page. | This was tested using the several test account created and each time the user was successfully logged out of their account.
 </details>
 
+## Adding/Removing Favorites Tests
+<details>
+<summary>Manual Testing of Favourites Features</summary>
+	
+| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
+|--|--|--|--|
+|Adding post to favorites | when a user has successfully logged in they are then displayed with icons on each post which if clicked will ad that post to the users list of favorited posts. | When the user clicks this button a message does appear confirming desired post is in fact added to their favorites and the icon has now filled with a solid color to the user. | This was tested using the several test accounts created and each one was successful in adding posts to their favorites.
+|Filtering favorites posts | Once a user has several posts marked as their favorites they can click the favorites tab within the nav bar and they are then presented with only the posts that they have marked as their favorites. | When the user clicks on the favorites tab within the nav bar they are presented with only the posts that they have marked as their favorites. | This was tested using the different test accounts created and each one was successful in filtering and displaying to the user their selected favorite gems.
+|Removing posts form favorites | Either through the home page or the favorites page the user would have the ability to remove posts from their list of favorites. |when either the icon on the home page or the icon within the favorites page was clicked by the user a message pop up would show confirming successful removal from favorites. | This was tested using the several test accounts created and each one was successful in removing posts from their list of favorite gems.
+</details>
+
 # Deployment
 
 #### **Creating The Repository**
