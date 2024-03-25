@@ -45,6 +45,13 @@ nav {
     color: white;
 }
 
+.info-message{
+    color: #fff;
+    font-family: inherit;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+}
 .page-sub-title {
     position: absolute;
     bottom: -7%;
