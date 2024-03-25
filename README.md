@@ -544,6 +544,20 @@ The results of this can be seen below.
 |Log In Button on navbar| When clicked the user is the redirected to the desired "login" html page. | When the user click this button they are redirected to the "login html page.| Ensured no user was logged in and clicked the login button on navbar.
 </details>
 
+## Login/ Logout Testing
+<details>
+<summary>Manual Testing of Login/Logout Features</summary>
+	
+| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
+|--|--|--|--|
+Login Page |  When the user is at this page they can use their credentials to sign into page.| when the user inputs their credentials they are successfully signed into their account. | For this inital test was conduced with the "super-user" account and then several accounts were created to test all tests worked as expected.
+|Sign in Page | When a user does not have an account they can click on the sign up option within the "login" page and will be redirected to the sign in page. | When clicked the sign up button successfully re directs the user to the sign up page. | Click the  desired button on different occasions and the user was successfully redirected to signup page.
+|Creating a user account. |when the user is within the sign up page, they input their desired username and password and click sign up. |User inputs desired username and password and their user account is created. | Several different accounts names and passwords were used to test this feature. Duplicated usernames were also tried and an error message presented to the user to inform that the desired username already exists. 
+| Log out button on nav bar | Once a user had either signed in or created and account the login button that was on the nav bar has changed to a logout button for the user. | Once the user has signed in/ created an account then the login button does change into the logout button. | This was tested by signing into the several accounts that were created for the testing purposes and each one was successful for the desired outcome.
+| logout function | when the user clicks on the logout button within the navbar they are then redirected to the sign out confirmation page. | when the user does click the log out button they are redirected to the logout confirmation page. | This was tested using the several different user accounts created and each one was a success in redirecting the user to the logout confirmation page.
+|Logout confirmation page | when on this page the user is then prompted to confirm that they wish to log out and once the user confirms a message will pop up confirming successful log out and then redirected back to the home page. | The user clicks the confirmation button ant they are presented with the successful message and is redirected to the home page. | This was tested using the several test account created and each time the user was successfully logged out of their account.
+</details>
+
 # Deployment
 
 #### **Creating The Repository**
