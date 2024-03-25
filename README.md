@@ -648,7 +648,7 @@ To do this the following steps were taken:
 <details>
 <summary>Cloning Repository Usining Gitpod</summary>
 
-1.Open [GitPod](Gitpod.io)
+1. Open [GitPod](Gitpod.io)
 2. Click the signin/ Login button at the top right hand corner of the page.
 3. Sign/Login using your GitHub credentials.
 4. Click on New Workspace
