@@ -5,7 +5,7 @@
 **Student Of Code Institute 2024**
 </div>
 
-\*Insert am I responsive image when ready
+![Responsive Image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/de043431b115bdf8b256c1e5b365219ff9a50997/static/README_images/responsive_image.webp.png)
 
 ### Introduction
 
