@@ -325,7 +325,9 @@ A really big issue/bug that was discovered was to do with the images displayed t
  		- Creating a function with JavaScript to use the Google_Place_ID as a reference to make an image request everytime the page was loaded. (Unsuccessful)
    		- Creating a function using the backend (Python) to capture the image and create a custom URL which then would be displayed to the user (Unsuccessful)
 
-Due to my attempts at trying to overcome this bug a good deal of time was spent on this with many failed attempts. It was then decided that the best course of action would be to remove the image autofill function when a user selects a place to share and allow the user to upload their own images to the page for others to view. This would then save any risk of the image timing out leaving nothing to display to the users.
+After multiple attempts a function is now in place using the backend database and python to use the google_place_id to make a request to the API to generate/renew the photo_reference if the google_place_id is older that 12 hours old.
+**Please note that although this was working during the time of submission there is still a possibility that the photo_reference could still expire**
+
 </details>
 <details>
 <summary>Select by region options only present on home page and favorites page</summary>
@@ -544,6 +546,51 @@ The results of this can be seen below.
 |Log In Button on navbar| When clicked the user is the redirected to the desired "login" html page. | When the user click this button they are redirected to the "login html page.| Ensured no user was logged in and clicked the login button on navbar.
 </details>
 
+## Login/ Logout Testing
+<details>
+<summary>Manual Testing of Login/Logout Features</summary>
+	
+| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
+|--|--|--|--|
+Login Page |  When the user is at this page they can use their credentials to sign into page.| when the user inputs their credentials they are successfully signed into their account. | For this inital test was conduced with the "super-user" account and then several accounts were created to test all tests worked as expected.
+|Sign in Page | When a user does not have an account they can click on the sign up option within the "login" page and will be redirected to the sign in page. | When clicked the sign up button successfully re directs the user to the sign up page. | Click the  desired button on different occasions and the user was successfully redirected to signup page.
+|Creating a user account. |when the user is within the sign up page, they input their desired username and password and click sign up. |User inputs desired username and password and their user account is created. | Several different accounts names and passwords were used to test this feature. Duplicated usernames were also tried and an error message presented to the user to inform that the desired username already exists. 
+| Log out button on nav bar | Once a user had either signed in or created and account the login button that was on the nav bar has changed to a logout button for the user. | Once the user has signed in/ created an account then the login button does change into the logout button. | This was tested by signing into the several accounts that were created for the testing purposes and each one was successful for the desired outcome.
+| logout function | when the user clicks on the logout button within the navbar they are then redirected to the sign out confirmation page. | when the user does click the log out button they are redirected to the logout confirmation page. | This was tested using the several different user accounts created and each one was a success in redirecting the user to the logout confirmation page.
+|Logout confirmation page | when on this page the user is then prompted to confirm that they wish to log out and once the user confirms a message will pop up confirming successful log out and then redirected back to the home page. | The user clicks the confirmation button ant they are presented with the successful message and is redirected to the home page. | This was tested using the several test account created and each time the user was successfully logged out of their account.
+</details>
+
+## Adding/Removing Favorites Tests
+<details>
+<summary>Manual Testing of Favourites Features</summary>
+	
+| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
+|--|--|--|--|
+|Adding post to favorites | when a user has successfully logged in they are then displayed with icons on each post which if clicked will ad that post to the users list of favorited posts. | When the user clicks this button a message does appear confirming desired post is in fact added to their favorites and the icon has now filled with a solid color to the user. | This was tested using the several test accounts created and each one was successful in adding posts to their favorites.
+|Filtering favorites posts | Once a user has several posts marked as their favorites they can click the favorites tab within the nav bar and they are then presented with only the posts that they have marked as their favorites. | When the user clicks on the favorites tab within the nav bar they are presented with only the posts that they have marked as their favorites. | This was tested using the different test accounts created and each one was successful in filtering and displaying to the user their selected favorite gems.
+|Removing posts form favorites | Either through the home page or the favorites page the user would have the ability to remove posts from their list of favorites. |when either the icon on the home page or the icon within the favorites page was clicked by the user a message pop up would show confirming successful removal from favorites. | This was tested using the several test accounts created and each one was successful in removing posts from their list of favorite gems.
+</details>
+
+ ## Creating/Deleting Gem Test
+
+<details>
+<summary>Maunal Testing of Adding/Deleting Gem</summary>
+
+| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
+|--|--|--|--|
+| Creating a gem |  still to be fixed and tested  | still to be fixed and tested    | still to be fixed and tested |
+|Deleting a gem post (when correct user). | If a user no longer wishes to share there gem there is an icon present on the posts that they have shared and   once clicked they are brought to a confirmation page for deletion of their post | When the user clicks on the icon within the post then the are redirected to the the confirmation page | This was tested using the several test accounts and when the user clicks on their post for deletion then they were successfully redirected to the confirmation page for deletion.
+|Deletion confirmation page | When the user is redirected they are asked if the wish to confirm deletion or return to the home page. If the confirm button is clicked a successful message will appear and the post will be deleted from the database and no longer displayed on the home page. If the cancel button is clicked then the user is simply redirected back to the home page.| When either button is clicked then the desired outcome is achieved. | This test was carried out using the several test accounts created and each time depending on which button was clicked the desired outcome was achieved.
+|Deleting a gem post(when not correct user) | When a user is signed in the delete icon is only shown for the posts that they have created, the do not have the ability to deleted any other user posts. | When a user is logged in they are only presented with the option to delete a post for their own posts. | This was tested using the created test accounts and users were unable to access the confirmation page to delete other users posts. A deeper test was carried out by having 2 windows open and signed in as two different users, user "A" and user "B". When User "A" tried to copy and paste the confirmation URL link belonging to user "B" then user A was met with and 400 error with the option to return to the home page. and the same outcome was achieved when user "B" tried the same method with user "A's" confirmation URL link.
+</details>
+
+## Adding/Edit/Delete Comments
+
+<details>
+<summary>Manual testing of comments feature</summary>
+	
+</details>
+
 # Deployment
 
 #### **Creating The Repository**
@@ -603,7 +650,7 @@ To do this the following steps were taken:
 <details>
 <summary>Cloning Repository Usining Gitpod</summary>
 
-1.Open [GitPod](Gitpod.io)
+1. Open [GitPod](Gitpod.io)
 2. Click the signin/ Login button at the top right hand corner of the page.
 3. Sign/Login using your GitHub credentials.
 4. Click on New Workspace
