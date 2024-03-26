@@ -14,7 +14,6 @@ from .forms import AddGemForm, CustomUserCreationForm
 import json
 
 
-
 def home(request):
     """
     Display all posts or posts filtered by region.
@@ -28,7 +27,6 @@ def home(request):
         paginator = Paginator(posts, 6)
         page_number = request.GET.get('page')
         posts = paginator.get_page(page_number)
-    
     for post in posts:
         post.refresh_photo_url()
 
@@ -50,7 +48,7 @@ def signup(request):
             login(request, user)
             return redirect('home')
     else:
-        form =  CustomUserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
 
 
@@ -66,7 +64,8 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                message = render_to_string('accounts/messages/logged_in.txt', {'username': username})
+                message = render_to_string
+                ('accounts/messages/logged_in.txt', {'username': username})
                 messages.success(request, message)
                 return redirect('home')
     else:
@@ -81,7 +80,8 @@ def logout_view(request):
     if request.method == 'POST':
         username = request.user.username
         logout(request)
-        message = render_to_string('accounts/messages/logged_out.txt', {'username': username})
+        message = render_to_string('accounts/messages/logged_out.txt',
+                                   {'username': username})
         messages.success(request, message)
         return redirect('home')
     else:
@@ -100,8 +100,8 @@ def gem_detail(request, post_id):
             author=request.user,
             place=post
         )
-        message = render_to_string ('accounts/messages/comment_success.txt')
-        messages.success(request,message)
+        message = render_to_string('accounts/messages/comment_success.txt')
+        messages.success(request, message)
     return render(request, 'gem_posts/gem_detail.html',
                   {'post': post, 'comments': comments})
 
@@ -169,10 +169,14 @@ def add_gem(request):
             messages.success(request, message)
             return redirect('home')
         else:
-            return render(request, 'gem_posts/create_gems.html', {'form': form, 'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY})
+            return render(request, 'gem_posts/create_gems.html',
+                          {'form': form, 'GOOGLE_MAPS_API_KEY':
+                           settings.GOOGLE_MAPS_API_KEY})
 
     form = AddGemForm()
-    return render(request, 'gem_posts/create_gems.html', {'form': form, 'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY})
+    return render(request, 'gem_posts/create_gems.html',
+                  {'form': form, 'GOOGLE_MAPS_API_KEY':
+                   settings.GOOGLE_MAPS_API_KEY})
 
 
 @login_required
@@ -184,14 +188,15 @@ def delete_gem(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.user != post.author:
         message = render_to_string('account/messages/not_auth.txt')
-        messages.warning(request, message )
+        messages.warning(request, message)
         return redirect('home')
     if request.method == 'POST':
         post.delete()
         message = render_to_string('accounts/messages/gem_deleted.txt')
         messages.success(request, message)
         return redirect('home')
-    return render(request, 'gem_posts/delete_gem.html', {'post': post, 'hide_navbar_and_header': True})
+    return render(request, 'gem_posts/delete_gem.html',
+                  {'post': post, 'hide_navbar_and_header': True})
 
 
 @login_required
@@ -203,14 +208,15 @@ def edit_comment(request, post_id, comment_id):
     comment = get_object_or_404(UserComments, id=comment_id)
     if request.user != comment.author:
         message = render_to_string('account/messages/not_auth.txt')
-        messages.warning(request, message )
+        messages.warning(request, message)
         return redirect('gem_detail', post_id=post.id)
     if request.method == 'POST':
         comment.comment = request.POST['content']
         comment.save()
         messages.success(request, 'Your Comment has been sucsessfully edited.')
         return redirect('gem_detail', post_id=post.id)
-    return render(request, 'gem_posts/edit_comment.html', {'comment': comment, 'hide_navbar_and_header': True})
+    return render(request, 'gem_posts/edit_comment.html',
+                  {'comment': comment, 'hide_navbar_and_header': True})
 
 
 @login_required
@@ -222,10 +228,12 @@ def delete_comment(request, post_id, comment_id):
     comment = get_object_or_404(UserComments, id=comment_id)
     if request.user != comment.author:
         message = render_to_string('account/messages/not_auth.txt')
-        messages.warning(request, message )
+        messages.warning(request, message)
         return redirect('gem_detail', post_id=post.id)
     if request.method == 'POST':
         comment.delete()
-        messages.success(request, 'Your Comment has been sucsessfully deleted.')
+        messages.success(request,
+                         'Your Comment has been sucsessfully deleted.')
         return redirect('gem_detail', post_id=post.id)
-    return render(request, 'gem_posts/delete_comment.html',{'comment': comment, 'hide_navbar_and_header': True})
+    return render(request, 'gem_posts/delete_comment.html',
+                  {'comment': comment, 'hide_navbar_and_header': True})
