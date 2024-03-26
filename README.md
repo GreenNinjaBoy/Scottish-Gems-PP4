@@ -90,13 +90,13 @@ Balsamiq Wireframes were used to map out the design of the application.
 <details>
 <summary>Desktop Wireframe</summary>
 
-![Desktop wireframe](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/de043431b115bdf8b256c1e5b365219ff9a50997/static/README_images/desktop_wireframe.webp)
+![Desktop wireframe](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/desktop_wireframe.webp)
 
 </details>
 <details>
 <summary>Mobile</summary>
 
-![Mobile Wireframe](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/de043431b115bdf8b256c1e5b365219ff9a50997/static/README_images/mobile_woreframe.webp)
+![Mobile Wireframe](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/mobile_woreframe.webp)
 
 </details>
 
@@ -600,7 +600,14 @@ Login Page |  When the user is at this page they can use their credentials to si
 
 <details>
 <summary>Manual testing of comments feature</summary>
-	
+
+| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
+|--|--|--|--|
+|Adding user comments to posts | when a user clicks on a post they would be able to add their comments on that particular post | When a user is signed in they are able to leave a comment on a post and then it will be displayed for other users to see.| This was tested using the different test account created and each account was successful in leaving comments on posts
+| Editing Comments | Once a user had already posted a comment on a post, if the wished they could go back later and edit the comment created | The user can edit their comments and resubmit to the comments section. | This was tested using the different test accounts created and each user was able to edit their own comments.
+| Editing other user comments | Users will not be able to edit the comments that other users have made on a post | Users can only edit the comments that they, themselves have created | This was tested using the different test accounts and a help with a friend, when logged in i could not edit their comments and when sent the hyperlink they had when on the edit page i was met with a 400 error.
+|Deleting comments | A user should have the abilitiy to delete a comment that they have made, if they no longer wish to display a particular comment | Users can delete their comments if they no longer wish to display them | This was tested using the multiple test accounts created and each account was successful in deleting their comments if needed.
+|Deleting other user comments | Users will not be able to delete the comments that other users have made on a post | Users can only delete the comments that they, themselves have created | This was tested using the different test accounts and a help with a friend, when logged in i could not delete their comments and when sent the hyperlink they had when on the edit page i was met with a 400 error.
 </details>
 
 # Deployment
