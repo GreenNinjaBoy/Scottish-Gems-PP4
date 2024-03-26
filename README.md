@@ -90,13 +90,13 @@ Balsamiq Wireframes were used to map out the design of the application.
 <details>
 <summary>Desktop Wireframe</summary>
 
-![Desktop wireframe](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/de043431b115bdf8b256c1e5b365219ff9a50997/static/README_images/desktop_wireframe.webp)
+![Desktop wireframe](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/desktop_wireframe.webp)
 
 </details>
 <details>
 <summary>Mobile</summary>
 
-![Mobile Wireframe](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/de043431b115bdf8b256c1e5b365219ff9a50997/static/README_images/mobile_woreframe.webp)
+![Mobile Wireframe](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/mobile_woreframe.webp)
 
 </details>
 
