@@ -71,76 +71,76 @@ class Post(models.Model):
 
         super().save(*args, **kwargs)
 
-def get_place_photo_reference(self):
-    """
-    Fetch the photo reference from the Google Places API using the place ID.
-    Returns the photo reference if it exists, otherwise returns None.
-    """
-    google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-    response = requests.get(
+    def get_place_photo_reference(self):
+        """
+        Fetch the photo reference from the Google Places API using the place ID.
+        Returns the photo reference if it exists, otherwise returns None.
+        """
+        google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+        response = requests.get(
         f'https://maps.googleapis.com/maps/api/place/details/json?placeid={self.google_place_id}&fields=photos&key={google_maps_api_key}'
-    )
-    data = response.json()
-    if 'photos' in data['result']:
-        photo_reference = data['result']['photos'][0]['photo_reference']
-        return photo_reference
-    else:
-        return None
+        )
+        data = response.json()
+        if 'photos' in data['result']:
+            photo_reference = data['result']['photos'][0]['photo_reference']
+            return photo_reference
+        else:
+            return None
 
-def refresh_photo_url(self):
-    """
-    Refresh the photo URL if it has expired.
-    The photo URL is considered expired if it's more than 5 seconds old.
-    """
-    now = datetime.now(tz=timezone.utc)
-    updated_on_plus_1d = self.updated_on + timedelta(seconds=5)
-    if now > updated_on_plus_1d:
-        print(f"{self.id}:{self.title} has expired. Refreshing photo")
-        self.photo_url, self.photo_reference = self.get_photo_url()
-        print(f"New photo URL: {self.photo_url}")
-        print(f"New Photo Reference: {self.photo_reference}")
-        self.save()
+    def refresh_photo_url(self):
+        """
+        Refresh the photo URL if it has expired.
+        The photo URL is considered expired if it's more than 5 seconds old.
+        """
+        now = datetime.now(tz=timezone.utc)
+        updated_on_plus_1d = self.updated_on + timedelta(seconds=5)
+        if now > updated_on_plus_1d:
+            print(f"{self.id}:{self.title} has expired. Refreshing photo")
+            self.photo_url, self.photo_reference = self.get_photo_url()
+            print(f"New photo URL: {self.photo_url}")
+            print(f"New Photo Reference: {self.photo_reference}")
+            self.save()
 
-def get_photo_url(self):
-    """
-    Fetch the photo URL from the Google Places API using the photo reference.
-    If the photo reference is not valid, fetch a new one using the place ID.
-    Returns the photo URL and the photo reference if successful, otherwise returns None, None.
-    """
-    print(f"googlePlaceIdField: {self.google_place_id}")
-    google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-    params = {"maxwidth": 400, "maxheight": 400, "photoreference":
-              self.photo_reference, "key": google_maps_api_key}
-    resp = requests.get(
-        "https://maps.googleapis.com/maps/api/place/photo", params=params
-    )
-
-    if resp.ok:
-        print(f"successfully got photo URL: {resp.url}")
-        return resp.url, self.photo_reference
-    else:
-        params = {"googlePlaceIdField": self.google_place_id, "fields":
-                  "googlePlaceIdField", "key": google_maps_api_key}
+    def get_photo_url(self):
+        """
+        Fetch the photo URL from the Google Places API using the photo reference.
+        If the photo reference is not valid, fetch a new one using the place ID.
+        Returns the photo URL and the photo reference if successful, otherwise returns None, None.
+        """
+        print(f"googlePlaceIdField: {self.google_place_id}")
+        google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+        params = {"maxwidth": 400, "maxheight": 400, "photoreference":
+                self.photo_reference, "key": google_maps_api_key}
         resp = requests.get(
-            "https://maps.googleapis.com/maps/api/place/details/json",
-            params=params
+            "https://maps.googleapis.com/maps/api/place/photo", params=params
         )
 
         if resp.ok:
-            data = resp.json()
-            if "result" in data and "googlePlaceIdField" in data["result"] and len(data["result"]["googlePlaceIdField"]) > 0:
-                new_photo_reference = data["result"]["googlePlaceIdField"][0]["photo_reference"]
-                params = {"maxwidth": 400, "photoreference":
-                          new_photo_reference, "key": google_maps_api_key}
-                resp = requests.get(
-                    "https://maps.googleapis.com/maps/api/place/photo",
-                    params=params
-                )
+            print(f"successfully got photo URL: {resp.url}")
+            return resp.url, self.photo_reference
+        else:
+            params = {"googlePlaceIdField": self.google_place_id, "fields":
+                    "googlePlaceIdField", "key": google_maps_api_key}
+            resp = requests.get(
+                "https://maps.googleapis.com/maps/api/place/details/json",
+                params=params
+            )
 
-                if resp.ok:
-                    print(f"Successfully got new photo URL: {resp.url}")
-                    return resp.url, new_photo_reference
-    return None, None
+            if resp.ok:
+                data = resp.json()
+                if "result" in data and "googlePlaceIdField" in data["result"] and len(data["result"]["googlePlaceIdField"]) > 0:
+                    new_photo_reference = data["result"]["googlePlaceIdField"][0]["photo_reference"]
+                    params = {"maxwidth": 400, "photoreference":
+                            new_photo_reference, "key": google_maps_api_key}
+                    resp = requests.get(
+                        "https://maps.googleapis.com/maps/api/place/photo",
+                        params=params
+                    )
+
+                    if resp.ok:
+                        print(f"Successfully got new photo URL: {resp.url}")
+                        return resp.url, new_photo_reference
+        return None, None
 
 
 class UserComments(models.Model):

@@ -180,6 +180,7 @@ nav {
     text-align: center;
     box-shadow: 5px 5px 5px 5px #6A5ABD;
     border-radius: 20px;
+    min-width: 350px;
 }
 
 .post-card a {
@@ -576,7 +577,8 @@ nav {
 
 .delete-container,
 .delete-confirmation,
-.error-container {
+.error-container,
+.edit-comment {
     flex-direction: column;
     text-align: center;
     align-items: center;

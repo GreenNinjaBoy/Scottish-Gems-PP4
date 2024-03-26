@@ -45,6 +45,13 @@ nav {
     color: white;
 }
 
+.info-message{
+    color: #fff;
+    font-family: inherit;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+}
 .page-sub-title {
     position: absolute;
     bottom: -7%;
@@ -90,6 +97,8 @@ nav {
 .gem-photo {
     width: 100%;
     height: 100%;
+    max-width: 400px;
+    max-height: 400px;
     object-fit: cover;
     border: 2px;
 }
@@ -171,6 +180,7 @@ nav {
     text-align: center;
     box-shadow: 5px 5px 5px 5px #6A5ABD;
     border-radius: 20px;
+    min-width: 350px;
 }
 
 .post-card a {
@@ -567,7 +577,8 @@ nav {
 
 .delete-container,
 .delete-confirmation,
-.error-container {
+.error-container,
+.edit-comment {
     flex-direction: column;
     text-align: center;
     align-items: center;
