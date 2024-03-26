@@ -86,7 +86,19 @@ A kanban board in Github Projects was used for the Agile development process - s
 
 Balsamiq Wireframes were used to map out the design of the application.
 
-** Insert Images Here **
+**Desktop**
+<details>
+<summary>Desktop Wireframe</summary>
+
+![Desktop wireframe](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/de043431b115bdf8b256c1e5b365219ff9a50997/static/README_images/desktop_wireframe.webp)
+
+</details>
+<details>
+<summary>Mobile</summary>
+
+![Mobile Wireframe](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/de043431b115bdf8b256c1e5b365219ff9a50997/static/README_images/mobile_woreframe.webp)
+
+</details>
 
 #### **Navigation**
 Plaese see below a Navigational Flow Chart showing what was aimed for when creating the website.
