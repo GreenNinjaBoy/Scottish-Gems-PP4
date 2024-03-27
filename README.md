@@ -144,6 +144,8 @@ The typography used for the project was produced from google fonts and the chose
 
 ![Google fonts image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/google_fonts_image.webp)
 
+</details>
+
 ## Features
 
 #### **Home Page**
