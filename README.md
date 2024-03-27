@@ -18,51 +18,46 @@ The users this site is aimed at are as follows:
 - The Local population who are looking to explore their own country more.
 
 ## Table of contents
+
 <details>
 <summary>Please Click the arrow to see full table of contents</summary>
 
- 
 - [Project Goals](#Project-Goals)
 - [Agile Development](#Agile-Development)
- 	- [User Stories](#User-Stories)
+  - [User Stories](#User-Stories)
 - [User Experience](#user-experience-ux-design)
- 	- [Wireframes](#Wireframes)
- 	- [Navigation](#Navigation)
- 	- [Data Schema](#Data-Schema)
- 	- [Color Scheme](#Color-Scheme)
- 	- [Google API](#Sharing-Gem-With-aid-from-google-API)
- 	- [Color Scheme](#Color-Scheme)
- 	- [Typography](#Typography)
+  - [Wireframes](#Wireframes)
+  - [Navigation](#Navigation)
+  - [Data Schema](#Data-Schema)
+  - [Color Scheme](#Color-Scheme)
+  - [Google API](#Sharing-Gem-With-aid-from-google-API)
+  - [Color Scheme](#Color-Scheme)
+  - [Typography](#Typography)
 - [Features](#Features)
- 	- [Homepage](#Home-Page)
-    	- [Navigation Bar](#Navigation-Bar)
-  	- [Login](#Login)
-  	- [Signup](#Signup)
-  	- [Logout](#Logout)
-  	- [User Messages](#User-Messages)
-  	- [Share Your Gem](#Share-Your-Gem)
-  	- [Favorites](#Favorites)
-  	- [Select by Region](#Select-by-Region)
+  - [Homepage](#Home-Page) - [Navigation Bar](#Navigation-Bar)
+    - [Login](#Login)
+    - [Signup](#Signup)
+    - [Logout](#Logout)
+    - [User Messages](#User-Messages)
+    - [Share Your Gem](#Share-Your-Gem)
+    - [Favorites](#Favorites)
+    - [Select by Region](#Select-by-Region)
 - [Known Bugs](#Known-Bugs)
-	- [500 error during user signout](#500-error-during-user-signout)
- 	- [500 error during user attempting to add a "Gem"](#500-error-during-user-attempting-to-add-a-"Gem")
-  	- [## Images displayed on the base.html page](#Images-displayed-on-the-base.html-page)
+  - [500 error during user signout](#500-error-during-user-signout)
+  - [500 error during user attempting to add a "Gem"](#500-error-during-user-attempting-to-add-a-"Gem")
+    - [## Images displayed on the base.html page](#Images-displayed-on-the-base.html-page)
 - [Technologies Used](#Technologies-Used)
 - [APIs Used](#APIs-Used)
 - [Testing](#Testing)
-	- [Code Valitdation](#Code-Valitdation)
- 		- [HTML](#HTML)
-   		- [CSS](#CSS)
-     	- [Python](#Python)
-      		- [Python Unit Testing](#Python-Unit-Testing)
-        	- [Testing with Pep8](Testing-with-Pep8) 
-        - [JavaScript](#JavaScript)
-        	-[Testing with JsHint](#Testing-with-JsHint)
-	- [Manual Testing](Manual-Testing)
- - [Deployment](#Deployment)   	
-  
-</details>
+  - [Code Valitdation](#Code-Valitdation)
+    - [HTML](#HTML)
+      - [CSS](#CSS)
+      - [Python](#Python) - [Python Unit Testing](#Python-Unit-Testing) - [Testing with Pep8](Testing-with-Pep8)
+        - [JavaScript](#JavaScript) -[Testing with JsHint](#Testing-with-JsHint)
+  - [Manual Testing](Manual-Testing)
+- [Deployment](#Deployment)
 
+</details>
 
 ### Project Goals
 
@@ -87,6 +82,7 @@ A kanban board in Github Projects was used for the Agile development process - s
 Balsamiq Wireframes were used to map out the design of the application.
 
 **Desktop**
+
 <details>
 <summary>Desktop Wireframe</summary>
 
@@ -101,6 +97,7 @@ Balsamiq Wireframes were used to map out the design of the application.
 </details>
 
 #### **Navigation**
+
 Plaese see below a Navigational Flow Chart showing what was aimed for when creating the website.
 
 <details>
@@ -112,7 +109,12 @@ Plaese see below a Navigational Flow Chart showing what was aimed for when creat
 
 #### **Data Schema**
 
-** Insert Image Here**
+<details>
+<summary> Data Schema </summary>
+
+![Data Schems](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/data_schema_image.webp.png)
+
+</details>
 
 **Sharing Gem With aid from google API**
 
@@ -120,20 +122,25 @@ When a user is looking to share a "Gem" that they have discovered they can do so
 When a use begins to input a place that they have discovered google will begin to display suggestions to the user and when the user clicks on the place that
 they have discovered. Then with the aid of google autocomplete feature the full address and post/zip code is automatically filled in leaving with the user to upload their own images and which region they were in when they discovered the gem.
 
-** insert GIF here when function is fully working **
-** insert flow of when is being done**
-
-
 #### **Color Scheme**
 
 The color palette below was generated with the help of [Coolors](https://coolors.co)
+
+<details>
+<summary>Color Palette</summary>
 
 ![Color Palette Image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/color-palette.webp)
 
 The color scheme was chosen to give the user a more authentic Scottish experience as these colors are generally associated with Scotland.
 
+</details>
+
 #### **Typography**
+
 The typography used for the project was produced from google fonts and the chosen text was "Merriweather". Again this was used to give that more authentic Scottish look and feel to the user.
+
+<details>
+<summary>Google Fonts Used</summary>
 
 ![Google fonts image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/google_fonts_image.webp)
 
@@ -153,9 +160,10 @@ Navigation bar when user is not signed in:
 
 Navigation bar when a user is signed in.
 
-![](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/navbar-post-sign-in.webp.png?raw=true)
+![Nacigation bar post user sign in](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/navbar-post-sign-in.webp.png?raw=true)
 
 #### **Login**
+
 When a user decides to log in they are presented with the following screen.
 
 <details>
@@ -166,6 +174,7 @@ When a user decides to log in they are presented with the following screen.
 </details>
 
 ### **Signup**
+
 If a user does not already have an account they can create one by clicking the link shown in the previous image which will bring them to the following page.
 
 <details>
@@ -176,6 +185,7 @@ If a user does not already have an account they can create one by clicking the l
 </details>
 
 #### **Log Out**
+
 When a user decides to Log Out they can click the "signout" button on the navigation bar and is then presented with the following screen
 
 <details>
@@ -255,15 +265,14 @@ When ever a user completes a task they are met with a brief message. These Messa
 </details>
 
 #### **Share Your Gem**
-The original concept for this page was that a user could input their information into a form. However after a lot of trial and error it was decided that this would not be user friendly. And as previously mentioned inspiration came form another students similar project ([Magical Places](https://github.com/timgoalen/magical-places-london/tree/main)) and the can now add a place by simply searching for their gem in the search field which by powered by Google Places Autocomplete to suggest existing gems. Once the user clicks on a suggested place, the hidden form is automatically filled in by JavaScript, from the data provided by the Google Places API.
 
-**Insert Image here**
+The original concept for this page was that a user could input their information into a form. However after a lot of trial and error it was decided that this would not be user friendly. And as previously mentioned inspiration came form another students similar project ([Magical Places](https://github.com/timgoalen/magical-places-london/tree/main)) and the can now add a place by simply searching for their gem in the search field which by powered by Google Places Autocomplete to suggest existing gems. Once the user clicks on a suggested place, the hidden form is automatically filled in by JavaScript, from the data provided by the Google Places API.
 
 notes:
 
-- The ability for a user to edit or delete a Place that they have added wasn't implemented:
+- The ability for a user to edit a Place that they have added wasn't implemented:
   - As the form data is not user-generated, and rather supplied by the Google Places API, there is a low chance or user error that would justify ‘edit’ functionality.
-  - If the user had the ability to delete places that were already commented on, other users would lose their comments and lose access to the place if it was in their favorites list.
+  - If the user were to delete places that were already commented on, other users would lose their comments and lose access to the place if it was in their favorites list.
 
 #### **Favorites**
 
@@ -311,6 +320,7 @@ The select by region function was put in place as this app was intended to cover
 </details>
 
 # Known Bugs
+
 <details>
 <summary>500 error during user signout.</summary>
 	
@@ -328,26 +338,31 @@ Another bug found during the development of the project was that when a user cli
 <details>
 <summary>Images displayed on the base.html page</summary>
 
-A really big issue/bug that was discovered was to do with the images displayed to users on the base.html page. 
+A really big issue/bug that was discovered was to do with the images displayed to users on the base.html page.
+
 - These images were automatically produced during the "Share you Gem" functionallity and then would be displayed for all users to see.
 - However it seems that there was a limit on how many times an API request could be made to Google to have these images constantly displayed to users and after around 4-5 days the image would expire leaving the posts with the image shown below.
 
 - There was many different approaches to attempt to fix this issue before submission with each unfotunitaly yeilding in the same results.
-	- Some of which were:
- 		- Creating a function with JavaScript to use the Google_Place_ID as a reference to make an image request everytime the page was loaded. (Unsuccessful)
-   		- Creating a function using the backend (Python) to capture the image and create a custom URL which then would be displayed to the user (Unsuccessful)
+  - Some of which were:
+    - Creating a function with JavaScript to use the Google_Place_ID as a reference to make an image request everytime the page was loaded. (Unsuccessful)
+      - Creating a function using the backend (Python) to capture the image and create a custom URL which then would be displayed to the user (Unsuccessful)
 
 After multiple attempts a function is now in place using the backend database and python to use the google_place_id to make a request to the API to generate/renew the photo_reference if the google_place_id is older that 12 hours old.
 **Please note that although this was working during the time of submission there is still a possibility that the photo_reference could still expire**
 
 </details>
+
+**Bugs Still to Address**
+
 <details>
 <summary>Select by region options only present on home page and favorites page</summary>
 
 Another bug that was found was when a user was either in their "favorites" page or the "share your gem" page then the dropdown for the "Region Selection" did not display the regions to the user.
-This was a bit inconveniant especially with the favorites page as the user should also be able to filter their favorites by region, if they were looking for a specific place.
 
-- This was a simple fix compared to the other bugs that were found and all that was needed was a slight alteration in the code to ensure this dropdown was available no matter what page the user was on within the site.
+This is a bit inconveniant especially with the favorites page as the user should also be able to filter their favorites by region, if they were looking for a specific place.
+
+- This has yet to be fixed and was sadly unable to be accomplished prior to project submission.
 </details>
 
 ### **After all the above was fixed to the best of my abilities, to my knowledge there are currently no other bugs within the project**
@@ -417,6 +432,7 @@ The CSS for the Scottish Gems Project was put through the []() and the results c
 <summary>W3C CSS Validator Results</summary>
 
 ![HTML Validator Results](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/w3c_css_validator_results.png)
+
 </details>
 
 ## Python
@@ -513,13 +529,13 @@ All JavaScript files were ran through [JSHint](https://jshint.com/). The results
 <details>
 <summary>add-gem-form.js JSHint results</summary>
 
-![add-gem-form.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/add-gem-form_jshint_image.webp?raw=true)
+![add-gem-form.js test image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/add-gem-form_jshint_test_image.webp.png)
 
 </details>
 <details>
 <summary>back-btn.js JSHint results</summary>
 
-![back-btn.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/back-btn.js_jshint_test_image.png?raw=true)
+![back-btn.js test image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/back-btn.js_jshint_test_image.png)
 
 </details>
 <details>
@@ -531,23 +547,28 @@ All JavaScript files were ran through [JSHint](https://jshint.com/). The results
 <details>
 <summary>messages.js JSHint results</summary>
 
-![messages.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/messages.js_jshint_image.png?raw=true)
+![messages.js test image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/messages.js_jshint_image.png)
 
 </details>
 <details>
 <summary>script.js JSHint results</summary>
 
-![script.js test image](https://github.com/GreenNinjaBoy/Scottish-Gems-PP4/blob/main/static/README_images/script.js_jshint_test_image.png?raw=true)
+![script.js test image](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/script.js_jshint_image.png)
 
 </details>
 
+**Please note that the errors shown on the above JS tests were beacauseof the following**
+
+- The undefined variables were defined in other areas.
+
 ## Manual Testing
 
-Manual Testing was done to test that each feature/function worked as it should and also to ensure that only 
+Manual Testing was done to test that each feature/function worked as it should and also to ensure that only
 the user who was the 'Author' of either a gem being shared or a comment who could either have the ability to delete or edit what they have shared.
 The results of this can be seen below.
 
 ## Nav Bar Testing
+
 <details>
 <summary>Manual Testing of Nav Bar Features</summary>
 	
@@ -559,6 +580,7 @@ The results of this can be seen below.
 </details>
 
 ## Login/ Logout Testing
+
 <details>
 <summary>Manual Testing of Login/Logout Features</summary>
 	
@@ -573,6 +595,7 @@ Login Page |  When the user is at this page they can use their credentials to si
 </details>
 
 ## Adding/Removing Favorites Tests
+
 <details>
 <summary>Manual Testing of Favourites Features</summary>
 	
@@ -583,17 +606,18 @@ Login Page |  When the user is at this page they can use their credentials to si
 |Removing posts form favorites | Either through the home page or the favorites page the user would have the ability to remove posts from their list of favorites. |when either the icon on the home page or the icon within the favorites page was clicked by the user a message pop up would show confirming successful removal from favorites. | This was tested using the several test accounts created and each one was successful in removing posts from their list of favorite gems.
 </details>
 
- ## Creating/Deleting Gem Test
+## Creating/Deleting Gem Test
 
 <details>
 <summary>Maunal Testing of Adding/Deleting Gem</summary>
 
-| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
-|--|--|--|--|
-| Creating a gem |  still to be fixed and tested  | still to be fixed and tested    | still to be fixed and tested |
-|Deleting a gem post (when correct user). | If a user no longer wishes to share there gem there is an icon present on the posts that they have shared and   once clicked they are brought to a confirmation page for deletion of their post | When the user clicks on the icon within the post then the are redirected to the the confirmation page | This was tested using the several test accounts and when the user clicks on their post for deletion then they were successfully redirected to the confirmation page for deletion.
-|Deletion confirmation page | When the user is redirected they are asked if the wish to confirm deletion or return to the home page. If the confirm button is clicked a successful message will appear and the post will be deleted from the database and no longer displayed on the home page. If the cancel button is clicked then the user is simply redirected back to the home page.| When either button is clicked then the desired outcome is achieved. | This test was carried out using the several test accounts created and each time depending on which button was clicked the desired outcome was achieved.
-|Deleting a gem post(when not correct user) | When a user is signed in the delete icon is only shown for the posts that they have created, the do not have the ability to deleted any other user posts. | When a user is logged in they are only presented with the option to delete a post for their own posts. | This was tested using the created test accounts and users were unable to access the confirmation page to delete other users posts. A deeper test was carried out by having 2 windows open and signed in as two different users, user "A" and user "B". When User "A" tried to copy and paste the confirmation URL link belonging to user "B" then user A was met with and 400 error with the option to return to the home page. and the same outcome was achieved when user "B" tried the same method with user "A's" confirmation URL link.
+| Feature                                    | Desired Outcome                                                                                                                                                                                                                                                                                                                                             | Actual Outcome                                                                                         | Test Done to achieve Actual Outcome                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Creating a gem                             | still to be fixed and tested                                                                                                                                                                                                                                                                                                                                | still to be fixed and tested                                                                           | still to be fixed and tested                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Deleting a gem post (when correct user).   | If a user no longer wishes to share there gem there is an icon present on the posts that they have shared and once clicked they are brought to a confirmation page for deletion of their post                                                                                                                                                               | When the user clicks on the icon within the post then the are redirected to the the confirmation page  | This was tested using the several test accounts and when the user clicks on their post for deletion then they were successfully redirected to the confirmation page for deletion.                                                                                                                                                                                                                                                                                                                                                            |
+| Deletion confirmation page                 | When the user is redirected they are asked if the wish to confirm deletion or return to the home page. If the confirm button is clicked a successful message will appear and the post will be deleted from the database and no longer displayed on the home page. If the cancel button is clicked then the user is simply redirected back to the home page. | When either button is clicked then the desired outcome is achieved.                                    | This test was carried out using the several test accounts created and each time depending on which button was clicked the desired outcome was achieved.                                                                                                                                                                                                                                                                                                                                                                                      |
+| Deleting a gem post(when not correct user) | When a user is signed in the delete icon is only shown for the posts that they have created, the do not have the ability to deleted any other user posts.                                                                                                                                                                                                   | When a user is logged in they are only presented with the option to delete a post for their own posts. | This was tested using the created test accounts and users were unable to access the confirmation page to delete other users posts. A deeper test was carried out by having 2 windows open and signed in as two different users, user "A" and user "B". When User "A" tried to copy and paste the confirmation URL link belonging to user "B" then user A was met with and 400 error with the option to return to the home page. and the same outcome was achieved when user "B" tried the same method with user "A's" confirmation URL link. |
+
 </details>
 
 ## Adding/Edit/Delete Comments
@@ -601,14 +625,182 @@ Login Page |  When the user is at this page they can use their credentials to si
 <details>
 <summary>Manual testing of comments feature</summary>
 
-| Feature  |Desired Outcome  |Actual Outcome | Test Done to achieve Actual Outcome
-|--|--|--|--|
-|Adding user comments to posts | when a user clicks on a post they would be able to add their comments on that particular post | When a user is signed in they are able to leave a comment on a post and then it will be displayed for other users to see.| This was tested using the different test account created and each account was successful in leaving comments on posts
-| Editing Comments | Once a user had already posted a comment on a post, if the wished they could go back later and edit the comment created | The user can edit their comments and resubmit to the comments section. | This was tested using the different test accounts created and each user was able to edit their own comments.
-| Editing other user comments | Users will not be able to edit the comments that other users have made on a post | Users can only edit the comments that they, themselves have created | This was tested using the different test accounts and a help with a friend, when logged in i could not edit their comments and when sent the hyperlink they had when on the edit page i was met with a 400 error.
-|Deleting comments | A user should have the abilitiy to delete a comment that they have made, if they no longer wish to display a particular comment | Users can delete their comments if they no longer wish to display them | This was tested using the multiple test accounts created and each account was successful in deleting their comments if needed.
-|Deleting other user comments | Users will not be able to delete the comments that other users have made on a post | Users can only delete the comments that they, themselves have created | This was tested using the different test accounts and a help with a friend, when logged in i could not delete their comments and when sent the hyperlink they had when on the edit page i was met with a 400 error.
+| Feature                       | Desired Outcome                                                                                                                 | Actual Outcome                                                                                                            | Test Done to achieve Actual Outcome                                                                                                                                                                                 |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Adding user comments to posts | when a user clicks on a post they would be able to add their comments on that particular post                                   | When a user is signed in they are able to leave a comment on a post and then it will be displayed for other users to see. | This was tested using the different test account created and each account was successful in leaving comments on posts                                                                                               |
+| Editing Comments              | Once a user had already posted a comment on a post, if the wished they could go back later and edit the comment created         | The user can edit their comments and resubmit to the comments section.                                                    | This was tested using the different test accounts created and each user was able to edit their own comments.                                                                                                        |
+| Editing other user comments   | Users will not be able to edit the comments that other users have made on a post                                                | Users can only edit the comments that they, themselves have created                                                       | This was tested using the different test accounts and a help with a friend, when logged in i could not edit their comments and when sent the hyperlink they had when on the edit page i was met with a 400 error.   |
+| Deleting comments             | A user should have the abilitiy to delete a comment that they have made, if they no longer wish to display a particular comment | Users can delete their comments if they no longer wish to display them                                                    | This was tested using the multiple test accounts created and each account was successful in deleting their comments if needed.                                                                                      |
+| Deleting other user comments  | Users will not be able to delete the comments that other users have made on a post                                              | Users can only delete the comments that they, themselves have created                                                     | This was tested using the different test accounts and a help with a friend, when logged in i could not delete their comments and when sent the hyperlink they had when on the edit page i was met with a 400 error. |
+
 </details>
+
+## Lighhouse Testing
+
+Each page of the project was tested through lighthouse please find the results below.
+
+<details>
+<summary>Base.html</summary>
+
+![base.html lighthouse test](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/base.html_lighthouse_test.png)
+
+</details>
+
+<details>
+<summary>login.html</summary>
+
+![login.html lighthouse test](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/login.html_lighthouse_test.png)
+
+</details>
+
+<details>
+<summary>signup.html</summary>
+
+![signup.html lighthouse test](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/signup.html_lighthouse_test.png)
+
+</details>
+
+<details>
+<summary>share_gem.html</summary>
+
+![share_gem.html lighthouse test](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/create_gem.html_lighthouse_test.png)
+
+</details>
+
+<details>
+<summary>gem_details.html</summary>
+
+![base.html lighthouse test](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/gemdetails_lighthouse_test.png)
+
+</details>
+
+**Please note that all these tests were done within incogneto mode as there were chrome extensions installed that were effecting the performance of the site**
+
+### User Stories Testing
+
+All user stories were tested to confirm that they meet their Acceptance Criteria. The following have all PASSED.
+
+(View the User Stories, Acceptance Criteria and Tasks on the GitHub [Kanban Board](https://github.com/users/GreenNinjaBoy/projects/2))
+
+---
+
+USER ACCOUNT
+
+---
+
+As a **user** I can **sign up and log in** to the site to **leave comments and add Gems**.
+
+- Acceptance Criteria - PASSED:
+  - Users can create an account with a Sign Up page
+  - Users can log in with a Log In page
+  - Users can log out with a Log Out Page
+
+---
+
+As a **user** I can **view a list of the Gems** to see **titles**, **pictures**.
+
+- Acceptance Criteria - PASSED:
+  - List view page
+  - Photo is displayed
+  - Title is displayed
+
+---
+
+COMMENTS
+
+---
+
+As a **user** I can **leave a comment on a Gem**, to **share my experience with other users**.
+
+- Acceptance Criteria - PASSED:
+  - Once signed in, a user can leave a comment on a Gem.
+  - User receives successful feedback message
+  - Comment form is in the detail view
+
+---
+
+As a **user** I can **read my and other people's comments**, to be **inspired to visit a place**.
+
+- Acceptance Criteria - PASSED:
+  - Comments are displayed in the detail page
+  - Comment form submission redirects to detail page, so it can be read
+
+---
+
+As a **user** I can **edit my comments**, to **correct or add information**.
+
+- Acceptance Criteria - PASSED:
+  - User can edit their own comments (not others)
+
+---
+
+As a **user** I can **delete my comments**, to allow me to **change my mind**.
+
+- Acceptance Criteria - PASSED:
+  - User can delete ONLY their own comments
+
+---
+
+FAVOURITES
+
+---
+
+As a **user** I can **favourite and unfavourite a Gem**, to **keep a record of places to visit in the future**.
+
+- Acceptance Criteria - PASSED:
+  - User can click an icon to toggle the 'favourite' status of a Gem.
+  - 'Favourite' status is shown in the icon display.
+
+---
+
+As a **user** I can **view a list of my favourite Gems**, to easily **see which places I plan to visit**.
+
+- Acceptance Criteria - PASSED:
+  - User can select 'Favourites' in the list page to view all of their favourites
+
+---
+
+ADD A PLACE
+
+---
+
+As a **user** I can easily **add a Gem** by typing its name, to **share my recommendation with other users**.
+
+- Acceptance Criteria - PASSED:
+  - Search bar with autocomplete
+  - Selected place is shown with name, address and photo
+  - User has the option to Save or Cancel
+
+---
+
+ADMIN
+
+---
+
+As a site **developer** I can **view a list of all data: places, comments and favourites**, so I can **moderate content**.
+
+- Acceptance Criteria - PASSED:
+  - Django admin panel with Places, Comments and Favourites
+
+---
+
+As a **developer** I can **create, read, update and delete (CRUD) Gems**, to **create the initial content for the site, and moderate the Gems added by users**.
+
+- Acceptance Criteria - PASSED:
+  - Places can be updated & deleted in Django Admin panel
+
+---
+
+DEPLOYMENT
+
+---
+
+As a **developer** I can **deploy to a hosting service**, so that **the site is available to the public**.
+
+- Acceptance Criteria - PASSED:
+  - Functioning deployment to Heroku
+
+---
 
 # Deployment
 
@@ -656,10 +848,10 @@ To do this the following steps were taken:
 
 4.  Once IDE has Loaded create inital index.html page and add test text.
 5.  Once test text is added press `Ctrl + S` to save.
-6. Click terminal tab at top of screen and click new terminal.
-7. Once new terminal has opened test that content is being pushed back to github.
-8. In the terminal type `git add .` and press enter (this will add all new content).
-9. Then type `git commit -m "add test text"` and press enter (this lets anyone seeing your commits know what you have done).
+6.  Click terminal tab at top of screen and click new terminal.
+7.  Once new terminal has opened test that content is being pushed back to github.
+8.  In the terminal type `git add .` and press enter (this will add all new content).
+9.  Then type `git commit -m "add test text"` and press enter (this lets anyone seeing your commits know what you have done).
 10. Once you have done that type `git push` and press enter (this will push all changes made to the github repository).
 11. Navigate to github.
 12. Choose the repository you were working on.
@@ -675,8 +867,8 @@ To do this the following steps were taken:
 4. Click on New Workspace
 5. Gitpod works slightly different from Codeanywhere, you can either begin typing the name of your repository and you will see it appear in the dropdown menu or you can simply paste the copied HTTPS in to the field.
 6. Click Continue and you Gitpod virtual workspace will be created.
-7.  Once IDE has Loaded create inital index.html page and add test text.
-8.  Once test text is added press `Ctrl + S` to save.
+7. Once IDE has Loaded create inital index.html page and add test text.
+8. Once test text is added press `Ctrl + S` to save.
 9. Click terminal tab at top of screen and click new terminal.
 10. Once new terminal has opened test that content is being pushed back to github.
 11. In the terminal type `git add .` and press enter (this will add all new content).
@@ -785,7 +977,6 @@ Getting data from a Django model into javascript:
 - [Places Autocomplete](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete)
 - [Retrieving response data](https://developers.google.com/maps/documentation/javascript/place-autocomplete)
 - [Places photos](https://developers.google.com/maps/documentation/javascript/places#places_photos)
-
 
 ## Acknowledgements
 
