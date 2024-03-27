@@ -32,10 +32,12 @@
 
   <main class="flex-shrink-0 main-bg">
     <!-- Display messages if any -->
+    {% block info_message %}
   <div class="info-message">
     <h4>Welcome To Scottish Gems where you can find places to visits or add your own discoveries 
       from around Scotland </h4>
   </div>
+  {% endblock %}
 
     <!-- Posts container -->
     <div class="posts-container">
