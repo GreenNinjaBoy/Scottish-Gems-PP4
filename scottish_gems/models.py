@@ -90,10 +90,10 @@ class Post(models.Model):
     def refresh_photo_url(self):
         """
         Refresh the photo URL if it has expired.
-        The photo URL is considered expired if it's more than 5 seconds old.
+        The photo URL is considered expired if it's more than 12 hours old.
         """
         now = datetime.now(tz=timezone.utc)
-        updated_on_plus_1d = self.updated_on + timedelta(seconds=5)
+        updated_on_plus_1d = self.updated_on + timedelta(hours=12)
         if now > updated_on_plus_1d:
             print(f"{self.id}:{self.title} has expired. Refreshing photo")
             self.photo_url, self.photo_reference = self.get_photo_url()
