@@ -112,7 +112,7 @@ Plaese see below a Navigational Flow Chart showing what was aimed for when creat
 <details>
 <summary> Data Schema </summary>
 
-![Data Schems](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/data_schema_image.webp.png)
+![Data Schems](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/my_project_visualized.png)
 
 </details>
 
