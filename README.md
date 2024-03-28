@@ -72,7 +72,7 @@ The goals that I have set out for the site's functionality are:
 
 #### **User Stories**
 
-A kanban board in Github Projects was used for the Agile development process - see the board [here]((https://github.com/users/GreenNinjaBoy/projects/2)).
+A kanban board in Github Projects was used for the Agile development process - see the board [here](https://github.com/users/GreenNinjaBoy/projects/2).
 'user Stories' were used and these were broken down into 'Tasks'.
 
 ### User Experience (UX Design)
