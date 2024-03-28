@@ -107,12 +107,21 @@ Plaese see below a Navigational Flow Chart showing what was aimed for when creat
 
 </details>
 
-#### **Data Schema**
+#### **ERD**
 
 <details>
-<summary> Data Schema </summary>
+<summary> ERD </summary>
 
 ![Data Schems](https://raw.githubusercontent.com/GreenNinjaBoy/Scottish-Gems-PP4/main/static/README_images/my_project_visualized.png)
+
+This can be generated within the terminal by using the following commands:
+
+1. Enter the following command: "pip install pip install django-extensions"
+2. Within the 'INSTALLED_APPS' section of the settings.py ensure 'django_extensions', is present.
+3. Enter the following command: "pip install pygraphviz"
+4. Enter the following command: "./manage.py graph_models -a -g -o my_project_visualized.png"
+
+Now a .png image will be generated from python showing you ERD.
 
 </details>
 
@@ -392,7 +401,6 @@ This is a bit inconveniant especially with the favorites page as the user should
 - [Coolers](https://coolers.co/) - for an overview of the chosen colour palette.
 - [Am I Responsive](https://ui.dev/amiresponsive) - to create the responsive demo image at the top of the Readme.
 - [Excalidraw](https://excalidraw.com/) - to create the navigation diagram.
-- [Lucidchart](https://www.lucidchart.com/pages/) - to create the database schemas.
 - [Eightshapes Contrast Grid](https://contrast-grid.eightshapes.com/) - to visualise the contrast accessibility of the whole site colour palette.
 - [Code Institute’s Python Linter](https://pep8ci.herokuapp.com/) - for automated testing of the Python code.
 - [JSHint](https://jshint.com/) - to test the JavaScript code.
@@ -960,6 +968,7 @@ The following steps were taken to create the django Project and App:
  This is the first stage when creating a project using django. 
 </details>
 
+<details>
 <summary>Django App</summary>
 
 To create the basic temnplate for the django app the following steps were taken.
@@ -974,7 +983,27 @@ To create the basic temnplate for the django app the following steps were taken.
          	- admin.py
      
 This is now the basic structure installed and ready for you to begin work within your application/project.    	
+</details>
+
 <details>
+<summary> Creating Procfile </summary>
+
+Heroku web applications requires a Procfile for the application to run successfully and is done so usuing the following steps.
+
+1. Run the following command within your terminal "pip install gunicorn"
+2. create Procfile within your directiory.
+3. Withing the procfile insert the following "web: gunicorn project_name.wsgi"
+4. Push your changes to github.
+
+Once you have re-deployed your app on heroku the Procfile will be updated within the reasourses section.
+</details>
+
+<details>
+<summary> requirements.txt </summary>
+
+To create the requirements.txt file the following command is inputted into the terminal "pip freeze > requirements.txt"
+
+This will create your requirements.txt file with a list of the dependences required.
 
 </details>
 
