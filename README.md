@@ -417,7 +417,7 @@ This is a bit inconveniant especially with the favorites page as the user should
 
 ### HTML
 
-The HTML for the Scottish Gems Project was put through the [W3C Markup Validation Servie](https://validator.w3.org/) and the results can be seen below.
+The HTML for the HTTML files Scottish Gems Project was put through the [W3C Markup Validation Servie](https://validator.w3.org/) and the results can be seen below.
 
 <details>
 <summary>W3C Validator Results</summary>
@@ -937,6 +937,46 @@ The following steps were used:
 - GOOGLE_MAPS_API_KEY (to ensure the add gem funtionallity works correctly)
 - SECRET_KEY (from Django)
 - Then at the bottom of the deployed tab, you can either choose to deploy your repository manually or have the system do it for you automatically.
+
+## **Creating The Django Project & App**
+
+The following steps were taken to create the django Project and App:
+
+<details>
+<summary>Django Project</summary>
+
+ - Within the terminal install django using the following command "pip3 install django".
+ - Once installed run the following command to create your project: **django-admin startproject web_project .**
+ 	- *Note: replace "web_project" with your chosen app name, for this project "gem_places" was used.
+  	- *Note: the command used with the use of the "." assumes that this is your created project and automatically creates the following files:
+   		- Settings.py
+     		- __init__.py
+       		- asgi.py
+         	- urls.py
+          	- wsgi.py
+- When this is done then imput the following command into the terminal python manage.py migrate.
+	- When you run the server the first time, it will create a default SQLite database in the file db.sqlite2 that is intended for development purposes.
+
+ This is the first stage when creating a project using django. 
+</details>
+
+<summary>Django App</summary>
+
+To create the basic temnplate for the django app the following steps were taken.
+
+- Within the termianl the follwing command was used "**python manage.py startapp appname**
+	- Note* insert what ever you would like to call you app instead of "appname". For this app scottish_gems was used.
+ 	- When the command is running you app directory is created with some of the followign files inside.
+  		- views.py
+    		- urls.py
+      		- models.py
+        	- forms.py
+         	- admin.py
+     
+This is now the basic structure installed and ready for you to begin work within your application/project.    	
+<details>
+
+</details>
 
 ## Credits
 
