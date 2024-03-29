@@ -7,54 +7,46 @@
   <!-- Page title -->
   <title>Scottish Gems</title>
   <!-- Responsive meta tag -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Include CSS files -->
   {% include 'partials/css.html' %}
-
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-
   <!-- Include navbar -->
   {% include 'partials/navbar.html' %}
 
-
   <!-- Include header -->
-  {% include 'partials/header.html' %}
-
-  {% if messages %}
-  <div class="messages" id="messages" style="display: block;">
-    {% for message in messages %}
-    {{message}}
-    {% endfor %}
+  {% include 'partials/header.html' %} {% if messages %}
+  <div class="messages" id="messages" style="display: block">
+    {% for message in messages %} {{message}} {% endfor %}
   </div>
   {% endif %}
 
   <main class="flex-shrink-0 main-bg main-page">
     <!-- Display messages if any -->
     {% block info_message %}
-  <div class="info-message">
-    <h4>Welcome To Scottish Gems where you can find places to visits or add your own discoveries 
-      from around Scotland </h4>
-  </div>
-  {% endblock %}
+    <div class="info-message">
+      <h4>Welcome To Scottish Gems where you can find places to visits or add
+        your own discoveries from around Scotland
+      </h4>
+    </div>
+    {% endblock %}
 
+    {% block content %}
     <!-- Posts container -->
     <div class="posts-container">
-      {% block content %}
       <div class="row g-3 post-row">
-
         <!-- Check if region is selected -->
         {% if region_selected %}
 
         <!-- Loop through posts -->
         {% for post in posts %}
         <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3 post-card">
-
           <!-- Display the post -->
           <h2>{{ post.title }}</h2>
           <div class="image-container">
-          <img class="gem-photo" id="photo" src="{{ post.photo_url }}" alt="{{ post.title }}">
+            <img class="gem-photo" id="photo" src="{{ post.photo_url }}" alt="{{ post.title }}" />
           </div>
           <p>Author: {{ post.author.username }}</p>
           <p>Address: {{ post.address }}</p>
@@ -85,25 +77,21 @@
           </div>
           {% endif %}
         </div>
-        {% endfor %}
-        {% else %}
-        <div class="row g-3 post-row  justify-content-center">
-
+        {% endfor %} {% else %}
+        <div class="row g-3 post-row justify-content-center">
           <!-- Loop through posts -->
           {% for post in posts %}
           <div class="col-lg-3 col-md-6 col-sm-12 mb-3 border p-3 post-card">
-
             <!-- Display the post -->
             <a href="{%url 'gem_detail' post.id %}">{{ post.title }}</a>
             <div class="image-container">
-            <img class="gem-photo" src="{{ post.photo_url }}" alt="{{ post.title }}">
+              <img class="gem-photo" src="{{ post.photo_url }}" alt="{{ post.title }}" />
             </div>
             <p>Author: {{ post.author.username }}</p>
             <p>Address: {{ post.address }}</p>
             <p>Region: {{post.region}}</p>
-            <br>
-            <a href="{% url 'gem_detail' post.id %}">
-              Comments</a>
+            <br />
+            <a href="{% url 'gem_detail' post.id %}"> Comments</a>
 
             <!-- Check if user is authenticated -->
             {% if request.user.is_authenticated %}
@@ -129,33 +117,27 @@
             </div>
             {% endif %}
           </div>
-          {% endfor %}
-          {% endif %}
+          {% endfor %} {% endif %}
         </div>
       </div>
       {% if posts.has_previous %}
       <a href="?page={{ posts.previous_page_number }}">Previous</a>
-      {% endif %}
-
-      {% if posts.has_next %}
+      {% endif %} {% if posts.has_next %}
       <a href="?page={{ posts.next_page_number }}">Next</a>
       {% endif %}
-      {% endblock content %}
     </div>
+    {% endblock content %}
   </main>
 
   <!-- Include footer -->
   {% include 'partials/footer.html' %}
 
   <!-- Include JavaScript files -->
-  {% block extra_js %}
-  {% include 'partials/js.html' %}
-  
-  {% load static %}
+  {% block extra_js %} {% include 'partials/js.html' %} {% load static %}
   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_API_KEY}}&libraries=places&callback
   "></script>
   <!-- Include JavaScript for add gem form -->
-  
+
   {% endblock %}
 </body>
 

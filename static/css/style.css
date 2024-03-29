@@ -472,9 +472,9 @@ nav {
     margin: 10px 0 10px 0;
 }
 
-#search-input,
+.share-gem-search-input,
 #id_region {
-    width: 600px;
+    width: 400px;
     height: 47px;
     margin-bottom: 29px;
     color: #fff;
@@ -680,19 +680,19 @@ nav {
         top: 10%;
         left: 10%;
     }
-
+    
     .page-sub-title {
         bottom: 5%;
         right: 5%;
     }
-
+    
     .user-links {
         position: relative;
         width: fit-content;
-        }
-    .add-form-img-container {
-        width: 100%;
-    
+    }
+    .add-form-img-container > img {
+        max-width: 300px;
+        
     }
 }
 
@@ -701,9 +701,12 @@ nav {
     .add-form-img-container {
         width: 100%;
     }
-
+    
     .add-form-img-container img {
+        background-color: #246b37;
+    }
+
+    .share-gem-search-input {
         width: 100%;
     }
 }
-

@@ -2,6 +2,8 @@
 {% load static %}
 {% block info_message %}{% endblock %}
 {% block content %}
+<div class="posts-container">
+
     <h1 class="detail-view-header fav-title">Favorite Posts</h1>
     <!-- Loop through favorite posts -->
     {% for post in favorite_posts %}
@@ -16,10 +18,11 @@
         <!-- Remove from favorites form -->
         <form method="post" action="{% url 'toggle_favorite' post.id %}">
             {% csrf_token %}
-        <button class="btn btn--success remove-fav-btn" type="submit" title="Remove From Favorites">
-            <i class="fas fa-times"></i>
-        </button>
+            <button class="btn btn--success remove-fav-btn" type="submit" title="Remove From Favorites">
+                <i class="fas fa-times"></i>
+            </button>
         </form>
     </div>
     {% endfor %}
+</div>
 {% endblock %}

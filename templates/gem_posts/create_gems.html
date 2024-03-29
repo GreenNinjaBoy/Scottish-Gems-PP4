@@ -1,14 +1,18 @@
-{% extends "root.html" %}
+{% extends "base.html" %}
+{% block info_message %}{% endblock %}
 {% load static %}
+
 {% block content %}
 
-<!-- <main class="add-place-page"> -->
+<main class="add-place-page">
     <!-- Page title -->
     <h1 class="detail-view-header">Share Your Gem</h1>
 
+    <!-- GOOGLE PLACE SEARCH FIELD -->
+
     <div id="add-place-input-container">
         <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i></label>
-        <input type="text" id="search-input" placeholder="Start typing a place name" class="white-placeholder">
+        <input type="text" id="search-input" placeholder="Start typing a place name" class="white-placeholder share-gem-search-input">
     </div>
 
     <!-- Display form errors if any -->
@@ -18,35 +22,35 @@
 
     <!-- Place card -->
     <div id="place-add-form" class="form-container">
-
         <!-- Photo -->
         <div class="add-form-img-container">
             <img id="photo" src="" alt="Place Image">
 
-        <!-- Form (hidden) -->
+            <!-- Form (hidden) -->
 
-        <form method="post" action="{% url 'add_gem' %}" enctype="multipart/form-data">
-            {% csrf_token %}
+            <form method="post" action="{% url 'add_gem' %}" enctype="multipart/form-data">
+                {% csrf_token %}
 
-            <!-- Render form fields -->
-            {{ form.as_p }}
-            <h2 class="detail-view-place-title" id="add-form-title">Share Your Gem</h2>
-           
+                <!-- Render form fields -->
+                {{ form.as_p }}
+                <h2 class="detail-view-place-title" id="add-form-title">Share Your Gem</h2>
+
         </div>
-            <p class="place-address" id="add-form-address"></p>
+        <p class="place-address" id="add-form-address"></p>
         <div class="add-place-btns-container">
 
-                <!-- Submit button -->
+            <!-- Submit button -->
             <input type="submit" value="Share gem" id="place-add-save-btn" class="gem-form-btn submit-btn">
 
-                <!-- Cancel button -->
+            <!-- Cancel button -->
             <a href="{% url 'home' %}" class="gem-form-btn cancel-btn">Cancel</a>
         </div>
         </form>
     </div>
-<!-- </main> -->
+</main>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_API_KEY}}&libraries=places&callback=initAutocomplete"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_API_KEY}}&libraries=places&callback=initAutocomplete"></script>
 <!-- Include JavaScript for add gem form -->
 <script src="{% static 'js/add-gem-form.js' %}"></script>
 

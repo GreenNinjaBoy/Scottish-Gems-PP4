@@ -50,8 +50,10 @@
             <p>{{ comment.comment }}</p>
             <!-- Edit and Delete buttons for comment author -->
             {% if user == comment.author %}
-        <a href="{% url 'edit_comment' post.id comment.id %}" title="Edit"><i class="far fa-edit" style="color: #fff"></i></a>
-        <a href="{% url 'delete_comment' post.id comment.id %}" title="Delete"><i class="fas fa-trash-alt" style="color: #fff"></i></a>
+            <a href="{% url 'edit_comment' post.id comment.id %}" title="Edit"><i class="far fa-edit"
+                    style="color: #fff"></i></a>
+            <a href="{% url 'delete_comment' post.id comment.id %}" title="Delete"><i class="fas fa-trash-alt"
+                    style="color: #fff"></i></a>
             {% endif %}
         </div>
         {% endfor %}
