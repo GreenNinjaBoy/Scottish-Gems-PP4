@@ -46,14 +46,18 @@ The users this site is aimed at are as follows:
   - [500 error during user signout](#500-error-during-user-signout)
   - [500 error during user attempting to add a "Gem"](#500-error-during-user-attempting-to-add-a-"Gem")
     - [## Images displayed on the base.html page](#Images-displayed-on-the-base.html-page)
+- [Future Features](#Futrue-Development.)
 - [Technologies Used](#Technologies-Used)
 - [APIs Used](#APIs-Used)
 - [Testing](#Testing)
   - [Code Valitdation](#Code-Valitdation)
     - [HTML](#HTML)
       - [CSS](#CSS)
-      - [Python](#Python) - [Python Unit Testing](#Python-Unit-Testing) - [Testing with Pep8](Testing-with-Pep8)
-        - [JavaScript](#JavaScript) -[Testing with JsHint](#Testing-with-JsHint)
+      - [Python](#Python)
+      	- [Python Unit Testing](#Python-Unit-Testing)
+        - [Testing with Pep8](Testing-with-Pep8)
+      - [JavaScript](#JavaScript)
+      	-[Testing with JsHint](#Testing-with-JsHint)
   - [Manual Testing](Manual-Testing)
 - [Deployment](#Deployment)
 
@@ -377,6 +381,19 @@ This is a bit inconveniant especially with the favorites page as the user should
 </details>
 
 ### **After all the above was fixed to the best of my abilities, to my knowledge there are currently no other bugs within the project**
+
+## Futrue Development.
+
+Any future develop of the page may include the following.
+
+- Sort Gems by date
+	- Give the user the option of filtering the posts by date as well as filtering by region.
+
+- Set the boundries for Scotland more to Scotland.
+	- At the moment there are boundries set however this is limited to North, South, East and West co-ordinates which is generating more of a square boundry rather than just Scotland. As a result of this the user can select locations in parts of Northern England and Northern Ireland.
+	- There is a boudries section within Google's APi framework which my aid in achieving this.
+
+- Linking user email addresses to accounts for password reset/recovery.  
 
 ## Technologies Used
 
