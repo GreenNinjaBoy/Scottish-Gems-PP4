@@ -64,8 +64,8 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                message = render_to_string
-                ('accounts/messages/logged_in.txt', {'username': username})
+                message = render_to_string('accounts/messages/logged_in.txt',
+                {'username': username})
                 messages.success(request, message)
                 return redirect('home')
     else:

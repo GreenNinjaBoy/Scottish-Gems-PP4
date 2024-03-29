@@ -72,7 +72,7 @@ nav {
 
 .add-place-page,
 .login-page{
-    background-color: #445261;
+    background-color: #31373d;
 }
 /* Posts container styles */
 .posts-container {
@@ -485,7 +485,7 @@ nav {
 }
 
 #id_region {
-    width: 150px;
+    width: auto;
     margin-top: 20px;
 }
 
@@ -513,6 +513,7 @@ nav {
     text-align: center;
     align-items: center;
     gap: 20px;
+    margin-bottom: 15px;
     justify-content: center;
 }
 
@@ -652,12 +653,26 @@ nav {
     align-self: center;
 }
 
+.white-placeholder::placeholder {
+    color: white;
+}
+
+.login-form-content {
+    padding: 10px;
+}
+
+.signup-form-container {
+    height: fit-content;
+    margin-top: 15px;
+}
+
+/*--------------------Media Queries-----------------*/
+
 @media (max-width: 992px) {
     .content-container {
         flex-direction: column;
     }
 }
-
 
 @media (max-width: 768px) {
     .page-title h1 a.nav-link {
@@ -675,17 +690,20 @@ nav {
         position: relative;
         width: fit-content;
         }
+    .add-form-img-container {
+        width: 100%;
     
-    
+    }
 }
 
+/* Styles for devices with a maximum width of 480px (e.g., mobile phones) */
+@media (max-width: 480px) {
+    .add-form-img-container {
+        width: 100%;
+    }
 
-
-.login-form-content {
-    padding: 10px;
+    .add-form-img-container img {
+        width: 100%;
+    }
 }
 
-.signup-form-container {
-    height: fit-content;
-    margin-top: 15px;
-}

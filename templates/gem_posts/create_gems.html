@@ -2,14 +2,13 @@
 {% load static %}
 {% block content %}
 
-<main class="add-place-page">
+<!-- <main class="add-place-page"> -->
     <!-- Page title -->
     <h1 class="detail-view-header">Share Your Gem</h1>
 
-    <!-- Google place search field -->
     <div id="add-place-input-container">
         <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i></label>
-        <input type="text" id="search-input" placeholder="Start typing a place name">
+        <input type="text" id="search-input" placeholder="Start typing a place name" class="white-placeholder">
     </div>
 
     <!-- Display form errors if any -->
@@ -33,20 +32,19 @@
             {{ form.as_p }}
             <h2 class="detail-view-place-title" id="add-form-title">Share Your Gem</h2>
            
-            </div>
+        </div>
             <p class="place-address" id="add-form-address"></p>
-            <div class="add-place-btns-container">
+        <div class="add-place-btns-container">
 
                 <!-- Submit button -->
-                <input type="submit" value="Share gem" id="place-add-save-btn" class="gem-form-btn submit-btn">
+            <input type="submit" value="Share gem" id="place-add-save-btn" class="gem-form-btn submit-btn">
 
                 <!-- Cancel button -->
-                <a href="{% url 'home' %}" class="gem-form-btn cancel-btn">Cancel</a>
-            </div>
+            <a href="{% url 'home' %}" class="gem-form-btn cancel-btn">Cancel</a>
+        </div>
         </form>
-
     </div>
-</main>
+<!-- </main> -->
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_API_KEY}}&libraries=places&callback=initAutocomplete"></script>
 <!-- Include JavaScript for add gem form -->
